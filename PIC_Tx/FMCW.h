@@ -44,6 +44,7 @@ void L_OUT(int fmcwtxrx);
 void H_OUT(int fmcwtxrx);
 void STBOUT(int fmcwtxrx);
 void Morse_V(void);*/
+void sendMorse(char *HK_Data);
 void _NOP(void);
 //void SetPLL(int FMTX_Nref, int FMTX_Nprg, int CWTX_Nref, int CWTX_Nprg, int FMRX_Nref, int FMRX_Nprg);
 
