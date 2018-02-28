@@ -21,7 +21,7 @@ void Init_I2C_M(const UDWORD c);
 //void I2C_Master_Stop(void);
 void I2C_Master_Write(unsigned d);
 UBYTE I2C_Master_Read(UBYTE a);
-void EEPROM_Write(UBYTE ,UBYTE ,UBYTE ,UBYTE *,UINT *);
+//void EEPROM_Write(UBYTE ,UBYTE ,UBYTE ,UBYTE *,UINT *);
 void EEPROM_Read(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT *);
 void EEPROM_Read2(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT);
 

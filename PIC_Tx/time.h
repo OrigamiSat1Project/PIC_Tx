@@ -20,8 +20,8 @@
 #define lspan 1250
 
 //ïsê≥ämÇ»delayä÷êî
-void delay_ms(UWORD);
-void delay_us(UWORD);
+//void delay_ms(UWORD);
+//void delay_us(UWORD);
 
 
 #endif	/* TIME_H */

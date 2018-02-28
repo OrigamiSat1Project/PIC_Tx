@@ -8,7 +8,7 @@
 #include "WDT.h"
 
 void Init_SERIAL(void){
-    SPBRG  = 10;                   // boudrate is 1200 bps
+    SPBRG  = 10;                   // boudrate is 14400 bps
     GIE    = 1;
     PEIE   = 1;
     BRGH   = 0;                   	// Fast baudrate

@@ -1445,10 +1445,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;UART.h: 18: UBYTE getch(void);
 [; ;UART.h: 24: void interrupt InterReceiver(void);
 [; ;Init_MPU.h: 22: void Init_MPU(void);
-[; ;Init_MPU.h: 23: void led_onoff(void);
-[; ;Init_MPU.h: 24: void debug_ledy(void);
-[; ;time.h: 23: void delay_ms(UWORD);
-[; ;time.h: 24: void delay_us(UWORD);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);

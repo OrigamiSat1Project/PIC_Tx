@@ -53,26 +53,26 @@ UBYTE I2C_Master_Read(UBYTE a){
   return temp;
 }
 
-void EEPROM_Write(UBYTE EEPROM_address,UBYTE high_address,UBYTE low_address,UBYTE *data,UINT *DataSize){
-    UBYTE Address = EEPROM_address << 1;
-    //for (*DataSize = 0; data[*DataSize]!= 0x00; *DataSize++);
-   
-    
-    //UINT Datasize = sizeof(data);
-    /**/
-    I2C_Master_Start();         //Start condition
-    I2C_Master_Write(Address);     //7 bit address + Write
-    I2C_Master_Write(high_address);    //Adress High Byte
-    I2C_Master_Write(low_address);    //Adress Low Byte
-    for(UINT i=0;i<=*DataSize;i++){
-        I2C_Master_Write(data[i]);    //Data
-    }
-    for(UINT j=*DataSize+1;j<=63;j++){
-        I2C_Master_Write(0x00);    //Data
-    }
-    I2C_Master_Stop();          //Stop condition
-    __delay_ms(200);
-}
+//void EEPROM_Write(UBYTE EEPROM_address,UBYTE high_address,UBYTE low_address,UBYTE *data,UINT *DataSize){
+//    UBYTE Address = EEPROM_address << 1;
+//    //for (*DataSize = 0; data[*DataSize]!= 0x00; *DataSize++);
+//   
+//    
+//    //UINT Datasize = sizeof(data);
+//    /**/
+//    I2C_Master_Start();         //Start condition
+//    I2C_Master_Write(Address);     //7 bit address + Write
+//    I2C_Master_Write(high_address);    //Adress High Byte
+//    I2C_Master_Write(low_address);    //Adress Low Byte
+//    for(UINT i=0;i<=*DataSize;i++){
+//        I2C_Master_Write(data[i]);    //Data
+//    }
+//    for(UINT j=*DataSize+1;j<=63;j++){
+//        I2C_Master_Write(0x00);    //Data
+//    }
+//    I2C_Master_Stop();          //Stop condition
+//    __delay_ms(200);
+//}
 
 void EEPROM_Read2(UBYTE EEPROM_address,UBYTE high_address,UBYTE low_address,UBYTE *ReadData, UINT EEPROMDataLength){
     UBYTE Address = EEPROM_address << 1;

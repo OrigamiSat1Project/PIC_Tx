@@ -2045,7 +2045,7 @@ void Init_I2C_M(const UDWORD c);
 
 void I2C_Master_Write(unsigned d);
 UBYTE I2C_Master_Read(UBYTE a);
-void EEPROM_Write(UBYTE ,UBYTE ,UBYTE ,UBYTE *,UINT *);
+
 void EEPROM_Read(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT *);
 void EEPROM_Read2(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT);
 
@@ -2098,24 +2098,7 @@ ACKEN = 1;
 return temp;
 }
 
-void EEPROM_Write(UBYTE EEPROM_address,UBYTE high_address,UBYTE low_address,UBYTE *data,UINT *DataSize){
-UBYTE Address = EEPROM_address << 1;
-
-# 63
-I2C_Master_Start();
-I2C_Master_Write(Address);
-I2C_Master_Write(high_address);
-I2C_Master_Write(low_address);
-for(UINT i=0;i<=*DataSize;i++){
-I2C_Master_Write(data[i]);
-}
-for(UINT j=*DataSize+1;j<=63;j++){
-I2C_Master_Write(0x00);
-}
-I2C_Master_Stop();
-_delay((unsigned long)((200)*(10000000/4000.0)));
-}
-
+# 77
 void EEPROM_Read2(UBYTE EEPROM_address,UBYTE high_address,UBYTE low_address,UBYTE *ReadData, UINT EEPROMDataLength){
 UBYTE Address = EEPROM_address << 1;
 UBYTE ReadAddress = Address | 0x01;

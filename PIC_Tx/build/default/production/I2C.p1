@@ -1459,7 +1459,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 17: void Init_I2C_M(const UDWORD c);
 [; ;I2C.h: 22: void I2C_Master_Write(unsigned d);
 [; ;I2C.h: 23: UBYTE I2C_Master_Read(UBYTE a);
-[; ;I2C.h: 24: void EEPROM_Write(UBYTE ,UBYTE ,UBYTE ,UBYTE *,UINT *);
 [; ;I2C.h: 25: void EEPROM_Read(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT *);
 [; ;I2C.h: 26: void EEPROM_Read2(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT);
 "8 I2C.c
@@ -1609,85 +1608,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "54
 [e :UE 143 ]
 }
-"56
-[v _EEPROM_Write `(v ~T0 @X0 1 ef5`uc`uc`uc`*uc`*ui ]
-{
-[; ;I2C.c: 56: void EEPROM_Write(UBYTE EEPROM_address,UBYTE high_address,UBYTE low_address,UBYTE *data,UINT *DataSize){
-[e :U _EEPROM_Write ]
-[v _EEPROM_address `uc ~T0 @X0 1 r1 ]
-[v _high_address `uc ~T0 @X0 1 r2 ]
-[v _low_address `uc ~T0 @X0 1 r3 ]
-[v _data `*uc ~T0 @X0 1 r4 ]
-[v _DataSize `*ui ~T0 @X0 1 r5 ]
-[f ]
-"57
-[v _Address `uc ~T0 @X0 1 a ]
-[; ;I2C.c: 57: UBYTE Address = EEPROM_address << 1;
-[e = _Address -> << -> _EEPROM_address `i -> 1 `i `uc ]
-[; ;I2C.c: 63: I2C_Master_Start();
-"63
-[e ( _I2C_Master_Start ..  ]
-[; ;I2C.c: 64: I2C_Master_Write(Address);
-"64
-[e ( _I2C_Master_Write (1 -> _Address `ui ]
-[; ;I2C.c: 65: I2C_Master_Write(high_address);
-"65
-[e ( _I2C_Master_Write (1 -> _high_address `ui ]
-[; ;I2C.c: 66: I2C_Master_Write(low_address);
-"66
-[e ( _I2C_Master_Write (1 -> _low_address `ui ]
-[; ;I2C.c: 67: for(UINT i=0;i<=*DataSize;i++){
-"67
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $U 148  ]
-[e :U 145 ]
-{
-[; ;I2C.c: 68: I2C_Master_Write(data[i]);
-"68
-[e ( _I2C_Master_Write (1 -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `ui ]
-"69
-}
-"67
-[e ++ _i -> -> 1 `i `ui ]
-[e :U 148 ]
-[e $ <= _i *U _DataSize 145  ]
-[e :U 146 ]
-"69
-}
-[; ;I2C.c: 69: }
-[; ;I2C.c: 70: for(UINT j=*DataSize+1;j<=63;j++){
-"70
-{
-[v _j `ui ~T0 @X0 1 a ]
-[e = _j + *U _DataSize -> -> 1 `i `ui ]
-[e $ <= _j -> -> 63 `i `ui 149  ]
-[e $U 150  ]
-[e :U 149 ]
-{
-[; ;I2C.c: 71: I2C_Master_Write(0x00);
-"71
-[e ( _I2C_Master_Write (1 -> -> 0 `i `ui ]
-"72
-}
-"70
-[e ++ _j -> -> 1 `i `ui ]
-[e $ <= _j -> -> 63 `i `ui 149  ]
-[e :U 150 ]
-"72
-}
-[; ;I2C.c: 72: }
-[; ;I2C.c: 73: I2C_Master_Stop();
-"73
-[e ( _I2C_Master_Stop ..  ]
-[; ;I2C.c: 74: _delay((unsigned long)((200)*(10000000/4000.0)));
-"74
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;I2C.c: 75: }
-"75
-[e :UE 144 ]
-}
 "77
 [v _EEPROM_Read2 `(v ~T0 @X0 1 ef5`uc`uc`uc`*uc`ui ]
 {
@@ -1730,8 +1650,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $U 156  ]
-[e :U 153 ]
+[e $U 148  ]
+[e :U 145 ]
 {
 [; ;I2C.c: 99: ReadData[i] = I2C_Master_Read(1);
 "99
@@ -1740,9 +1660,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "95
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 156 ]
-[e $ < _i - _EEPROMDataLength -> -> 1 `i `ui 153  ]
-[e :U 154 ]
+[e :U 148 ]
+[e $ < _i - _EEPROMDataLength -> -> 1 `i `ui 145  ]
+[e :U 146 ]
 "101
 }
 [; ;I2C.c: 101: }
@@ -1757,7 +1677,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 [; ;I2C.c: 114: }
 "114
-[e :UE 152 ]
+[e :UE 144 ]
 }
 "116
 [v _EEPROM_Read `(v ~T0 @X0 1 ef5`uc`uc`uc`*uc`*ui ]
@@ -1800,20 +1720,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "131
 {
 [e = *U _EEPROMDataLength -> -> 0 `i `ui ]
-[e $U 161  ]
-[e :U 158 ]
+[e $U 153  ]
+[e :U 150 ]
 [e *U ++ _EEPROMDataLength * -> -> 1 `i `x -> -> # *U _EEPROMDataLength `i `x ]
-[e :U 161 ]
-[e $ != -> *U + _ReadData * -> *U _EEPROMDataLength `ux -> -> # *U _ReadData `ui `ux `i -> 255 `i 158  ]
-[e :U 159 ]
+[e :U 153 ]
+[e $ != -> *U + _ReadData * -> *U _EEPROMDataLength `ux -> -> # *U _ReadData `ui `ux `i -> 255 `i 150  ]
+[e :U 151 ]
 }
 [; ;I2C.c: 134: for(UINT i = 0; i < *EEPROMDataLength; i++){
 "134
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $U 165  ]
-[e :U 162 ]
+[e $U 157  ]
+[e :U 154 ]
 {
 [; ;I2C.c: 138: ReadData[i] = I2C_Master_Read(1);
 "138
@@ -1822,9 +1742,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "134
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 165 ]
-[e $ < _i *U _EEPROMDataLength 162  ]
-[e :U 163 ]
+[e :U 157 ]
+[e $ < _i *U _EEPROMDataLength 154  ]
+[e :U 155 ]
 "140
 }
 [; ;I2C.c: 140: }
@@ -1839,5 +1759,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 [; ;I2C.c: 153: }
 "153
-[e :UE 157 ]
+[e :UE 149 ]
 }

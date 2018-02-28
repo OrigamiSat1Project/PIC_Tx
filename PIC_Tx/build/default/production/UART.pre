@@ -4248,12 +4248,6 @@ extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 # 22 "Init_MPU.h"
 void Init_MPU(void);
-void led_onoff(void);
-void debug_ledy(void);
-
-# 23 "time.h"
-void delay_ms(UWORD);
-void delay_us(UWORD);
 
 # 27 "encode_AX25.h"
 void SendPacket(UBYTE *);
@@ -4266,7 +4260,7 @@ void Init_I2C_M(const UDWORD c);
 
 void I2C_Master_Write(unsigned d);
 UBYTE I2C_Master_Read(UBYTE a);
-void EEPROM_Write(UBYTE ,UBYTE ,UBYTE ,UBYTE *,UINT *);
+
 void EEPROM_Read(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT *);
 void EEPROM_Read2(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT);
 

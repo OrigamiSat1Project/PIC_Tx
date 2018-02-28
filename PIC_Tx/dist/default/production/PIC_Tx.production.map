@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC_Tx.production.sym \
   --cmf=dist/default/production\PIC_Tx.production.cmf -z -Q16F886 \
-  -oC:\Users\Kosuke\AppData\Local\Temp\sbuo.2 \
+  -oC:\Users\Kosuke\AppData\Local\Temp\sts.2 \
   -Mdist/default/production/PIC_Tx.production.map -E1 -ver=XC8 \
   -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Kosuke\AppData\Local\Temp\sbuo.obj \
+  -DENTRY=2 -k C:\Users\Kosuke\AppData\Local\Temp\sts.obj \
   dist/default/production\PIC_Tx.production.obj 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F886
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Kosuke\AppData\Local\Temp\sbuo.obj
+C:\Users\Kosuke\AppData\Local\Temp\sts.obj
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2     400E       0
@@ -211,26 +211,26 @@ I2C_Master_Write@d                    cstackCOMMON 0070
 Init_I2C_M@c                          cstackBANK1  00AE
 InterReceiver@EEPROMCmdData           cstackBANK0  0034
 InterReceiver@EEPROMCmdDataLength     cstackBANK0  0034
-InterReceiver@EEPROMCmdDataLength_109 cstackBANK0  0036
-InterReceiver@EEPROMCmdData_108       cstackBANK0  0034
+InterReceiver@EEPROMCmdDataLength_103 cstackBANK0  0036
+InterReceiver@EEPROMCmdData_102       cstackBANK0  0034
 InterReceiver@RXDATA                  cstackBANK0  003E
 InterReceiver@i                       cstackBANK0  0038
-InterReceiver@i_110                   cstackBANK0  003A
-InterReceiver@i_111                   cstackBANK0  003C
+InterReceiver@i_104                   cstackBANK0  003A
+InterReceiver@i_105                   cstackBANK0  003C
 InterReceiver@intr_counter            bssBANK0     0059
 Packetmaker@Datanum                   cstackCOMMON 0077
 Packetmaker@eDataField                cstackCOMMON 0070
 Packetmaker@i                         cstackCOMMON 0079
-Packetmaker@i_164                     cstackCOMMON 007B
-Packetmaker@i_167                     cstackCOMMON 0075
+Packetmaker@i_153                     cstackCOMMON 007B
+Packetmaker@i_156                     cstackCOMMON 0075
 SendByte@bt                           cstackCOMMON 0078
 SendByte@byte                         cstackCOMMON 0077
 SendByte@i                            cstackCOMMON 0075
 SendPacket@Packetnum                  cstackBANK0  0025
 SendPacket@eDataField                 cstackBANK0  0020
 SendPacket@i                          cstackBANK0  0027
-SendPacket@i_173                      cstackBANK0  0029
-SendPacket@i_174                      cstackBANK0  002B
+SendPacket@i_162                      cstackBANK0  0029
+SendPacket@i_163                      cstackBANK0  002B
 _ACKDT                                (abs)        048D
 _ACKEN                                (abs)        048C
 _ANSEL                                (abs)        0188
@@ -776,7 +776,7 @@ Total ram usage:        0 bytes
 		line 59 in file "encode_AX25.c"
  Parameters:    Size  Location     Type
   eDataField      2    0[BANK0 ] PTR unsigned char 
-		 -> InterReceiver@EEPROMCmdData_108(0), InterReceiver@EEPROMCmdData(0), 
+		 -> InterReceiver@EEPROMCmdData_102(0), InterReceiver@EEPROMCmdData(0), 
  Auto vars:     Size  Location     Type
   i               2   11[BANK0 ] unsigned int 
   i               2    9[BANK0 ] unsigned int 
@@ -902,7 +902,7 @@ Total ram usage:        3 bytes
 		line 40 in file "encode_AX25.c"
  Parameters:    Size  Location     Type
   eDataField      2    0[COMMON] PTR unsigned char 
-		 -> InterReceiver@EEPROMCmdData_108(0), InterReceiver@EEPROMCmdData(0), 
+		 -> InterReceiver@EEPROMCmdData_102(0), InterReceiver@EEPROMCmdData(0), 
  Auto vars:     Size  Location     Type
   i               2    5[COMMON] unsigned int 
   i               2   11[COMMON] unsigned int 
@@ -938,7 +938,7 @@ Total ram usage:       13 bytes
   high_address    1    3[COMMON] unsigned char 
   low_address     1    4[COMMON] unsigned char 
   ReadData        2    5[COMMON] PTR unsigned char 
-		 -> InterReceiver@EEPROMCmdData_108(0), InterReceiver@EEPROMCmdData(0), 
+		 -> InterReceiver@EEPROMCmdData_102(0), InterReceiver@EEPROMCmdData(0), 
   EEPROMDataLe    2    7[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
   EEPROM_addre    1    0[BANK0 ] unsigned char 
@@ -999,7 +999,6 @@ Total ram usage:        2 bytes
 		_I2C_Master_Wait
  This function is called by:
 		_EEPROM_Read2
-		_EEPROM_Write
 		_EEPROM_Read
  This function uses a non-reentrant model
 
@@ -1031,7 +1030,6 @@ Total ram usage:        0 bytes
 		_I2C_Master_Wait
  This function is called by:
 		_EEPROM_Read2
-		_EEPROM_Write
 		_EEPROM_Read
  This function uses a non-reentrant model
 
@@ -1063,7 +1061,6 @@ Total ram usage:        0 bytes
 		_I2C_Master_Wait
  This function is called by:
 		_EEPROM_Read2
-		_EEPROM_Write
 		_EEPROM_Read
  This function uses a non-reentrant model
 

@@ -3048,15 +3048,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PIC16F887.h: 4302: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;PIC16F887.h: 4304: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;Init_MPU.h: 22: void Init_MPU(void);
-[; ;Init_MPU.h: 23: void led_onoff(void);
-[; ;Init_MPU.h: 24: void debug_ledy(void);
-[; ;time.h: 23: void delay_ms(UWORD);
-[; ;time.h: 24: void delay_us(UWORD);
 [; ;encode_AX25.h: 27: void SendPacket(UBYTE *);
 [; ;I2C.h: 17: void Init_I2C_M(const UDWORD c);
 [; ;I2C.h: 22: void I2C_Master_Write(unsigned d);
 [; ;I2C.h: 23: UBYTE I2C_Master_Read(UBYTE a);
-[; ;I2C.h: 24: void EEPROM_Write(UBYTE ,UBYTE ,UBYTE ,UBYTE *,UINT *);
 [; ;I2C.h: 25: void EEPROM_Read(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT *);
 [; ;I2C.h: 26: void EEPROM_Read2(UBYTE ,UBYTE ,UBYTE,UBYTE *,UINT);
 [; ;WDT.h: 17: void Init_WDT(void);
@@ -3185,7 +3180,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _InterReceiver ]
 [f ]
 "91
-[v F2888 `Vi ~T0 @X0 1 s intr_counter ]
+[v F2874 `Vi ~T0 @X0 1 s intr_counter ]
 [; ;UART.c: 91: volatile static int intr_counter;
 [; ;UART.c: 92: if (RCIF == 1) {
 "92
@@ -3472,17 +3467,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TMR1 -> - -> -> 65535 `ui `l -> 62500 `l `us ]
 [; ;UART.c: 194: intr_counter++;
 "194
-[e ++ F2888 -> 1 `i ]
+[e ++ F2874 -> 1 `i ]
 [; ;UART.c: 195: if (intr_counter >= 2) {
 "195
-[e $ ! >= F2888 -> 2 `i 306  ]
+[e $ ! >= F2874 -> 2 `i 306  ]
 {
 [; ;UART.c: 196: asm("clrwdt");
 "196
 [; <" clrwdt ;# ">
 [; ;UART.c: 197: intr_counter = 0;
 "197
-[e = F2888 -> 0 `i ]
+[e = F2874 -> 0 `i ]
 "198
 }
 [e :U 306 ]

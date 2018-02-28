@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Wed Feb 28 01:37:44 2018
+                                                                                               Wed Feb 28 10:22:31 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	16F886
@@ -1374,7 +1374,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1360                           
   1361                           ; 1 bytes @ 0x4
   1362  0074                     	ds	1
-  1363  0075                     Packetmaker@i_167:	
+  1363  0075                     Packetmaker@i_156:	
   1364  0075                     SendByte@i:	
   1365                           ; 2 bytes @ 0x5
   1366                           
@@ -1405,7 +1405,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1391                           
   1392                           ; 2 bytes @ 0x9
   1393  0079                     	ds	2
-  1394  007B                     Packetmaker@i_164:	
+  1394  007B                     Packetmaker@i_153:	
   1395                           
   1396                           ; 2 bytes @ 0xB
   1397  007B                     	ds	3
@@ -1445,11 +1445,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1431                           
   1432                           ; 2 bytes @ 0x7
   1433  0027                     	ds	2
-  1434  0029                     SendPacket@i_173:	
+  1434  0029                     SendPacket@i_162:	
   1435                           
   1436                           ; 2 bytes @ 0x9
   1437  0029                     	ds	2
-  1438  002B                     SendPacket@i_174:	
+  1438  002B                     SendPacket@i_163:	
   1439                           
   1440                           ; 2 bytes @ 0xB
   1441  002B                     	ds	2
@@ -1458,7 +1458,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1444                           ; 1 bytes @ 0xD
   1445  002D                     	ds	7
   1446  0034                     InterReceiver@EEPROMCmdData:	
-  1447  0034                     InterReceiver@EEPROMCmdData_108:	
+  1447  0034                     InterReceiver@EEPROMCmdData_102:	
   1448                           ; 0 bytes @ 0x14
   1449                           
   1450  0034                     InterReceiver@EEPROMCmdDataLength:	
@@ -1467,7 +1467,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1453                           
   1454                           ; 2 bytes @ 0x14
   1455  0034                     	ds	2
-  1456  0036                     InterReceiver@EEPROMCmdDataLength_109:	
+  1456  0036                     InterReceiver@EEPROMCmdDataLength_103:	
   1457                           
   1458                           ; 2 bytes @ 0x16
   1459  0036                     	ds	2
@@ -1475,11 +1475,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1461                           
   1462                           ; 2 bytes @ 0x18
   1463  0038                     	ds	2
-  1464  003A                     InterReceiver@i_110:	
+  1464  003A                     InterReceiver@i_104:	
   1465                           
   1466                           ; 2 bytes @ 0x1A
   1467  003A                     	ds	2
-  1468  003C                     InterReceiver@i_111:	
+  1468  003C                     InterReceiver@i_105:	
   1469                           
   1470                           ; 2 bytes @ 0x1C
   1471  003C                     	ds	2
@@ -1542,13 +1542,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1528  0495  00B7               	movwf	(??_main^(0+128)+1)
   1529  0496  30B5               	movlw	181
   1530  0497  00B6               	movwf	??_main^(0+128)
-  1531  0498                     u1277:	
+  1531  0498                     u1187:	
   1532  0498  0BB6               	decfsz	??_main^(0+128),f
-  1533  0499  2C98               	goto	u1277
+  1533  0499  2C98               	goto	u1187
   1534  049A  0BB7               	decfsz	(??_main^(0+128)+1),f
-  1535  049B  2C98               	goto	u1277
+  1535  049B  2C98               	goto	u1187
   1536  049C  0BB8               	decfsz	(??_main^(0+128)+2),f
-  1537  049D  2C98               	goto	u1277
+  1537  049D  2C98               	goto	u1187
   1538  049E  2C9F               	nop2
   1539                           
   1540                           ;main.c: 42: Init_SERIAL();
@@ -1572,7 +1572,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1558                           
   1559                           ;main.c: 47: Init_WDT();
   1560  04B8  120A  118A  265E  120A  118A  	fcall	_Init_WDT
-  1561  04BD                     l249:	
+  1561  04BD                     l223:	
   1562                           ;main.c: 59: while(1){
   1563                           
   1564                           
@@ -1586,13 +1586,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1572  04C2  00B7               	movwf	(??_main^(0+128)+1)
   1573  04C3  3055               	movlw	85
   1574  04C4  00B6               	movwf	??_main^(0+128)
-  1575  04C5                     u1287:	
+  1575  04C5                     u1197:	
   1576  04C5  0BB6               	decfsz	??_main^(0+128),f
-  1577  04C6  2CC5               	goto	u1287
+  1577  04C6  2CC5               	goto	u1197
   1578  04C7  0BB7               	decfsz	(??_main^(0+128)+1),f
-  1579  04C8  2CC5               	goto	u1287
+  1579  04C8  2CC5               	goto	u1197
   1580  04C9  0BB8               	decfsz	(??_main^(0+128)+2),f
-  1581  04CA  2CC5               	goto	u1287
+  1581  04CA  2CC5               	goto	u1197
   1582                           
   1583                           ;main.c: 107: UBYTE *EEPROMData;
   1584                           ;main.c: 110: RB3 = 0;
@@ -1609,13 +1609,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1595  04D3  00B7               	movwf	(??_main^(0+128)+1)
   1596  04D4  3055               	movlw	85
   1597  04D5  00B6               	movwf	??_main^(0+128)
-  1598  04D6                     u1297:	
+  1598  04D6                     u1207:	
   1599  04D6  0BB6               	decfsz	??_main^(0+128),f
-  1600  04D7  2CD6               	goto	u1297
+  1600  04D7  2CD6               	goto	u1207
   1601  04D8  0BB7               	decfsz	(??_main^(0+128)+1),f
-  1602  04D9  2CD6               	goto	u1297
+  1602  04D9  2CD6               	goto	u1207
   1603  04DA  0BB8               	decfsz	(??_main^(0+128)+2),f
-  1604  04DB  2CD6               	goto	u1297
+  1604  04DB  2CD6               	goto	u1207
   1605                           
   1606                           ;main.c: 116: _delay((unsigned long)((200)*(10000000/4000.0)));
   1607  04DC  3003               	movlw	3
@@ -1626,13 +1626,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1612  04E1  00B7               	movwf	(??_main^(0+128)+1)
   1613  04E2  3055               	movlw	85
   1614  04E3  00B6               	movwf	??_main^(0+128)
-  1615  04E4                     u1307:	
+  1615  04E4                     u1217:	
   1616  04E4  0BB6               	decfsz	??_main^(0+128),f
-  1617  04E5  2CE4               	goto	u1307
+  1617  04E5  2CE4               	goto	u1217
   1618  04E6  0BB7               	decfsz	(??_main^(0+128)+1),f
-  1619  04E7  2CE4               	goto	u1307
+  1619  04E7  2CE4               	goto	u1217
   1620  04E8  0BB8               	decfsz	(??_main^(0+128)+2),f
-  1621  04E9  2CE4               	goto	u1307
+  1621  04E9  2CE4               	goto	u1217
   1622                           
   1623                           ;main.c: 153: RB1 = 0;
   1624  04EA  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1648,19 +1648,19 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1634  04F2  00B7               	movwf	(??_main^(0+128)+1)
   1635  04F3  3055               	movlw	85
   1636  04F4  00B6               	movwf	??_main^(0+128)
-  1637  04F5                     u1317:	
+  1637  04F5                     u1227:	
   1638  04F5  0BB6               	decfsz	??_main^(0+128),f
-  1639  04F6  2CF5               	goto	u1317
+  1639  04F6  2CF5               	goto	u1227
   1640  04F7  0BB7               	decfsz	(??_main^(0+128)+1),f
-  1641  04F8  2CF5               	goto	u1317
+  1641  04F8  2CF5               	goto	u1227
   1642  04F9  0BB8               	decfsz	(??_main^(0+128)+2),f
-  1643  04FA  2CF5               	goto	u1317
+  1643  04FA  2CF5               	goto	u1227
   1644                           
   1645                           ;main.c: 181: RC0 = 0;
   1646  04FB  1283               	bcf	3,5	;RP0=0, select bank0
   1647  04FC  1303               	bcf	3,6	;RP1=0, select bank0
   1648  04FD  1007               	bcf	7,0	;volatile
-  1649  04FE  2CBD               	goto	l249
+  1649  04FE  2CBD               	goto	l223
   1650  04FF                     __end_of_main:	
   1651                           
   1652                           	psect	text1
@@ -1995,7 +1995,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1981  05C4  0831               	movf	(Init_I2C_M@c+3)^(0+128),w
   1982  05C5  00B5               	movwf	(??_Init_I2C_M^(0+128)+3)
   1983  05C6  3002               	movlw	2
-  1984  05C7                     u1265:	
+  1984  05C7                     u1175:	
   1985  05C7  1003               	clrc
   1986  05C8  0DB2               	rlf	??_Init_I2C_M^(0+128),f
   1987  05C9  0DB3               	rlf	(??_Init_I2C_M^(0+128)+1),f
@@ -2003,7 +2003,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1989  05CB  0DB5               	rlf	(??_Init_I2C_M^(0+128)+3),f
   1990  05CC  3EFF               	addlw	-1
   1991  05CD  1D03               	skipz
-  1992  05CE  2DC7               	goto	u1265
+  1992  05CE  2DC7               	goto	u1175
   1993  05CF  0835               	movf	(??_Init_I2C_M+3)^(0+128),w
   1994  05D0  00A3               	movwf	(___lldiv@divisor+3)^(0+128)
   1995  05D1  0834               	movf	(??_Init_I2C_M+2)^(0+128),w
@@ -2087,55 +2087,55 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2073  050B  0421               	iorwf	(___lldiv@divisor+1)^(0+128),w
   2074  050C  0420               	iorwf	___lldiv@divisor^(0+128),w
   2075  050D  1903               	skipnz
-  2076  050E  2D56               	goto	l1930
+  2076  050E  2D56               	goto	l1806
   2077  050F  01AD               	clrf	___lldiv@counter^(0+128)
   2078  0510  0AAD               	incf	___lldiv@counter^(0+128),f
-  2079  0511                     l1916:	
+  2079  0511                     l1792:	
   2080  0511  1BA3               	btfsc	(___lldiv@divisor+3)^(0+128),7
-  2081  0512  2D21               	goto	l1918
+  2081  0512  2D21               	goto	l1794
   2082  0513  3001               	movlw	1
   2083  0514  00A8               	movwf	??___lldiv^(0+128)
-  2084  0515                     u1205:	
+  2084  0515                     u1115:	
   2085  0515  1003               	clrc
   2086  0516  0DA0               	rlf	___lldiv@divisor^(0+128),f
   2087  0517  0DA1               	rlf	(___lldiv@divisor+1)^(0+128),f
   2088  0518  0DA2               	rlf	(___lldiv@divisor+2)^(0+128),f
   2089  0519  0DA3               	rlf	(___lldiv@divisor+3)^(0+128),f
   2090  051A  0BA8               	decfsz	??___lldiv^(0+128),f
-  2091  051B  2D15               	goto	u1205
+  2091  051B  2D15               	goto	u1115
   2092  051C  3001               	movlw	1
   2093  051D  00A8               	movwf	??___lldiv^(0+128)
   2094  051E  0828               	movf	??___lldiv^(0+128),w
   2095  051F  07AD               	addwf	___lldiv@counter^(0+128),f
-  2096  0520  2D11               	goto	l1916
-  2097  0521                     l1918:	
+  2096  0520  2D11               	goto	l1792
+  2097  0521                     l1794:	
   2098  0521  3001               	movlw	1
   2099  0522  00A8               	movwf	??___lldiv^(0+128)
-  2100  0523                     u1225:	
+  2100  0523                     u1135:	
   2101  0523  1003               	clrc
   2102  0524  0DA9               	rlf	___lldiv@quotient^(0+128),f
   2103  0525  0DAA               	rlf	(___lldiv@quotient+1)^(0+128),f
   2104  0526  0DAB               	rlf	(___lldiv@quotient+2)^(0+128),f
   2105  0527  0DAC               	rlf	(___lldiv@quotient+3)^(0+128),f
   2106  0528  0BA8               	decfsz	??___lldiv^(0+128),f
-  2107  0529  2D23               	goto	u1225
+  2107  0529  2D23               	goto	u1135
   2108  052A  0823               	movf	(___lldiv@divisor+3)^(0+128),w
   2109  052B  0227               	subwf	(___lldiv@dividend+3)^(0+128),w
   2110  052C  1D03               	skipz
-  2111  052D  2D38               	goto	u1235
+  2111  052D  2D38               	goto	u1145
   2112  052E  0822               	movf	(___lldiv@divisor+2)^(0+128),w
   2113  052F  0226               	subwf	(___lldiv@dividend+2)^(0+128),w
   2114  0530  1D03               	skipz
-  2115  0531  2D38               	goto	u1235
+  2115  0531  2D38               	goto	u1145
   2116  0532  0821               	movf	(___lldiv@divisor+1)^(0+128),w
   2117  0533  0225               	subwf	(___lldiv@dividend+1)^(0+128),w
   2118  0534  1D03               	skipz
-  2119  0535  2D38               	goto	u1235
+  2119  0535  2D38               	goto	u1145
   2120  0536  0820               	movf	___lldiv@divisor^(0+128),w
   2121  0537  0224               	subwf	___lldiv@dividend^(0+128),w
-  2122  0538                     u1235:	
+  2122  0538                     u1145:	
   2123  0538  1C03               	skipc
-  2124  0539  2D49               	goto	l1926
+  2124  0539  2D49               	goto	l1802
   2125  053A  0820               	movf	___lldiv@divisor^(0+128),w
   2126  053B  02A4               	subwf	___lldiv@dividend^(0+128),f
   2127  053C  0821               	movf	(___lldiv@divisor+1)^(0+128),w
@@ -2151,9 +2151,9 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2137  0546  0F23               	incfsz	(___lldiv@divisor+3)^(0+128),w
   2138  0547  02A7               	subwf	(___lldiv@dividend+3)^(0+128),f
   2139  0548  1429               	bsf	___lldiv@quotient^(0+128),0
-  2140  0549                     l1926:	
+  2140  0549                     l1802:	
   2141  0549  3001               	movlw	1
-  2142  054A                     u1245:	
+  2142  054A                     u1155:	
   2143  054A  1003               	clrc
   2144  054B  0CA3               	rrf	(___lldiv@divisor+3)^(0+128),f
   2145  054C  0CA2               	rrf	(___lldiv@divisor+2)^(0+128),f
@@ -2161,12 +2161,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2147  054E  0CA0               	rrf	___lldiv@divisor^(0+128),f
   2148  054F  3EFF               	addlw	-1
   2149  0550  1D03               	skipz
-  2150  0551  2D4A               	goto	u1245
+  2150  0551  2D4A               	goto	u1155
   2151  0552  3001               	movlw	1
   2152  0553  02AD               	subwf	___lldiv@counter^(0+128),f
   2153  0554  1D03               	btfss	3,2
-  2154  0555  2D21               	goto	l1918
-  2155  0556                     l1930:	
+  2154  0555  2D21               	goto	l1794
+  2155  0556                     l1806:	
   2156  0556  082C               	movf	(___lldiv@quotient+3)^(0+128),w
   2157  0557  00A3               	movwf	(?___lldiv+3)^(0+128)
   2158  0558  082B               	movf	(___lldiv@quotient+2)^(0+128),w
@@ -2226,7 +2226,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2212                           ;UART.c: 91: volatile static int intr_counter;
   2213                           ;UART.c: 92: if (RCIF == 1) {
   2214  004C  1E8C               	btfss	12,5	;volatile
-  2215  004D  2A50               	goto	i1l97
+  2215  004D  2A50               	goto	i1l83
   2216                           
   2217                           ;UART.c: 93: UBYTE RXDATA[3];
   2218                           ;UART.c: 96: RXDATA[0] = getch();
@@ -2241,7 +2241,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2227  0058  3074               	movlw	116
   2228  0059  063E               	xorwf	InterReceiver@RXDATA,w
   2229  005A  1D03               	btfss	3,2
-  2230  005B  28DD               	goto	i1l1734
+  2230  005B  28DD               	goto	i1l1644
   2231                           
   2232                           ;UART.c: 99: RB1 = 1;
   2233  005C  1486               	bsf	6,1	;volatile
@@ -2274,13 +2274,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2260  0077  00AE               	movwf	??_InterReceiver+1
   2261  0078  3055               	movlw	85
   2262  0079  00AD               	movwf	??_InterReceiver
-  2263  007A                     u132_27:	
+  2263  007A                     u123_27:	
   2264  007A  0BAD               	decfsz	??_InterReceiver,f
-  2265  007B  287A               	goto	u132_27
+  2265  007B  287A               	goto	u123_27
   2266  007C  0BAE               	decfsz	??_InterReceiver+1,f
-  2267  007D  287A               	goto	u132_27
+  2267  007D  287A               	goto	u123_27
   2268  007E  0BAF               	decfsz	??_InterReceiver+2,f
-  2269  007F  287A               	goto	u132_27
+  2269  007F  287A               	goto	u123_27
   2270                           
   2271                           ;UART.c: 105: UBYTE EEPROMCmdData[];
   2272                           ;UART.c: 106: UINT EEPROMCmdDataLength;
@@ -2321,13 +2321,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2307  00A1  00AE               	movwf	??_InterReceiver+1
   2308  00A2  3055               	movlw	85
   2309  00A3  00AD               	movwf	??_InterReceiver
-  2310  00A4                     u133_27:	
+  2310  00A4                     u124_27:	
   2311  00A4  0BAD               	decfsz	??_InterReceiver,f
-  2312  00A5  28A4               	goto	u133_27
+  2312  00A5  28A4               	goto	u124_27
   2313  00A6  0BAE               	decfsz	??_InterReceiver+1,f
-  2314  00A7  28A4               	goto	u133_27
+  2314  00A7  28A4               	goto	u124_27
   2315  00A8  0BAF               	decfsz	??_InterReceiver+2,f
-  2316  00A9  28A4               	goto	u133_27
+  2316  00A9  28A4               	goto	u124_27
   2317                           
   2318                           ;UART.c: 110: RC0 = 1;
   2319  00AA  1283               	bcf	3,5	;RP0=0, select bank0
@@ -2347,12 +2347,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2333  00B3  3080               	movlw	128
   2334  00B4  027F               	subwf	127,w
   2335  00B5  1D03               	skipz
-  2336  00B6  28B9               	goto	u100_25
+  2336  00B6  28B9               	goto	u94_25
   2337  00B7  3005               	movlw	5
   2338  00B8  0238               	subwf	InterReceiver@i,w
-  2339  00B9                     u100_25:	
+  2339  00B9                     u94_25:	
   2340  00B9  1803               	btfsc	3,0
-  2341  00BA  296D               	goto	i1l104
+  2341  00BA  296D               	goto	i1l90
   2342                           
   2343                           ;UART.c: 125: SendPacket(EEPROMCmdData);
   2344  00BB  3034               	movlw	low InterReceiver@EEPROMCmdData
@@ -2372,13 +2372,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2358  00CB  00AE               	movwf	??_InterReceiver+1
   2359  00CC  3001               	movlw	1
   2360  00CD  00AD               	movwf	??_InterReceiver
-  2361  00CE                     u134_27:	
+  2361  00CE                     u125_27:	
   2362  00CE  0BAD               	decfsz	??_InterReceiver,f
-  2363  00CF  28CE               	goto	u134_27
+  2363  00CF  28CE               	goto	u125_27
   2364  00D0  0BAE               	decfsz	??_InterReceiver+1,f
-  2365  00D1  28CE               	goto	u134_27
+  2365  00D1  28CE               	goto	u125_27
   2366  00D2  0BAF               	decfsz	??_InterReceiver+2,f
-  2367  00D3  28CE               	goto	u134_27
+  2367  00D3  28CE               	goto	u125_27
   2368  00D4  3001               	movlw	1
   2369  00D5  1283               	bcf	3,5	;RP0=0, select bank0
   2370  00D6  1303               	bcf	3,6	;RP1=0, select bank0
@@ -2388,7 +2388,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2374  00DA  3000               	movlw	0
   2375  00DB  07B9               	addwf	InterReceiver@i+1,f
   2376  00DC  28B0               	goto	L2
-  2377  00DD                     i1l1734:	
+  2377  00DD                     i1l1644:	
   2378                           ;UART.c: 132: }else if (RXDATA[0] == 0xCC && RC2==1){
   2379                           
   2380                           ;UART.c: 131: RB1 = 0;
@@ -2400,7 +2400,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2386  00DE  063E               	xorwf	InterReceiver@RXDATA,w
   2387  00DF  1903               	btfsc	3,2
   2388  00E0  1D07               	btfss	7,2	;volatile
-  2389  00E1  2971               	goto	i1l1770
+  2389  00E1  2971               	goto	i1l1680
   2390                           
   2391                           ;UART.c: 133: RB1 = 1;
   2392  00E2  1486               	bsf	6,1	;volatile
@@ -2433,13 +2433,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2419  00FD  00AE               	movwf	??_InterReceiver+1
   2420  00FE  3055               	movlw	85
   2421  00FF  00AD               	movwf	??_InterReceiver
-  2422  0100                     u135_27:	
+  2422  0100                     u126_27:	
   2423  0100  0BAD               	decfsz	??_InterReceiver,f
-  2424  0101  2900               	goto	u135_27
+  2424  0101  2900               	goto	u126_27
   2425  0102  0BAE               	decfsz	??_InterReceiver+1,f
-  2426  0103  2900               	goto	u135_27
+  2426  0103  2900               	goto	u126_27
   2427  0104  0BAF               	decfsz	??_InterReceiver+2,f
-  2428  0105  2900               	goto	u135_27
+  2428  0105  2900               	goto	u126_27
   2429                           
   2430                           ;UART.c: 139: UBYTE EEPROMCmdData[];
   2431                           ;UART.c: 140: UINT EEPROMCmdDataLength;
@@ -2447,9 +2447,9 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2433  0106  3001               	movlw	1
   2434  0107  1283               	bcf	3,5	;RP0=0, select bank0
   2435  0108  1303               	bcf	3,6	;RP1=0, select bank0
-  2436  0109  00B6               	movwf	InterReceiver@EEPROMCmdDataLength_109
+  2436  0109  00B6               	movwf	InterReceiver@EEPROMCmdDataLength_103
   2437  010A  3000               	movlw	0
-  2438  010B  00B7               	movwf	InterReceiver@EEPROMCmdDataLength_109+1
+  2438  010B  00B7               	movwf	InterReceiver@EEPROMCmdDataLength_103+1
   2439                           
   2440                           ;UART.c: 142: EEPROM_Read2(0x50,RXDATA[1],RXDATA[2], EEPROMCmdData,EEPROMCmdDataLength);
   2441  010C  083F               	movf	InterReceiver@RXDATA+1,w
@@ -2460,13 +2460,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2446  0111  00AE               	movwf	??_InterReceiver+1
   2447  0112  082E               	movf	??_InterReceiver+1,w
   2448  0113  00F4               	movwf	EEPROM_Read2@low_address
-  2449  0114  3034               	movlw	low InterReceiver@EEPROMCmdData_108
+  2449  0114  3034               	movlw	low InterReceiver@EEPROMCmdData_102
   2450  0115  00F5               	movwf	EEPROM_Read2@ReadData
-  2451  0116  3000               	movlw	high InterReceiver@EEPROMCmdData_108
+  2451  0116  3000               	movlw	high InterReceiver@EEPROMCmdData_102
   2452  0117  00F6               	movwf	EEPROM_Read2@ReadData+1
-  2453  0118  0837               	movf	InterReceiver@EEPROMCmdDataLength_109+1,w
+  2453  0118  0837               	movf	InterReceiver@EEPROMCmdDataLength_103+1,w
   2454  0119  00F8               	movwf	EEPROM_Read2@EEPROMDataLength+1
-  2455  011A  0836               	movf	InterReceiver@EEPROMCmdDataLength_109,w
+  2455  011A  0836               	movf	InterReceiver@EEPROMCmdDataLength_103,w
   2456  011B  00F7               	movwf	EEPROM_Read2@EEPROMDataLength
   2457  011C  3050               	movlw	80
   2458  011D  120A  118A  2332  120A  118A  	fcall	_EEPROM_Read2
@@ -2480,13 +2480,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2466  0127  00AE               	movwf	??_InterReceiver+1
   2467  0128  3055               	movlw	85
   2468  0129  00AD               	movwf	??_InterReceiver
-  2469  012A                     u136_27:	
+  2469  012A                     u127_27:	
   2470  012A  0BAD               	decfsz	??_InterReceiver,f
-  2471  012B  292A               	goto	u136_27
+  2471  012B  292A               	goto	u127_27
   2472  012C  0BAE               	decfsz	??_InterReceiver+1,f
-  2473  012D  292A               	goto	u136_27
+  2473  012D  292A               	goto	u127_27
   2474  012E  0BAF               	decfsz	??_InterReceiver+2,f
-  2475  012F  292A               	goto	u136_27
+  2475  012F  292A               	goto	u127_27
   2476                           
   2477                           ;UART.c: 144: RC0 = 1;
   2478  0130  1283               	bcf	3,5	;RP0=0, select bank0
@@ -2497,28 +2497,28 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2483  0133  1186               	bcf	6,3	;volatile
   2484                           
   2485                           ;UART.c: 146: for(int i = 0; i<5;i++){
-  2486  0134  01BA               	clrf	InterReceiver@i_110
-  2487  0135  01BB               	clrf	InterReceiver@i_110+1
-  2488  0136  083B               	movf	InterReceiver@i_110+1,w
+  2486  0134  01BA               	clrf	InterReceiver@i_104
+  2487  0135  01BB               	clrf	InterReceiver@i_104+1
+  2488  0136  083B               	movf	InterReceiver@i_104+1,w
   2489  0137  3A80               	xorlw	128
   2490  0138  00FF               	movwf	127
   2491  0139  3080               	movlw	128
   2492  013A  027F               	subwf	127,w
   2493  013B  1D03               	skipz
-  2494  013C  293F               	goto	u104_25
+  2494  013C  293F               	goto	u98_25
   2495  013D  3005               	movlw	5
-  2496  013E  023A               	subwf	InterReceiver@i_110,w
-  2497  013F                     u104_25:	
+  2496  013E  023A               	subwf	InterReceiver@i_104,w
+  2497  013F                     u98_25:	
   2498  013F  1803               	btfsc	3,0
-  2499  0140  296D               	goto	i1l104
-  2500  0141                     i1l1762:	
+  2499  0140  296D               	goto	i1l90
+  2500  0141                     i1l1672:	
   2501                           
   2502                           ;UART.c: 147: SendPacket(EEPROMCmdData);
-  2503  0141  3034               	movlw	low InterReceiver@EEPROMCmdData_108
+  2503  0141  3034               	movlw	low InterReceiver@EEPROMCmdData_102
   2504  0142  1283               	bcf	3,5	;RP0=0, select bank0
   2505  0143  1303               	bcf	3,6	;RP1=0, select bank0
   2506  0144  00A0               	movwf	SendPacket@eDataField
-  2507  0145  3000               	movlw	high InterReceiver@EEPROMCmdData_108
+  2507  0145  3000               	movlw	high InterReceiver@EEPROMCmdData_102
   2508  0146  00A1               	movwf	SendPacket@eDataField+1
   2509  0147  120A  118A  227A  120A  118A  	fcall	_SendPacket
   2510                           
@@ -2531,34 +2531,34 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2517  0151  00AE               	movwf	??_InterReceiver+1
   2518  0152  3001               	movlw	1
   2519  0153  00AD               	movwf	??_InterReceiver
-  2520  0154                     u137_27:	
+  2520  0154                     u128_27:	
   2521  0154  0BAD               	decfsz	??_InterReceiver,f
-  2522  0155  2954               	goto	u137_27
+  2522  0155  2954               	goto	u128_27
   2523  0156  0BAE               	decfsz	??_InterReceiver+1,f
-  2524  0157  2954               	goto	u137_27
+  2524  0157  2954               	goto	u128_27
   2525  0158  0BAF               	decfsz	??_InterReceiver+2,f
-  2526  0159  2954               	goto	u137_27
+  2526  0159  2954               	goto	u128_27
   2527  015A  3001               	movlw	1
   2528  015B  1283               	bcf	3,5	;RP0=0, select bank0
   2529  015C  1303               	bcf	3,6	;RP1=0, select bank0
-  2530  015D  07BA               	addwf	InterReceiver@i_110,f
+  2530  015D  07BA               	addwf	InterReceiver@i_104,f
   2531  015E  1803               	skipnc
-  2532  015F  0ABB               	incf	InterReceiver@i_110+1,f
+  2532  015F  0ABB               	incf	InterReceiver@i_104+1,f
   2533  0160  3000               	movlw	0
-  2534  0161  07BB               	addwf	InterReceiver@i_110+1,f
-  2535  0162  083B               	movf	InterReceiver@i_110+1,w
+  2534  0161  07BB               	addwf	InterReceiver@i_104+1,f
+  2535  0162  083B               	movf	InterReceiver@i_104+1,w
   2536  0163  3A80               	xorlw	128
   2537  0164  00FF               	movwf	127
   2538  0165  3080               	movlw	128
   2539  0166  027F               	subwf	127,w
   2540  0167  1D03               	skipz
-  2541  0168  296B               	goto	u105_25
+  2541  0168  296B               	goto	u99_25
   2542  0169  3005               	movlw	5
-  2543  016A  023A               	subwf	InterReceiver@i_110,w
-  2544  016B                     u105_25:	
+  2543  016A  023A               	subwf	InterReceiver@i_104,w
+  2544  016B                     u99_25:	
   2545  016B  1C03               	skipc
-  2546  016C  2941               	goto	i1l1762
-  2547  016D                     i1l104:	
+  2546  016C  2941               	goto	i1l1672
+  2547  016D                     i1l90:	
   2548                           
   2549                           ;UART.c: 149: }
   2550                           ;UART.c: 150: RC0 = 0;
@@ -2566,7 +2566,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2552  016E  1303               	bcf	3,6	;RP1=0, select bank0
   2553  016F  1007               	bcf	7,0	;volatile
   2554  0170  2A4C               	goto	L1
-  2555  0171                     i1l1770:	
+  2555  0171                     i1l1680:	
   2556                           ;UART.c: 152: }else if (RXDATA[0] == 0xDD && RC2==1){
   2557                           
   2558                           ;UART.c: 151: RB1 = 0;
@@ -2575,7 +2575,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2561  0172  063E               	xorwf	InterReceiver@RXDATA,w
   2562  0173  1903               	btfsc	3,2
   2563  0174  1D07               	btfss	7,2	;volatile
-  2564  0175  2A4E               	goto	i1l106
+  2564  0175  2A4E               	goto	i1l92
   2565                           
   2566                           ;UART.c: 153: RB1 = 1;
   2567  0176  1486               	bsf	6,1	;volatile
@@ -2600,13 +2600,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2586  0187  00AE               	movwf	??_InterReceiver+1
   2587  0188  3055               	movlw	85
   2588  0189  00AD               	movwf	??_InterReceiver
-  2589  018A                     u138_27:	
+  2589  018A                     u129_27:	
   2590  018A  0BAD               	decfsz	??_InterReceiver,f
-  2591  018B  298A               	goto	u138_27
+  2591  018B  298A               	goto	u129_27
   2592  018C  0BAE               	decfsz	??_InterReceiver+1,f
-  2593  018D  298A               	goto	u138_27
+  2593  018D  298A               	goto	u129_27
   2594  018E  0BAF               	decfsz	??_InterReceiver+2,f
-  2595  018F  298A               	goto	u138_27
+  2595  018F  298A               	goto	u129_27
   2596                           
   2597                           ;UART.c: 158: if (RXDATA[1] == 0xDD && RC2==1){
   2598  0190  30DD               	movlw	221
@@ -2615,7 +2615,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2601  0193  063F               	xorwf	InterReceiver@RXDATA+1,w
   2602  0194  1903               	btfsc	3,2
   2603  0195  1D07               	btfss	7,2	;volatile
-  2604  0196  2A4A               	goto	i1l107
+  2604  0196  2A4A               	goto	i1l93
   2605                           
   2606                           ;UART.c: 159: _delay((unsigned long)((200)*(10000000/4000.0)));
   2607  0197  3003               	movlw	3
@@ -2626,13 +2626,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2612  019C  00AE               	movwf	??_InterReceiver+1
   2613  019D  3055               	movlw	85
   2614  019E  00AD               	movwf	??_InterReceiver
-  2615  019F                     u139_27:	
+  2615  019F                     u130_27:	
   2616  019F  0BAD               	decfsz	??_InterReceiver,f
-  2617  01A0  299F               	goto	u139_27
+  2617  01A0  299F               	goto	u130_27
   2618  01A1  0BAE               	decfsz	??_InterReceiver+1,f
-  2619  01A2  299F               	goto	u139_27
+  2619  01A2  299F               	goto	u130_27
   2620  01A3  0BAF               	decfsz	??_InterReceiver+2,f
-  2621  01A4  299F               	goto	u139_27
+  2621  01A4  299F               	goto	u130_27
   2622                           
   2623                           ;UART.c: 160: RC0 = 0;
   2624  01A5  1283               	bcf	3,5	;RP0=0, select bank0
@@ -2640,21 +2640,21 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2626  01A7  1007               	bcf	7,0	;volatile
   2627                           
   2628                           ;UART.c: 161: for (int i = 0; i< 5;i++){
-  2629  01A8  01BC               	clrf	InterReceiver@i_111
-  2630  01A9  01BD               	clrf	InterReceiver@i_111+1
-  2631  01AA  083D               	movf	InterReceiver@i_111+1,w
+  2629  01A8  01BC               	clrf	InterReceiver@i_105
+  2630  01A9  01BD               	clrf	InterReceiver@i_105+1
+  2631  01AA  083D               	movf	InterReceiver@i_105+1,w
   2632  01AB  3A80               	xorlw	128
   2633  01AC  00FF               	movwf	127
   2634  01AD  3080               	movlw	128
   2635  01AE  027F               	subwf	127,w
   2636  01AF  1D03               	skipz
-  2637  01B0  29B3               	goto	u110_25
+  2637  01B0  29B3               	goto	u104_25
   2638  01B1  3005               	movlw	5
-  2639  01B2  023C               	subwf	InterReceiver@i_111,w
-  2640  01B3                     u110_25:	
+  2639  01B2  023C               	subwf	InterReceiver@i_105,w
+  2640  01B3                     u104_25:	
   2641  01B3  1803               	btfsc	3,0
-  2642  01B4  2A4A               	goto	i1l107
-  2643  01B5                     i1l108:	
+  2642  01B4  2A4A               	goto	i1l93
+  2643  01B5                     i1l94:	
   2644                           
   2645                           ;UART.c: 162: RB3 = 1;
   2646  01B5  1283               	bcf	3,5	;RP0=0, select bank0
@@ -2668,11 +2668,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2654  01BB  00AE               	movwf	??_InterReceiver+1
   2655  01BC  3054               	movlw	84
   2656  01BD  00AD               	movwf	??_InterReceiver
-  2657  01BE                     u140_27:	
+  2657  01BE                     u131_27:	
   2658  01BE  0BAD               	decfsz	??_InterReceiver,f
-  2659  01BF  29BE               	goto	u140_27
+  2659  01BF  29BE               	goto	u131_27
   2660  01C0  0BAE               	decfsz	??_InterReceiver+1,f
-  2661  01C1  29BE               	goto	u140_27
+  2661  01C1  29BE               	goto	u131_27
   2662  01C2  0000               	nop
   2663                           
   2664                           ;UART.c: 164: RB3 = 0;
@@ -2687,11 +2687,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2673  01C9  00AE               	movwf	??_InterReceiver+1
   2674  01CA  3054               	movlw	84
   2675  01CB  00AD               	movwf	??_InterReceiver
-  2676  01CC                     u141_27:	
+  2676  01CC                     u132_27:	
   2677  01CC  0BAD               	decfsz	??_InterReceiver,f
-  2678  01CD  29CC               	goto	u141_27
+  2678  01CD  29CC               	goto	u132_27
   2679  01CE  0BAE               	decfsz	??_InterReceiver+1,f
-  2680  01CF  29CC               	goto	u141_27
+  2680  01CF  29CC               	goto	u132_27
   2681  01D0  0000               	nop
   2682                           
   2683                           ;UART.c: 167: RB3 = 1;
@@ -2706,11 +2706,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2692  01D7  00AE               	movwf	??_InterReceiver+1
   2693  01D8  3054               	movlw	84
   2694  01D9  00AD               	movwf	??_InterReceiver
-  2695  01DA                     u142_27:	
+  2695  01DA                     u133_27:	
   2696  01DA  0BAD               	decfsz	??_InterReceiver,f
-  2697  01DB  29DA               	goto	u142_27
+  2697  01DB  29DA               	goto	u133_27
   2698  01DC  0BAE               	decfsz	??_InterReceiver+1,f
-  2699  01DD  29DA               	goto	u142_27
+  2699  01DD  29DA               	goto	u133_27
   2700  01DE  0000               	nop
   2701                           
   2702                           ;UART.c: 169: RB3 = 0;
@@ -2725,11 +2725,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2711  01E5  00AE               	movwf	??_InterReceiver+1
   2712  01E6  3054               	movlw	84
   2713  01E7  00AD               	movwf	??_InterReceiver
-  2714  01E8                     u143_27:	
+  2714  01E8                     u134_27:	
   2715  01E8  0BAD               	decfsz	??_InterReceiver,f
-  2716  01E9  29E8               	goto	u143_27
+  2716  01E9  29E8               	goto	u134_27
   2717  01EA  0BAE               	decfsz	??_InterReceiver+1,f
-  2718  01EB  29E8               	goto	u143_27
+  2718  01EB  29E8               	goto	u134_27
   2719  01EC  0000               	nop
   2720                           
   2721                           ;UART.c: 172: RB3 = 1;
@@ -2744,11 +2744,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2730  01F3  00AE               	movwf	??_InterReceiver+1
   2731  01F4  3054               	movlw	84
   2732  01F5  00AD               	movwf	??_InterReceiver
-  2733  01F6                     u144_27:	
+  2733  01F6                     u135_27:	
   2734  01F6  0BAD               	decfsz	??_InterReceiver,f
-  2735  01F7  29F6               	goto	u144_27
+  2735  01F7  29F6               	goto	u135_27
   2736  01F8  0BAE               	decfsz	??_InterReceiver+1,f
-  2737  01F9  29F6               	goto	u144_27
+  2737  01F9  29F6               	goto	u135_27
   2738  01FA  0000               	nop
   2739                           
   2740                           ;UART.c: 174: RB3 = 0;
@@ -2763,11 +2763,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2749  0201  00AE               	movwf	??_InterReceiver+1
   2750  0202  3054               	movlw	84
   2751  0203  00AD               	movwf	??_InterReceiver
-  2752  0204                     u145_27:	
+  2752  0204                     u136_27:	
   2753  0204  0BAD               	decfsz	??_InterReceiver,f
-  2754  0205  2A04               	goto	u145_27
+  2754  0205  2A04               	goto	u136_27
   2755  0206  0BAE               	decfsz	??_InterReceiver+1,f
-  2756  0207  2A04               	goto	u145_27
+  2756  0207  2A04               	goto	u136_27
   2757  0208  0000               	nop
   2758                           
   2759                           ;UART.c: 177: RB3 = 1;
@@ -2784,13 +2784,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2770  0211  00AE               	movwf	??_InterReceiver+1
   2771  0212  30FF               	movlw	255
   2772  0213  00AD               	movwf	??_InterReceiver
-  2773  0214                     u146_27:	
+  2773  0214                     u137_27:	
   2774  0214  0BAD               	decfsz	??_InterReceiver,f
-  2775  0215  2A14               	goto	u146_27
+  2775  0215  2A14               	goto	u137_27
   2776  0216  0BAE               	decfsz	??_InterReceiver+1,f
-  2777  0217  2A14               	goto	u146_27
+  2777  0217  2A14               	goto	u137_27
   2778  0218  0BAF               	decfsz	??_InterReceiver+2,f
-  2779  0219  2A14               	goto	u146_27
+  2779  0219  2A14               	goto	u137_27
   2780  021A  2A1B               	nop2
   2781                           
   2782                           ;UART.c: 179: RB3 = 0;
@@ -2805,11 +2805,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2791  0221  00AE               	movwf	??_InterReceiver+1
   2792  0222  3054               	movlw	84
   2793  0223  00AD               	movwf	??_InterReceiver
-  2794  0224                     u147_27:	
+  2794  0224                     u138_27:	
   2795  0224  0BAD               	decfsz	??_InterReceiver,f
-  2796  0225  2A24               	goto	u147_27
+  2796  0225  2A24               	goto	u138_27
   2797  0226  0BAE               	decfsz	??_InterReceiver+1,f
-  2798  0227  2A24               	goto	u147_27
+  2798  0227  2A24               	goto	u138_27
   2799  0228  0000               	nop
   2800                           
   2801                           ;UART.c: 181: _delay((unsigned long)((200)*(10000000/4000.0)));
@@ -2821,34 +2821,34 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2807  022E  00AE               	movwf	??_InterReceiver+1
   2808  022F  3055               	movlw	85
   2809  0230  00AD               	movwf	??_InterReceiver
-  2810  0231                     u148_27:	
+  2810  0231                     u139_27:	
   2811  0231  0BAD               	decfsz	??_InterReceiver,f
-  2812  0232  2A31               	goto	u148_27
+  2812  0232  2A31               	goto	u139_27
   2813  0233  0BAE               	decfsz	??_InterReceiver+1,f
-  2814  0234  2A31               	goto	u148_27
+  2814  0234  2A31               	goto	u139_27
   2815  0235  0BAF               	decfsz	??_InterReceiver+2,f
-  2816  0236  2A31               	goto	u148_27
+  2816  0236  2A31               	goto	u139_27
   2817  0237  3001               	movlw	1
   2818  0238  1283               	bcf	3,5	;RP0=0, select bank0
   2819  0239  1303               	bcf	3,6	;RP1=0, select bank0
-  2820  023A  07BC               	addwf	InterReceiver@i_111,f
+  2820  023A  07BC               	addwf	InterReceiver@i_105,f
   2821  023B  1803               	skipnc
-  2822  023C  0ABD               	incf	InterReceiver@i_111+1,f
+  2822  023C  0ABD               	incf	InterReceiver@i_105+1,f
   2823  023D  3000               	movlw	0
-  2824  023E  07BD               	addwf	InterReceiver@i_111+1,f
-  2825  023F  083D               	movf	InterReceiver@i_111+1,w
+  2824  023E  07BD               	addwf	InterReceiver@i_105+1,f
+  2825  023F  083D               	movf	InterReceiver@i_105+1,w
   2826  0240  3A80               	xorlw	128
   2827  0241  00FF               	movwf	127
   2828  0242  3080               	movlw	128
   2829  0243  027F               	subwf	127,w
   2830  0244  1D03               	skipz
-  2831  0245  2A48               	goto	u111_25
+  2831  0245  2A48               	goto	u105_25
   2832  0246  3005               	movlw	5
-  2833  0247  023C               	subwf	InterReceiver@i_111,w
-  2834  0248                     u111_25:	
+  2833  0247  023C               	subwf	InterReceiver@i_105,w
+  2834  0248                     u105_25:	
   2835  0248  1C03               	skipc
-  2836  0249  29B5               	goto	i1l108
-  2837  024A                     i1l107:	
+  2836  0249  29B5               	goto	i1l94
+  2837  024A                     i1l93:	
   2838                           
   2839                           ;UART.c: 182: }
   2840                           ;UART.c: 184: }
@@ -2859,18 +2859,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2845  024C  1086               	bcf	6,1	;volatile
   2846                           
   2847                           ;UART.c: 187: }else{
-  2848  024D  2A6F               	goto	i1l114
-  2849  024E                     i1l106:	
+  2848  024D  2A6F               	goto	i1l100
+  2849  024E                     i1l92:	
   2850                           
   2851                           ;UART.c: 188: RCIF = 0 ;
   2852  024E  128C               	bcf	12,5	;volatile
   2853                           
   2854                           ;UART.c: 190: }
   2855                           ;UART.c: 191: }else if(PIR1bits.TMR1IF == 1){
-  2856  024F  2A6F               	goto	i1l114
-  2857  0250                     i1l97:	
+  2856  024F  2A6F               	goto	i1l100
+  2857  0250                     i1l83:	
   2858  0250  1C0C               	btfss	12,0	;volatile
-  2859  0251  2A6F               	goto	i1l114
+  2859  0251  2A6F               	goto	i1l100
   2860                           
   2861                           ;UART.c: 192: TMR1 = (0xffff - 62500);
   2862  0252  300B               	movlw	11
@@ -2893,12 +2893,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2879  025F  3080               	movlw	128
   2880  0260  027F               	subwf	127,w
   2881  0261  1D03               	skipz
-  2882  0262  2A65               	goto	u113_25
+  2882  0262  2A65               	goto	u107_25
   2883  0263  3002               	movlw	2
   2884  0264  0259               	subwf	InterReceiver@intr_counter,w	;volatile
-  2885  0265                     u113_25:	
+  2885  0265                     u107_25:	
   2886  0265  1C03               	skipc
-  2887  0266  2A6C               	goto	i1l1824
+  2887  0266  2A6C               	goto	i1l1734
   2888  0267  0064               	clrwdt	;# 
   2889                           
   2890                           ;UART.c: 197: intr_counter = 0;
@@ -2906,14 +2906,14 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2892  0269  1303               	bcf	3,6	;RP1=0, select bank0
   2893  026A  01D9               	clrf	InterReceiver@intr_counter	;volatile
   2894  026B  01DA               	clrf	InterReceiver@intr_counter+1	;volatile
-  2895  026C                     i1l1824:	
+  2895  026C                     i1l1734:	
   2896                           
   2897                           ;UART.c: 198: }
   2898                           ;UART.c: 200: PIR1bits.TMR1IF = 0;
   2899  026C  1283               	bcf	3,5	;RP0=0, select bank0
   2900  026D  1303               	bcf	3,6	;RP1=0, select bank0
   2901  026E  100C               	bcf	12,0	;volatile
-  2902  026F                     i1l114:	
+  2902  026F                     i1l100:	
   2903  026F  0833               	movf	??_InterReceiver+6,w
   2904  0270  00FF               	movwf	127
   2905  0271  0832               	movf	??_InterReceiver+5,w
@@ -2989,10 +2989,10 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2975  06D0  1283               	bcf	3,5	;RP0=0, select bank0
   2976  06D1  1303               	bcf	3,6	;RP1=0, select bank0
   2977  06D2  1918               	btfsc	24,2	;volatile
-  2978  06D3  2ED6               	goto	i1l80
+  2978  06D3  2ED6               	goto	i1l66
   2979  06D4  1C98               	btfss	24,1	;volatile
-  2980  06D5  2EDB               	goto	i1l81
-  2981  06D6                     i1l80:	
+  2980  06D5  2EDB               	goto	i1l67
+  2981  06D6                     i1l66:	
   2982                           
   2983                           ;UART.c: 31: {
   2984                           ;UART.c: 37: CREN = 0;
@@ -3005,12 +3005,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2991  06D8  1283               	bcf	3,5	;RP0=0, select bank0
   2992  06D9  1303               	bcf	3,6	;RP1=0, select bank0
   2993  06DA  1618               	bsf	24,4	;volatile
-  2994  06DB                     i1l81:	
+  2994  06DB                     i1l67:	
   2995                           ;UART.c: 40: }
   2996                           ;UART.c: 41: while(!RCIF);
   2997                           
   2998  06DB  1E8C               	btfss	12,5	;volatile
-  2999  06DC  2EDB               	goto	i1l81
+  2999  06DC  2EDB               	goto	i1l67
   3000                           
   3001                           ;UART.c: 45: return RCREG;
   3002  06DD  081A               	movf	26,w	;volatile
@@ -3024,7 +3024,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3010 ;;		line 59 in file "encode_AX25.c"
   3011 ;; Parameters:    Size  Location     Type
   3012 ;;  eDataField      2    0[BANK0 ] PTR unsigned char 
-  3013 ;;		 -> InterReceiver@EEPROMCmdData_108(0), InterReceiver@EEPROMCmdData(0), 
+  3013 ;;		 -> InterReceiver@EEPROMCmdData_102(0), InterReceiver@EEPROMCmdData(0), 
   3014 ;; Auto vars:     Size  Location     Type
   3015 ;;  i               2   11[BANK0 ] unsigned int 
   3016 ;;  i               2    9[BANK0 ] unsigned int 
@@ -3070,13 +3070,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3056  027F  00A3               	movwf	??_SendPacket+1
   3057  0280  3055               	movlw	85
   3058  0281  00A2               	movwf	??_SendPacket
-  3059  0282                     u149_27:	
+  3059  0282                     u140_27:	
   3060  0282  0BA2               	decfsz	??_SendPacket,f
-  3061  0283  2A82               	goto	u149_27
+  3061  0283  2A82               	goto	u140_27
   3062  0284  0BA3               	decfsz	??_SendPacket+1,f
-  3063  0285  2A82               	goto	u149_27
+  3063  0285  2A82               	goto	u140_27
   3064  0286  0BA4               	decfsz	??_SendPacket+2,f
-  3065  0287  2A82               	goto	u149_27
+  3065  0287  2A82               	goto	u140_27
   3066                           
   3067                           ;encode_AX25.c: 63: UINT Packetnum;
   3068                           ;encode_AX25.c: 64: Packetnum = 0;
@@ -3134,8 +3134,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3120  02B1  1903               	skipnz
   3121  02B2  0227               	subwf	SendPacket@i,w
   3122  02B3  1803               	btfsc	3,0
-  3123  02B4  2ACA               	goto	i1l1624
-  3124  02B5                     i1l1618:	
+  3123  02B4  2ACA               	goto	i1l1534
+  3124  02B5                     i1l1528:	
   3125                           
   3126                           ;encode_AX25.c: 73: SendByte(0x7e);
   3127  02B5  307E               	movlw	126
@@ -3154,8 +3154,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3140  02C6  1903               	skipnz
   3141  02C7  0227               	subwf	SendPacket@i,w
   3142  02C8  1C03               	skipc
-  3143  02C9  2AB5               	goto	i1l1618
-  3144  02CA                     i1l1624:	
+  3143  02C9  2AB5               	goto	i1l1528
+  3144  02CA                     i1l1534:	
   3145                           
   3146                           ;encode_AX25.c: 74: }
   3147                           ;encode_AX25.c: 75: eflag = 0;
@@ -3163,21 +3163,21 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3149  02CB  01D8               	clrf	_eflag+1
   3150                           
   3151                           ;encode_AX25.c: 77: for(UINT i=0;i<Packetnum;i++){
-  3152  02CC  01A9               	clrf	SendPacket@i_173
-  3153  02CD  01AA               	clrf	SendPacket@i_173+1
-  3154  02CE                     i1l1630:	
+  3152  02CC  01A9               	clrf	SendPacket@i_162
+  3153  02CD  01AA               	clrf	SendPacket@i_162+1
+  3154  02CE                     i1l1540:	
   3155  02CE  0826               	movf	SendPacket@Packetnum+1,w
-  3156  02CF  022A               	subwf	SendPacket@i_173+1,w
+  3156  02CF  022A               	subwf	SendPacket@i_162+1,w
   3157  02D0  1D03               	skipz
-  3158  02D1  2AD4               	goto	u94_25
+  3158  02D1  2AD4               	goto	u88_25
   3159  02D2  0825               	movf	SendPacket@Packetnum,w
-  3160  02D3  0229               	subwf	SendPacket@i_173,w
-  3161  02D4                     u94_25:	
+  3160  02D3  0229               	subwf	SendPacket@i_162,w
+  3161  02D4                     u88_25:	
   3162  02D4  1803               	btfsc	3,0
-  3163  02D5  2AE9               	goto	i1l1632
+  3163  02D5  2AE9               	goto	i1l1542
   3164                           
   3165                           ;encode_AX25.c: 78: SendByte(ePacket[i]);
-  3166  02D6  0829               	movf	SendPacket@i_173,w
+  3166  02D6  0829               	movf	SendPacket@i_162,w
   3167  02D7  3E90               	addlw	(low (_ePacket| (0+256)))& (0+255)
   3168  02D8  0084               	movwf	4
   3169  02D9  1783               	bsf	3,7	;select IRP bank3
@@ -3186,13 +3186,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3172  02E0  3001               	movlw	1
   3173  02E1  1283               	bcf	3,5	;RP0=0, select bank0
   3174  02E2  1303               	bcf	3,6	;RP1=0, select bank0
-  3175  02E3  07A9               	addwf	SendPacket@i_173,f
+  3175  02E3  07A9               	addwf	SendPacket@i_162,f
   3176  02E4  1803               	skipnc
-  3177  02E5  0AAA               	incf	SendPacket@i_173+1,f
+  3177  02E5  0AAA               	incf	SendPacket@i_162+1,f
   3178  02E6  3000               	movlw	0
-  3179  02E7  07AA               	addwf	SendPacket@i_173+1,f
-  3180  02E8  2ACE               	goto	i1l1630
-  3181  02E9                     i1l1632:	
+  3179  02E7  07AA               	addwf	SendPacket@i_162+1,f
+  3180  02E8  2ACE               	goto	i1l1540
+  3181  02E9                     i1l1542:	
   3182                           
   3183                           ;encode_AX25.c: 79: }
   3184                           ;encode_AX25.c: 83: efcsflag = 1;
@@ -3230,16 +3230,16 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3216  0304  00D8               	movwf	_eflag+1
   3217                           
   3218                           ;encode_AX25.c: 92: for(UINT i=0;i<6;i++){
-  3219  0305  01AB               	clrf	SendPacket@i_174
-  3220  0306  01AC               	clrf	SendPacket@i_174+1
+  3219  0305  01AB               	clrf	SendPacket@i_163
+  3220  0306  01AC               	clrf	SendPacket@i_163+1
   3221  0307  3000               	movlw	0
-  3222  0308  022C               	subwf	SendPacket@i_174+1,w
+  3222  0308  022C               	subwf	SendPacket@i_163+1,w
   3223  0309  3006               	movlw	6
   3224  030A  1903               	skipnz
-  3225  030B  022B               	subwf	SendPacket@i_174,w
+  3225  030B  022B               	subwf	SendPacket@i_163,w
   3226  030C  1803               	btfsc	3,0
-  3227  030D  2B23               	goto	i1l1656
-  3228  030E                     i1l1650:	
+  3227  030D  2B23               	goto	i1l1566
+  3228  030E                     i1l1560:	
   3229                           
   3230                           ;encode_AX25.c: 93: SendByte(0x7e);
   3231  030E  307E               	movlw	126
@@ -3247,19 +3247,19 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3233  0314  3001               	movlw	1
   3234  0315  1283               	bcf	3,5	;RP0=0, select bank0
   3235  0316  1303               	bcf	3,6	;RP1=0, select bank0
-  3236  0317  07AB               	addwf	SendPacket@i_174,f
+  3236  0317  07AB               	addwf	SendPacket@i_163,f
   3237  0318  1803               	skipnc
-  3238  0319  0AAC               	incf	SendPacket@i_174+1,f
+  3238  0319  0AAC               	incf	SendPacket@i_163+1,f
   3239  031A  3000               	movlw	0
-  3240  031B  07AC               	addwf	SendPacket@i_174+1,f
+  3240  031B  07AC               	addwf	SendPacket@i_163+1,f
   3241  031C  3000               	movlw	0
-  3242  031D  022C               	subwf	SendPacket@i_174+1,w
+  3242  031D  022C               	subwf	SendPacket@i_163+1,w
   3243  031E  3006               	movlw	6
   3244  031F  1903               	skipnz
-  3245  0320  022B               	subwf	SendPacket@i_174,w
+  3245  0320  022B               	subwf	SendPacket@i_163,w
   3246  0321  1C03               	skipc
-  3247  0322  2B0E               	goto	i1l1650
-  3248  0323                     i1l1656:	
+  3247  0322  2B0E               	goto	i1l1560
+  3248  0323                     i1l1566:	
   3249                           
   3250                           ;encode_AX25.c: 94: }
   3251                           ;encode_AX25.c: 96: _delay((unsigned long)((200)*(10000000/4000.0)));
@@ -3271,13 +3271,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3257  0328  00A3               	movwf	??_SendPacket+1
   3258  0329  3055               	movlw	85
   3259  032A  00A2               	movwf	??_SendPacket
-  3260  032B                     u150_27:	
+  3260  032B                     u141_27:	
   3261  032B  0BA2               	decfsz	??_SendPacket,f
-  3262  032C  2B2B               	goto	u150_27
+  3262  032C  2B2B               	goto	u141_27
   3263  032D  0BA3               	decfsz	??_SendPacket+1,f
-  3264  032E  2B2B               	goto	u150_27
+  3264  032E  2B2B               	goto	u141_27
   3265  032F  0BA4               	decfsz	??_SendPacket+2,f
-  3266  0330  2B2B               	goto	u150_27
+  3266  0330  2B2B               	goto	u141_27
   3267  0331  0008               	return
   3268  0332                     __end_of_SendPacket:	
   3269                           
@@ -3351,16 +3351,16 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3337  0570  0855               	movf	_efcsflag,w
   3338  0571  0456               	iorwf	_efcsflag+1,w
   3339  0572  1D03               	btfss	3,2
-  3340  0573  2D7E               	goto	i1l1450
+  3340  0573  2D7E               	goto	i1l1360
   3341  0574  0857               	movf	_eflag,w
   3342  0575  0458               	iorwf	_eflag+1,w
   3343  0576  1D03               	btfss	3,2
-  3344  0577  2D7E               	goto	i1l1450
+  3344  0577  2D7E               	goto	i1l1360
   3345                           
   3346                           ;encode_AX25.c: 107: fcsbit(bt);
   3347  0578  0878               	movf	SendByte@bt,w
   3348  0579  120A  118A  2644  120A  118A  	fcall	_fcsbit
-  3349  057E                     i1l1450:	
+  3349  057E                     i1l1360:	
   3350                           
   3351                           ;encode_AX25.c: 108: }
   3352                           ;encode_AX25.c: 110: if(bt == 0x00){
@@ -3386,29 +3386,29 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3372  0589  0857               	movf	_eflag,w
   3373  058A  0458               	iorwf	_eflag+1,w
   3374  058B  1D03               	btfss	3,2
-  3375  058C  2DA0               	goto	i1l1464
+  3375  058C  2DA0               	goto	i1l1374
   3376  058D  3005               	movlw	5
   3377  058E  0653               	xorwf	_estuff,w
   3378  058F  0454               	iorwf	_estuff+1,w
   3379  0590  1D03               	btfss	3,2
-  3380  0591  2DA0               	goto	i1l1464
+  3380  0591  2DA0               	goto	i1l1374
   3381                           
   3382                           ;encode_AX25.c: 116: _delay((unsigned long)((795)*(10000000/4000000.0)));
   3383  0592  3003               	movlw	3
   3384  0593  00F4               	movwf	??_SendByte+1
   3385  0594  3093               	movlw	147
   3386  0595  00F3               	movwf	??_SendByte
-  3387  0596                     u151_27:	
+  3387  0596                     u142_27:	
   3388  0596  0BF3               	decfsz	??_SendByte,f
-  3389  0597  2D96               	goto	u151_27
+  3389  0597  2D96               	goto	u142_27
   3390  0598  0BF4               	decfsz	??_SendByte+1,f
-  3391  0599  2D96               	goto	u151_27
+  3391  0599  2D96               	goto	u142_27
   3392  059A  0000               	nop
   3393  059B                     L3:	
   3394                           
   3395                           ;encode_AX25.c: 117: flipout();
   3396  059B  120A  118A  269D  120A  118A  	fcall	_flipout
-  3397  05A0                     i1l1464:	
+  3397  05A0                     i1l1374:	
   3398                           
   3399                           ;encode_AX25.c: 118: }
   3400                           ;encode_AX25.c: 119: }
@@ -3417,11 +3417,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3403  05A1  00F4               	movwf	??_SendByte+1
   3404  05A2  3093               	movlw	147
   3405  05A3  00F3               	movwf	??_SendByte
-  3406  05A4                     u152_27:	
+  3406  05A4                     u143_27:	
   3407  05A4  0BF3               	decfsz	??_SendByte,f
-  3408  05A5  2DA4               	goto	u152_27
+  3408  05A5  2DA4               	goto	u143_27
   3409  05A6  0BF4               	decfsz	??_SendByte+1,f
-  3410  05A7  2DA4               	goto	u152_27
+  3410  05A7  2DA4               	goto	u143_27
   3411  05A8  0000               	nop
   3412                           
   3413                           ;encode_AX25.c: 121: byte = byte >> 1;
@@ -3489,7 +3489,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3475  06A1  0851               	movf	_ebitstatus,w
   3476  06A2  0452               	iorwf	_ebitstatus+1,w
   3477  06A3  1D03               	btfss	3,2
-  3478  06A4  2EAB               	goto	i1l210
+  3478  06A4  2EAB               	goto	i1l184
   3479                           
   3480                           ;encode_AX25.c: 128: RC5 = 1;
   3481  06A5  1687               	bsf	7,5	;volatile
@@ -3502,7 +3502,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3488                           
   3489                           ;encode_AX25.c: 130: }else{
   3490  06AA  0008               	return
-  3491  06AB                     i1l210:	
+  3491  06AB                     i1l184:	
   3492                           
   3493                           ;encode_AX25.c: 131: RC5 = 0;
   3494  06AB  1287               	bcf	7,5	;volatile
@@ -3592,7 +3592,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3578 ;;		line 40 in file "encode_AX25.c"
   3579 ;; Parameters:    Size  Location     Type
   3580 ;;  eDataField      2    0[COMMON] PTR unsigned char 
-  3581 ;;		 -> InterReceiver@EEPROMCmdData_108(0), InterReceiver@EEPROMCmdData(0), 
+  3581 ;;		 -> InterReceiver@EEPROMCmdData_102(0), InterReceiver@EEPROMCmdData(0), 
   3582 ;; Auto vars:     Size  Location     Type
   3583 ;;  i               2    5[COMMON] unsigned int 
   3584 ;;  i               2   11[COMMON] unsigned int 
@@ -3636,8 +3636,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3622  03E7  1903               	skipnz
   3623  03E8  0279               	subwf	Packetmaker@i,w
   3624  03E9  1803               	btfsc	3,0
-  3625  03EA  2C09               	goto	i1l1400
-  3626  03EB                     i1l1394:	
+  3625  03EA  2C09               	goto	i1l1310
+  3626  03EB                     i1l1304:	
   3627                           
   3628                           ;encode_AX25.c: 42: ePacket[i] = "JQ1ZHX"[i] << 1;
   3629  03EB  0879               	movf	Packetmaker@i,w
@@ -3665,8 +3665,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3651  0405  1903               	skipnz
   3652  0406  0279               	subwf	Packetmaker@i,w
   3653  0407  1C03               	skipc
-  3654  0408  2BEB               	goto	i1l1394
-  3655  0409                     i1l1400:	
+  3654  0408  2BEB               	goto	i1l1304
+  3655  0409                     i1l1310:	
   3656                           
   3657                           ;encode_AX25.c: 43: }
   3658                           ;encode_AX25.c: 44: ePacket[6] = 0x60;
@@ -3678,26 +3678,26 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3664  040E  0096               	movwf	(_ePacket^(0+384)+6)
   3665                           
   3666                           ;encode_AX25.c: 45: for(UINT i=0;i<6;i++){
-  3667  040F  01FB               	clrf	Packetmaker@i_164
-  3668  0410  01FC               	clrf	Packetmaker@i_164+1
+  3667  040F  01FB               	clrf	Packetmaker@i_153
+  3668  0410  01FC               	clrf	Packetmaker@i_153+1
   3669  0411  3000               	movlw	0
-  3670  0412  027C               	subwf	Packetmaker@i_164+1,w
+  3670  0412  027C               	subwf	Packetmaker@i_153+1,w
   3671  0413  3006               	movlw	6
   3672  0414  1903               	skipnz
-  3673  0415  027B               	subwf	Packetmaker@i_164,w
+  3673  0415  027B               	subwf	Packetmaker@i_153,w
   3674  0416  1803               	btfsc	3,0
-  3675  0417  2C37               	goto	i1l1414
-  3676  0418                     i1l1408:	
+  3675  0417  2C37               	goto	i1l1324
+  3676  0418                     i1l1318:	
   3677                           
   3678                           ;encode_AX25.c: 46: ePacket[i+7] = "JQ1YCZ"[i] << 1;
-  3679  0418  087B               	movf	Packetmaker@i_164,w
+  3679  0418  087B               	movf	Packetmaker@i_153,w
   3680  0419  3E08               	addlw	low ((STR_2-__stringbase)| (0+32768))
   3681  041A  0084               	movwf	4
   3682  041B  120A  118A  2689  120A  118A  	fcall	stringdir
   3683  0420  00F2               	movwf	??_Packetmaker
   3684  0421  0772               	addwf	??_Packetmaker,w
   3685  0422  00F3               	movwf	??_Packetmaker+1
-  3686  0423  087B               	movf	Packetmaker@i_164,w
+  3686  0423  087B               	movf	Packetmaker@i_153,w
   3687  0424  3E07               	addlw	7
   3688  0425  3E90               	addlw	(low (_ePacket| (0+256)))& (0+255)
   3689  0426  0084               	movwf	4
@@ -3705,19 +3705,19 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3691  0428  1783               	bsf	3,7	;select IRP bank3
   3692  0429  0080               	movwf	0
   3693  042A  3001               	movlw	1
-  3694  042B  07FB               	addwf	Packetmaker@i_164,f
+  3694  042B  07FB               	addwf	Packetmaker@i_153,f
   3695  042C  1803               	skipnc
-  3696  042D  0AFC               	incf	Packetmaker@i_164+1,f
+  3696  042D  0AFC               	incf	Packetmaker@i_153+1,f
   3697  042E  3000               	movlw	0
-  3698  042F  07FC               	addwf	Packetmaker@i_164+1,f
+  3698  042F  07FC               	addwf	Packetmaker@i_153+1,f
   3699  0430  3000               	movlw	0
-  3700  0431  027C               	subwf	Packetmaker@i_164+1,w
+  3700  0431  027C               	subwf	Packetmaker@i_153+1,w
   3701  0432  3006               	movlw	6
   3702  0433  1903               	skipnz
-  3703  0434  027B               	subwf	Packetmaker@i_164,w
+  3703  0434  027B               	subwf	Packetmaker@i_153,w
   3704  0435  1C03               	skipc
-  3705  0436  2C18               	goto	i1l1408
-  3706  0437                     i1l1414:	
+  3705  0436  2C18               	goto	i1l1318
+  3706  0437                     i1l1324:	
   3707                           
   3708                           ;encode_AX25.c: 47: }
   3709                           ;encode_AX25.c: 48: ePacket[13] = 0xe1;
@@ -3747,7 +3747,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3733                           ;encode_AX25.c: 52: for(Datanum=0;eDataField[Datanum] != '\0';Datanum++);
   3734  0447  01F7               	clrf	Packetmaker@Datanum
   3735  0448  01F8               	clrf	Packetmaker@Datanum+1
-  3736  0449                     i1l1422:	
+  3736  0449                     i1l1332:	
   3737  0449  0877               	movf	Packetmaker@Datanum,w
   3738  044A  0770               	addwf	Packetmaker@eDataField,w
   3739  044B  00F2               	movwf	??_Packetmaker
@@ -3763,37 +3763,37 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3749  0455  1383               	bcf	3,7
   3750  0456  0800               	movf	0,w
   3751  0457  1903               	btfsc	3,2
-  3752  0458  2C60               	goto	i1l1424
+  3752  0458  2C60               	goto	i1l1334
   3753  0459  3001               	movlw	1
   3754  045A  07F7               	addwf	Packetmaker@Datanum,f
   3755  045B  1803               	skipnc
   3756  045C  0AF8               	incf	Packetmaker@Datanum+1,f
   3757  045D  3000               	movlw	0
   3758  045E  07F8               	addwf	Packetmaker@Datanum+1,f
-  3759  045F  2C49               	goto	i1l1422
-  3760  0460                     i1l1424:	
+  3759  045F  2C49               	goto	i1l1332
+  3760  0460                     i1l1334:	
   3761                           
   3762                           ;encode_AX25.c: 53: for(UINT i=0;i<Datanum;i++){
-  3763  0460  01F5               	clrf	Packetmaker@i_167
-  3764  0461  01F6               	clrf	Packetmaker@i_167+1
-  3765  0462                     i1l1430:	
+  3763  0460  01F5               	clrf	Packetmaker@i_156
+  3764  0461  01F6               	clrf	Packetmaker@i_156+1
+  3765  0462                     i1l1340:	
   3766  0462  0878               	movf	Packetmaker@Datanum+1,w
-  3767  0463  0276               	subwf	Packetmaker@i_167+1,w
+  3767  0463  0276               	subwf	Packetmaker@i_156+1,w
   3768  0464  1D03               	skipz
-  3769  0465  2C68               	goto	u71_25
+  3769  0465  2C68               	goto	u65_25
   3770  0466  0877               	movf	Packetmaker@Datanum,w
-  3771  0467  0275               	subwf	Packetmaker@i_167,w
-  3772  0468                     u71_25:	
+  3771  0467  0275               	subwf	Packetmaker@i_156,w
+  3772  0468                     u65_25:	
   3773  0468  1803               	btfsc	3,0
-  3774  0469  2C87               	goto	i1l1432
+  3774  0469  2C87               	goto	i1l1342
   3775                           
   3776                           ;encode_AX25.c: 54: ePacket[16+i] = eDataField[i];
-  3777  046A  0875               	movf	Packetmaker@i_167,w
+  3777  046A  0875               	movf	Packetmaker@i_156,w
   3778  046B  0770               	addwf	Packetmaker@eDataField,w
   3779  046C  00F2               	movwf	??_Packetmaker
-  3780  046D  0876               	movf	Packetmaker@i_167+1,w
+  3780  046D  0876               	movf	Packetmaker@i_156+1,w
   3781  046E  1803               	skipnc
-  3782  046F  0A76               	incf	Packetmaker@i_167+1,w
+  3782  046F  0A76               	incf	Packetmaker@i_156+1,w
   3783  0470  0771               	addwf	Packetmaker@eDataField+1,w
   3784  0471  00F3               	movwf	??_Packetmaker+1
   3785  0472  0872               	movf	??_Packetmaker,w
@@ -3803,7 +3803,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3789  0476  1383               	bcf	3,7
   3790  0477  0800               	movf	0,w
   3791  0478  00F4               	movwf	??_Packetmaker+2
-  3792  0479  0875               	movf	Packetmaker@i_167,w
+  3792  0479  0875               	movf	Packetmaker@i_156,w
   3793  047A  3E10               	addlw	16
   3794  047B  3E90               	addlw	(low (_ePacket| (0+256)))& (0+255)
   3795  047C  0084               	movwf	4
@@ -3811,13 +3811,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3797  047E  1783               	bsf	3,7	;select IRP bank3
   3798  047F  0080               	movwf	0
   3799  0480  3001               	movlw	1
-  3800  0481  07F5               	addwf	Packetmaker@i_167,f
+  3800  0481  07F5               	addwf	Packetmaker@i_156,f
   3801  0482  1803               	skipnc
-  3802  0483  0AF6               	incf	Packetmaker@i_167+1,f
+  3802  0483  0AF6               	incf	Packetmaker@i_156+1,f
   3803  0484  3000               	movlw	0
-  3804  0485  07F6               	addwf	Packetmaker@i_167+1,f
-  3805  0486  2C62               	goto	i1l1430
-  3806  0487                     i1l1432:	
+  3804  0485  07F6               	addwf	Packetmaker@i_156+1,f
+  3805  0486  2C62               	goto	i1l1340
+  3806  0487                     i1l1342:	
   3807                           
   3808                           ;encode_AX25.c: 55: }
   3809                           ;encode_AX25.c: 56: return 16+Datanum;
@@ -3842,7 +3842,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3828 ;;  high_address    1    3[COMMON] unsigned char 
   3829 ;;  low_address     1    4[COMMON] unsigned char 
   3830 ;;  ReadData        2    5[COMMON] PTR unsigned char 
-  3831 ;;		 -> InterReceiver@EEPROMCmdData_108(0), InterReceiver@EEPROMCmdData(0), 
+  3831 ;;		 -> InterReceiver@EEPROMCmdData_102(0), InterReceiver@EEPROMCmdData(0), 
   3832 ;;  EEPROMDataLe    2    7[COMMON] unsigned int 
   3833 ;; Auto vars:     Size  Location     Type
   3834 ;;  EEPROM_addre    1    0[BANK0 ] unsigned char 
@@ -3957,7 +3957,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3943  037F  1303               	bcf	3,6	;RP1=0, select bank0
   3944  0380  01A2               	clrf	EEPROM_Read2@i
   3945  0381  01A3               	clrf	EEPROM_Read2@i+1
-  3946  0382                     i1l1588:	
+  3946  0382                     i1l1498:	
   3947  0382  0877               	movf	EEPROM_Read2@EEPROMDataLength,w
   3948  0383  3EFF               	addlw	255
   3949  0384  00F9               	movwf	??_EEPROM_Read2
@@ -3969,12 +3969,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3955  038A  087A               	movf	??_EEPROM_Read2+1,w
   3956  038B  0223               	subwf	EEPROM_Read2@i+1,w
   3957  038C  1D03               	skipz
-  3958  038D  2B90               	goto	u91_25
+  3958  038D  2B90               	goto	u85_25
   3959  038E  0879               	movf	??_EEPROM_Read2,w
   3960  038F  0222               	subwf	EEPROM_Read2@i,w
-  3961  0390                     u91_25:	
+  3961  0390                     u85_25:	
   3962  0390  1803               	btfsc	3,0
-  3963  0391  2BB1               	goto	i1l1590
+  3963  0391  2BB1               	goto	i1l1500
   3964                           
   3965                           ;I2C.c: 99: ReadData[i] = I2C_Master_Read(1);
   3966  0392  3001               	movlw	1
@@ -4003,8 +4003,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3989  03AD  0AA3               	incf	EEPROM_Read2@i+1,f
   3990  03AE  3000               	movlw	0
   3991  03AF  07A3               	addwf	EEPROM_Read2@i+1,f
-  3992  03B0  2B82               	goto	i1l1588
-  3993  03B1                     i1l1590:	
+  3992  03B0  2B82               	goto	i1l1498
+  3993  03B1                     i1l1500:	
   3994                           
   3995                           ;I2C.c: 101: }
   3996                           ;I2C.c: 102: ReadData[EEPROMDataLength - 1] = I2C_Master_Read(0);
@@ -4045,13 +4045,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   4031  03D7  00FA               	movwf	??_EEPROM_Read2+1
   4032  03D8  3055               	movlw	85
   4033  03D9  00F9               	movwf	??_EEPROM_Read2
-  4034  03DA                     u153_27:	
+  4034  03DA                     u144_27:	
   4035  03DA  0BF9               	decfsz	??_EEPROM_Read2,f
-  4036  03DB  2BDA               	goto	u153_27
+  4036  03DB  2BDA               	goto	u144_27
   4037  03DC  0BFA               	decfsz	??_EEPROM_Read2+1,f
-  4038  03DD  2BDA               	goto	u153_27
+  4038  03DD  2BDA               	goto	u144_27
   4039  03DE  0BFB               	decfsz	??_EEPROM_Read2+2,f
-  4040  03DF  2BDA               	goto	u153_27
+  4040  03DF  2BDA               	goto	u144_27
   4041  03E0  2BE1               	nop2
   4042  03E1  0008               	return
   4043  03E2                     __end_of_EEPROM_Read2:	
@@ -4085,325 +4085,322 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   4071 ;;		_I2C_Master_Wait
   4072 ;; This function is called by:
   4073 ;;		_EEPROM_Read2
-  4074 ;;		_EEPROM_Write
-  4075 ;;		_EEPROM_Read
-  4076 ;; This function uses a non-reentrant model
-  4077 ;;
+  4074 ;;		_EEPROM_Read
+  4075 ;; This function uses a non-reentrant model
+  4076 ;;
+  4077                           
   4078                           
-  4079                           
-  4080                           ;psect for function _I2C_Master_Write
-  4081  06F0                     _I2C_Master_Write:	
-  4082                           
-  4083                           ;I2C.c: 38: I2C_Master_Wait();
-  4084                           
-  4085                           ;incstack = 0
-  4086                           ; Regs used in _I2C_Master_Write: [wreg+status,2+status,0+pclath+cstack]
-  4087  06F0  120A  118A  26DF   	fcall	_I2C_Master_Wait
-  4088                           
-  4089                           ;I2C.c: 39: SSPBUF = d;
-  4090  06F3  0870               	movf	I2C_Master_Write@d,w
-  4091  06F4  1283               	bcf	3,5	;RP0=0, select bank0
-  4092  06F5  1303               	bcf	3,6	;RP1=0, select bank0
-  4093  06F6  0093               	movwf	19	;volatile
-  4094  06F7  0008               	return
-  4095  06F8                     __end_of_I2C_Master_Write:	
-  4096                           
-  4097                           	psect	text15
-  4098  06F8                     __ptext15:	
-  4099 ;; *************** function _I2C_Master_Stop *****************
-  4100 ;; Defined at:
-  4101 ;;		line 32 in file "I2C.c"
-  4102 ;; Parameters:    Size  Location     Type
-  4103 ;;		None
-  4104 ;; Auto vars:     Size  Location     Type
-  4105 ;;		None
-  4106 ;; Return value:  Size  Location     Type
-  4107 ;;                  1    wreg      void 
-  4108 ;; Registers used:
-  4109 ;;		wreg, status,2, status,0, pclath, cstack
-  4110 ;; Tracked objects:
-  4111 ;;		On entry : 0/0
-  4112 ;;		On exit  : 0/0
-  4113 ;;		Unchanged: 0/0
-  4114 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  4115 ;;      Params:         0       0       0       0       0
-  4116 ;;      Locals:         0       0       0       0       0
-  4117 ;;      Temps:          0       0       0       0       0
-  4118 ;;      Totals:         0       0       0       0       0
-  4119 ;;Total ram usage:        0 bytes
-  4120 ;; Hardware stack levels used:    1
-  4121 ;; Hardware stack levels required when called:    1
-  4122 ;; This function calls:
-  4123 ;;		_I2C_Master_Wait
-  4124 ;; This function is called by:
-  4125 ;;		_EEPROM_Read2
-  4126 ;;		_EEPROM_Write
-  4127 ;;		_EEPROM_Read
-  4128 ;; This function uses a non-reentrant model
-  4129 ;;
-  4130                           
-  4131                           
-  4132                           ;psect for function _I2C_Master_Stop
-  4133  06F8                     _I2C_Master_Stop:	
+  4079                           ;psect for function _I2C_Master_Write
+  4080  06F0                     _I2C_Master_Write:	
+  4081                           
+  4082                           ;I2C.c: 38: I2C_Master_Wait();
+  4083                           
+  4084                           ;incstack = 0
+  4085                           ; Regs used in _I2C_Master_Write: [wreg+status,2+status,0+pclath+cstack]
+  4086  06F0  120A  118A  26DF   	fcall	_I2C_Master_Wait
+  4087                           
+  4088                           ;I2C.c: 39: SSPBUF = d;
+  4089  06F3  0870               	movf	I2C_Master_Write@d,w
+  4090  06F4  1283               	bcf	3,5	;RP0=0, select bank0
+  4091  06F5  1303               	bcf	3,6	;RP1=0, select bank0
+  4092  06F6  0093               	movwf	19	;volatile
+  4093  06F7  0008               	return
+  4094  06F8                     __end_of_I2C_Master_Write:	
+  4095                           
+  4096                           	psect	text15
+  4097  06F8                     __ptext15:	
+  4098 ;; *************** function _I2C_Master_Stop *****************
+  4099 ;; Defined at:
+  4100 ;;		line 32 in file "I2C.c"
+  4101 ;; Parameters:    Size  Location     Type
+  4102 ;;		None
+  4103 ;; Auto vars:     Size  Location     Type
+  4104 ;;		None
+  4105 ;; Return value:  Size  Location     Type
+  4106 ;;                  1    wreg      void 
+  4107 ;; Registers used:
+  4108 ;;		wreg, status,2, status,0, pclath, cstack
+  4109 ;; Tracked objects:
+  4110 ;;		On entry : 0/0
+  4111 ;;		On exit  : 0/0
+  4112 ;;		Unchanged: 0/0
+  4113 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  4114 ;;      Params:         0       0       0       0       0
+  4115 ;;      Locals:         0       0       0       0       0
+  4116 ;;      Temps:          0       0       0       0       0
+  4117 ;;      Totals:         0       0       0       0       0
+  4118 ;;Total ram usage:        0 bytes
+  4119 ;; Hardware stack levels used:    1
+  4120 ;; Hardware stack levels required when called:    1
+  4121 ;; This function calls:
+  4122 ;;		_I2C_Master_Wait
+  4123 ;; This function is called by:
+  4124 ;;		_EEPROM_Read2
+  4125 ;;		_EEPROM_Read
+  4126 ;; This function uses a non-reentrant model
+  4127 ;;
+  4128                           
+  4129                           
+  4130                           ;psect for function _I2C_Master_Stop
+  4131  06F8                     _I2C_Master_Stop:	
+  4132                           
+  4133                           ;I2C.c: 33: I2C_Master_Wait();
   4134                           
-  4135                           ;I2C.c: 33: I2C_Master_Wait();
-  4136                           
-  4137                           ;incstack = 0
-  4138                           ; Regs used in _I2C_Master_Stop: [wreg+status,2+status,0+pclath+cstack]
-  4139  06F8  120A  118A  26DF   	fcall	_I2C_Master_Wait
-  4140                           
-  4141                           ;I2C.c: 34: PEN = 1;
-  4142  06FB  1683               	bsf	3,5	;RP0=1, select bank1
-  4143  06FC  1303               	bcf	3,6	;RP1=0, select bank1
-  4144  06FD  1511               	bsf	17,2	;volatile
-  4145  06FE  0008               	return
-  4146  06FF                     __end_of_I2C_Master_Stop:	
-  4147                           
-  4148                           	psect	text16
-  4149  06FF                     __ptext16:	
-  4150 ;; *************** function _I2C_Master_Start *****************
-  4151 ;; Defined at:
-  4152 ;;		line 22 in file "I2C.c"
-  4153 ;; Parameters:    Size  Location     Type
+  4135                           ;incstack = 0
+  4136                           ; Regs used in _I2C_Master_Stop: [wreg+status,2+status,0+pclath+cstack]
+  4137  06F8  120A  118A  26DF   	fcall	_I2C_Master_Wait
+  4138                           
+  4139                           ;I2C.c: 34: PEN = 1;
+  4140  06FB  1683               	bsf	3,5	;RP0=1, select bank1
+  4141  06FC  1303               	bcf	3,6	;RP1=0, select bank1
+  4142  06FD  1511               	bsf	17,2	;volatile
+  4143  06FE  0008               	return
+  4144  06FF                     __end_of_I2C_Master_Stop:	
+  4145                           
+  4146                           	psect	text16
+  4147  06FF                     __ptext16:	
+  4148 ;; *************** function _I2C_Master_Start *****************
+  4149 ;; Defined at:
+  4150 ;;		line 22 in file "I2C.c"
+  4151 ;; Parameters:    Size  Location     Type
+  4152 ;;		None
+  4153 ;; Auto vars:     Size  Location     Type
   4154 ;;		None
-  4155 ;; Auto vars:     Size  Location     Type
-  4156 ;;		None
-  4157 ;; Return value:  Size  Location     Type
-  4158 ;;                  1    wreg      void 
-  4159 ;; Registers used:
-  4160 ;;		wreg, status,2, status,0, pclath, cstack
-  4161 ;; Tracked objects:
-  4162 ;;		On entry : 0/0
-  4163 ;;		On exit  : 0/0
-  4164 ;;		Unchanged: 0/0
-  4165 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  4166 ;;      Params:         0       0       0       0       0
-  4167 ;;      Locals:         0       0       0       0       0
-  4168 ;;      Temps:          0       0       0       0       0
-  4169 ;;      Totals:         0       0       0       0       0
-  4170 ;;Total ram usage:        0 bytes
-  4171 ;; Hardware stack levels used:    1
-  4172 ;; Hardware stack levels required when called:    1
-  4173 ;; This function calls:
-  4174 ;;		_I2C_Master_Wait
-  4175 ;; This function is called by:
-  4176 ;;		_EEPROM_Read2
-  4177 ;;		_EEPROM_Write
-  4178 ;;		_EEPROM_Read
-  4179 ;; This function uses a non-reentrant model
-  4180 ;;
-  4181                           
+  4155 ;; Return value:  Size  Location     Type
+  4156 ;;                  1    wreg      void 
+  4157 ;; Registers used:
+  4158 ;;		wreg, status,2, status,0, pclath, cstack
+  4159 ;; Tracked objects:
+  4160 ;;		On entry : 0/0
+  4161 ;;		On exit  : 0/0
+  4162 ;;		Unchanged: 0/0
+  4163 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  4164 ;;      Params:         0       0       0       0       0
+  4165 ;;      Locals:         0       0       0       0       0
+  4166 ;;      Temps:          0       0       0       0       0
+  4167 ;;      Totals:         0       0       0       0       0
+  4168 ;;Total ram usage:        0 bytes
+  4169 ;; Hardware stack levels used:    1
+  4170 ;; Hardware stack levels required when called:    1
+  4171 ;; This function calls:
+  4172 ;;		_I2C_Master_Wait
+  4173 ;; This function is called by:
+  4174 ;;		_EEPROM_Read2
+  4175 ;;		_EEPROM_Read
+  4176 ;; This function uses a non-reentrant model
+  4177 ;;
+  4178                           
+  4179                           
+  4180                           ;psect for function _I2C_Master_Start
+  4181  06FF                     _I2C_Master_Start:	
   4182                           
-  4183                           ;psect for function _I2C_Master_Start
-  4184  06FF                     _I2C_Master_Start:	
-  4185                           
-  4186                           ;I2C.c: 23: I2C_Master_Wait();
-  4187                           
-  4188                           ;incstack = 0
-  4189                           ; Regs used in _I2C_Master_Start: [wreg+status,2+status,0+pclath+cstack]
-  4190  06FF  120A  118A  26DF   	fcall	_I2C_Master_Wait
-  4191                           
-  4192                           ;I2C.c: 24: SEN = 1;
-  4193  0702  1683               	bsf	3,5	;RP0=1, select bank1
-  4194  0703  1303               	bcf	3,6	;RP1=0, select bank1
-  4195  0704  1411               	bsf	17,0	;volatile
-  4196  0705  0008               	return
-  4197  0706                     __end_of_I2C_Master_Start:	
-  4198                           
-  4199                           	psect	text17
-  4200  0706                     __ptext17:	
-  4201 ;; *************** function _I2C_Master_RepeatedStart *****************
-  4202 ;; Defined at:
-  4203 ;;		line 27 in file "I2C.c"
-  4204 ;; Parameters:    Size  Location     Type
-  4205 ;;		None
-  4206 ;; Auto vars:     Size  Location     Type
-  4207 ;;		None
-  4208 ;; Return value:  Size  Location     Type
-  4209 ;;                  1    wreg      void 
-  4210 ;; Registers used:
-  4211 ;;		wreg, status,2, status,0, pclath, cstack
-  4212 ;; Tracked objects:
-  4213 ;;		On entry : 0/0
-  4214 ;;		On exit  : 0/0
-  4215 ;;		Unchanged: 0/0
-  4216 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  4217 ;;      Params:         0       0       0       0       0
-  4218 ;;      Locals:         0       0       0       0       0
-  4219 ;;      Temps:          0       0       0       0       0
-  4220 ;;      Totals:         0       0       0       0       0
-  4221 ;;Total ram usage:        0 bytes
-  4222 ;; Hardware stack levels used:    1
-  4223 ;; Hardware stack levels required when called:    1
-  4224 ;; This function calls:
-  4225 ;;		_I2C_Master_Wait
-  4226 ;; This function is called by:
-  4227 ;;		_EEPROM_Read2
-  4228 ;;		_EEPROM_Read
-  4229 ;; This function uses a non-reentrant model
-  4230 ;;
-  4231                           
+  4183                           ;I2C.c: 23: I2C_Master_Wait();
+  4184                           
+  4185                           ;incstack = 0
+  4186                           ; Regs used in _I2C_Master_Start: [wreg+status,2+status,0+pclath+cstack]
+  4187  06FF  120A  118A  26DF   	fcall	_I2C_Master_Wait
+  4188                           
+  4189                           ;I2C.c: 24: SEN = 1;
+  4190  0702  1683               	bsf	3,5	;RP0=1, select bank1
+  4191  0703  1303               	bcf	3,6	;RP1=0, select bank1
+  4192  0704  1411               	bsf	17,0	;volatile
+  4193  0705  0008               	return
+  4194  0706                     __end_of_I2C_Master_Start:	
+  4195                           
+  4196                           	psect	text17
+  4197  0706                     __ptext17:	
+  4198 ;; *************** function _I2C_Master_RepeatedStart *****************
+  4199 ;; Defined at:
+  4200 ;;		line 27 in file "I2C.c"
+  4201 ;; Parameters:    Size  Location     Type
+  4202 ;;		None
+  4203 ;; Auto vars:     Size  Location     Type
+  4204 ;;		None
+  4205 ;; Return value:  Size  Location     Type
+  4206 ;;                  1    wreg      void 
+  4207 ;; Registers used:
+  4208 ;;		wreg, status,2, status,0, pclath, cstack
+  4209 ;; Tracked objects:
+  4210 ;;		On entry : 0/0
+  4211 ;;		On exit  : 0/0
+  4212 ;;		Unchanged: 0/0
+  4213 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  4214 ;;      Params:         0       0       0       0       0
+  4215 ;;      Locals:         0       0       0       0       0
+  4216 ;;      Temps:          0       0       0       0       0
+  4217 ;;      Totals:         0       0       0       0       0
+  4218 ;;Total ram usage:        0 bytes
+  4219 ;; Hardware stack levels used:    1
+  4220 ;; Hardware stack levels required when called:    1
+  4221 ;; This function calls:
+  4222 ;;		_I2C_Master_Wait
+  4223 ;; This function is called by:
+  4224 ;;		_EEPROM_Read2
+  4225 ;;		_EEPROM_Read
+  4226 ;; This function uses a non-reentrant model
+  4227 ;;
+  4228                           
+  4229                           
+  4230                           ;psect for function _I2C_Master_RepeatedStart
+  4231  0706                     _I2C_Master_RepeatedStart:	
   4232                           
-  4233                           ;psect for function _I2C_Master_RepeatedStart
-  4234  0706                     _I2C_Master_RepeatedStart:	
-  4235                           
-  4236                           ;I2C.c: 28: I2C_Master_Wait();
-  4237                           
-  4238                           ;incstack = 0
-  4239                           ; Regs used in _I2C_Master_RepeatedStart: [wreg+status,2+status,0+pclath+cstack]
-  4240  0706  120A  118A  26DF   	fcall	_I2C_Master_Wait
-  4241                           
-  4242                           ;I2C.c: 29: RSEN = 1;
-  4243  0709  1683               	bsf	3,5	;RP0=1, select bank1
-  4244  070A  1303               	bcf	3,6	;RP1=0, select bank1
-  4245  070B  1491               	bsf	17,1	;volatile
-  4246  070C  0008               	return
-  4247  070D                     __end_of_I2C_Master_RepeatedStart:	
-  4248                           
-  4249                           	psect	text18
-  4250  05E9                     __ptext18:	
-  4251 ;; *************** function _I2C_Master_Read *****************
-  4252 ;; Defined at:
-  4253 ;;		line 42 in file "I2C.c"
-  4254 ;; Parameters:    Size  Location     Type
-  4255 ;;  a               1    wreg     unsigned char 
-  4256 ;; Auto vars:     Size  Location     Type
-  4257 ;;  a               1    1[COMMON] unsigned char 
-  4258 ;;  temp            1    2[COMMON] unsigned char 
-  4259 ;; Return value:  Size  Location     Type
-  4260 ;;                  1    wreg      unsigned char 
-  4261 ;; Registers used:
-  4262 ;;		wreg, status,2, status,0, pclath, cstack
-  4263 ;; Tracked objects:
-  4264 ;;		On entry : 0/0
-  4265 ;;		On exit  : 0/0
-  4266 ;;		Unchanged: 0/0
-  4267 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  4268 ;;      Params:         0       0       0       0       0
-  4269 ;;      Locals:         2       0       0       0       0
-  4270 ;;      Temps:          1       0       0       0       0
-  4271 ;;      Totals:         3       0       0       0       0
-  4272 ;;Total ram usage:        3 bytes
-  4273 ;; Hardware stack levels used:    1
-  4274 ;; Hardware stack levels required when called:    1
-  4275 ;; This function calls:
-  4276 ;;		_I2C_Master_Wait
-  4277 ;; This function is called by:
-  4278 ;;		_EEPROM_Read2
-  4279 ;;		_EEPROM_Read
-  4280 ;; This function uses a non-reentrant model
-  4281 ;;
-  4282                           
+  4233                           ;I2C.c: 28: I2C_Master_Wait();
+  4234                           
+  4235                           ;incstack = 0
+  4236                           ; Regs used in _I2C_Master_RepeatedStart: [wreg+status,2+status,0+pclath+cstack]
+  4237  0706  120A  118A  26DF   	fcall	_I2C_Master_Wait
+  4238                           
+  4239                           ;I2C.c: 29: RSEN = 1;
+  4240  0709  1683               	bsf	3,5	;RP0=1, select bank1
+  4241  070A  1303               	bcf	3,6	;RP1=0, select bank1
+  4242  070B  1491               	bsf	17,1	;volatile
+  4243  070C  0008               	return
+  4244  070D                     __end_of_I2C_Master_RepeatedStart:	
+  4245                           
+  4246                           	psect	text18
+  4247  05E9                     __ptext18:	
+  4248 ;; *************** function _I2C_Master_Read *****************
+  4249 ;; Defined at:
+  4250 ;;		line 42 in file "I2C.c"
+  4251 ;; Parameters:    Size  Location     Type
+  4252 ;;  a               1    wreg     unsigned char 
+  4253 ;; Auto vars:     Size  Location     Type
+  4254 ;;  a               1    1[COMMON] unsigned char 
+  4255 ;;  temp            1    2[COMMON] unsigned char 
+  4256 ;; Return value:  Size  Location     Type
+  4257 ;;                  1    wreg      unsigned char 
+  4258 ;; Registers used:
+  4259 ;;		wreg, status,2, status,0, pclath, cstack
+  4260 ;; Tracked objects:
+  4261 ;;		On entry : 0/0
+  4262 ;;		On exit  : 0/0
+  4263 ;;		Unchanged: 0/0
+  4264 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  4265 ;;      Params:         0       0       0       0       0
+  4266 ;;      Locals:         2       0       0       0       0
+  4267 ;;      Temps:          1       0       0       0       0
+  4268 ;;      Totals:         3       0       0       0       0
+  4269 ;;Total ram usage:        3 bytes
+  4270 ;; Hardware stack levels used:    1
+  4271 ;; Hardware stack levels required when called:    1
+  4272 ;; This function calls:
+  4273 ;;		_I2C_Master_Wait
+  4274 ;; This function is called by:
+  4275 ;;		_EEPROM_Read2
+  4276 ;;		_EEPROM_Read
+  4277 ;; This function uses a non-reentrant model
+  4278 ;;
+  4279                           
+  4280                           
+  4281                           ;psect for function _I2C_Master_Read
+  4282  05E9                     _I2C_Master_Read:	
   4283                           
-  4284                           ;psect for function _I2C_Master_Read
-  4285  05E9                     _I2C_Master_Read:	
-  4286                           
-  4287                           ;incstack = 0
-  4288                           ; Regs used in _I2C_Master_Read: [wreg+status,2+status,0+pclath+cstack]
-  4289                           ;I2C_Master_Read@a stored from wreg
-  4290  05E9  00F1               	movwf	I2C_Master_Read@a
-  4291                           
-  4292                           ;I2C.c: 43: unsigned char temp;
-  4293                           ;I2C.c: 45: I2C_Master_Wait();
-  4294  05EA  120A  118A  26DF  120A  118A  	fcall	_I2C_Master_Wait
-  4295                           
-  4296                           ;I2C.c: 46: RCEN = 1;
-  4297  05EF  1683               	bsf	3,5	;RP0=1, select bank1
-  4298  05F0  1303               	bcf	3,6	;RP1=0, select bank1
-  4299  05F1  1591               	bsf	17,3	;volatile
+  4284                           ;incstack = 0
+  4285                           ; Regs used in _I2C_Master_Read: [wreg+status,2+status,0+pclath+cstack]
+  4286                           ;I2C_Master_Read@a stored from wreg
+  4287  05E9  00F1               	movwf	I2C_Master_Read@a
+  4288                           
+  4289                           ;I2C.c: 43: unsigned char temp;
+  4290                           ;I2C.c: 45: I2C_Master_Wait();
+  4291  05EA  120A  118A  26DF  120A  118A  	fcall	_I2C_Master_Wait
+  4292                           
+  4293                           ;I2C.c: 46: RCEN = 1;
+  4294  05EF  1683               	bsf	3,5	;RP0=1, select bank1
+  4295  05F0  1303               	bcf	3,6	;RP1=0, select bank1
+  4296  05F1  1591               	bsf	17,3	;volatile
+  4297                           
+  4298                           ;I2C.c: 47: I2C_Master_Wait();
+  4299  05F2  120A  118A  26DF  120A  118A  	fcall	_I2C_Master_Wait
   4300                           
-  4301                           ;I2C.c: 47: I2C_Master_Wait();
-  4302  05F2  120A  118A  26DF  120A  118A  	fcall	_I2C_Master_Wait
-  4303                           
-  4304                           ;I2C.c: 48: temp = SSPBUF;
-  4305  05F7  1283               	bcf	3,5	;RP0=0, select bank0
-  4306  05F8  1303               	bcf	3,6	;RP1=0, select bank0
-  4307  05F9  0813               	movf	19,w	;volatile
-  4308  05FA  00F0               	movwf	??_I2C_Master_Read
-  4309  05FB  0870               	movf	??_I2C_Master_Read,w
-  4310  05FC  00F2               	movwf	I2C_Master_Read@temp
+  4301                           ;I2C.c: 48: temp = SSPBUF;
+  4302  05F7  1283               	bcf	3,5	;RP0=0, select bank0
+  4303  05F8  1303               	bcf	3,6	;RP1=0, select bank0
+  4304  05F9  0813               	movf	19,w	;volatile
+  4305  05FA  00F0               	movwf	??_I2C_Master_Read
+  4306  05FB  0870               	movf	??_I2C_Master_Read,w
+  4307  05FC  00F2               	movwf	I2C_Master_Read@temp
+  4308                           
+  4309                           ;I2C.c: 50: I2C_Master_Wait();
+  4310  05FD  120A  118A  26DF  120A  118A  	fcall	_I2C_Master_Wait
   4311                           
-  4312                           ;I2C.c: 50: I2C_Master_Wait();
-  4313  05FD  120A  118A  26DF  120A  118A  	fcall	_I2C_Master_Wait
-  4314                           
-  4315                           ;I2C.c: 51: ACKDT = (a)?0:1;
-  4316  0602  0871               	movf	I2C_Master_Read@a,w
-  4317  0603  1D03               	btfss	3,2
-  4318  0604  2E09               	goto	u79_20
-  4319  0605  1683               	bsf	3,5	;RP0=1, select bank1
-  4320  0606  1303               	bcf	3,6	;RP1=0, select bank1
-  4321  0607  1691               	bsf	17,5	;volatile
-  4322  0608  2E0C               	goto	i1l1498
-  4323  0609                     u79_20:	
-  4324  0609  1683               	bsf	3,5	;RP0=1, select bank1
-  4325  060A  1303               	bcf	3,6	;RP1=0, select bank1
-  4326  060B  1291               	bcf	17,5	;volatile
-  4327  060C                     i1l1498:	
+  4312                           ;I2C.c: 51: ACKDT = (a)?0:1;
+  4313  0602  0871               	movf	I2C_Master_Read@a,w
+  4314  0603  1D03               	btfss	3,2
+  4315  0604  2E09               	goto	u73_20
+  4316  0605  1683               	bsf	3,5	;RP0=1, select bank1
+  4317  0606  1303               	bcf	3,6	;RP1=0, select bank1
+  4318  0607  1691               	bsf	17,5	;volatile
+  4319  0608  2E0C               	goto	i1l1408
+  4320  0609                     u73_20:	
+  4321  0609  1683               	bsf	3,5	;RP0=1, select bank1
+  4322  060A  1303               	bcf	3,6	;RP1=0, select bank1
+  4323  060B  1291               	bcf	17,5	;volatile
+  4324  060C                     i1l1408:	
+  4325                           
+  4326                           ;I2C.c: 52: ACKEN = 1;
+  4327  060C  1611               	bsf	17,4	;volatile
   4328                           
-  4329                           ;I2C.c: 52: ACKEN = 1;
-  4330  060C  1611               	bsf	17,4	;volatile
-  4331                           
-  4332                           ;I2C.c: 53: return temp;
-  4333  060D  0872               	movf	I2C_Master_Read@temp,w
-  4334  060E  0008               	return
-  4335  060F                     __end_of_I2C_Master_Read:	
-  4336                           
-  4337                           	psect	text19
-  4338  06DF                     __ptext19:	
-  4339 ;; *************** function _I2C_Master_Wait *****************
-  4340 ;; Defined at:
-  4341 ;;		line 18 in file "I2C.c"
-  4342 ;; Parameters:    Size  Location     Type
-  4343 ;;		None
-  4344 ;; Auto vars:     Size  Location     Type
-  4345 ;;		None
-  4346 ;; Return value:  Size  Location     Type
-  4347 ;;                  1    wreg      void 
-  4348 ;; Registers used:
-  4349 ;;		wreg, status,2
-  4350 ;; Tracked objects:
-  4351 ;;		On entry : 0/0
-  4352 ;;		On exit  : 0/0
-  4353 ;;		Unchanged: 0/0
-  4354 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  4355 ;;      Params:         0       0       0       0       0
-  4356 ;;      Locals:         0       0       0       0       0
-  4357 ;;      Temps:          0       0       0       0       0
-  4358 ;;      Totals:         0       0       0       0       0
-  4359 ;;Total ram usage:        0 bytes
-  4360 ;; Hardware stack levels used:    1
-  4361 ;; This function calls:
-  4362 ;;		Nothing
-  4363 ;; This function is called by:
-  4364 ;;		_I2C_Master_Start
-  4365 ;;		_I2C_Master_RepeatedStart
-  4366 ;;		_I2C_Master_Stop
-  4367 ;;		_I2C_Master_Write
-  4368 ;;		_I2C_Master_Read
-  4369 ;; This function uses a non-reentrant model
-  4370 ;;
-  4371                           
-  4372                           
-  4373                           ;psect for function _I2C_Master_Wait
-  4374  06DF                     _I2C_Master_Wait:	
-  4375  06DF                     i1l284:	
-  4376                           ;I2C.c: 19: while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+  4329                           ;I2C.c: 53: return temp;
+  4330  060D  0872               	movf	I2C_Master_Read@temp,w
+  4331  060E  0008               	return
+  4332  060F                     __end_of_I2C_Master_Read:	
+  4333                           
+  4334                           	psect	text19
+  4335  06DF                     __ptext19:	
+  4336 ;; *************** function _I2C_Master_Wait *****************
+  4337 ;; Defined at:
+  4338 ;;		line 18 in file "I2C.c"
+  4339 ;; Parameters:    Size  Location     Type
+  4340 ;;		None
+  4341 ;; Auto vars:     Size  Location     Type
+  4342 ;;		None
+  4343 ;; Return value:  Size  Location     Type
+  4344 ;;                  1    wreg      void 
+  4345 ;; Registers used:
+  4346 ;;		wreg, status,2
+  4347 ;; Tracked objects:
+  4348 ;;		On entry : 0/0
+  4349 ;;		On exit  : 0/0
+  4350 ;;		Unchanged: 0/0
+  4351 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  4352 ;;      Params:         0       0       0       0       0
+  4353 ;;      Locals:         0       0       0       0       0
+  4354 ;;      Temps:          0       0       0       0       0
+  4355 ;;      Totals:         0       0       0       0       0
+  4356 ;;Total ram usage:        0 bytes
+  4357 ;; Hardware stack levels used:    1
+  4358 ;; This function calls:
+  4359 ;;		Nothing
+  4360 ;; This function is called by:
+  4361 ;;		_I2C_Master_Start
+  4362 ;;		_I2C_Master_RepeatedStart
+  4363 ;;		_I2C_Master_Stop
+  4364 ;;		_I2C_Master_Write
+  4365 ;;		_I2C_Master_Read
+  4366 ;; This function uses a non-reentrant model
+  4367 ;;
+  4368                           
+  4369                           
+  4370                           ;psect for function _I2C_Master_Wait
+  4371  06DF                     _I2C_Master_Wait:	
+  4372  06DF                     i1l258:	
+  4373                           ;I2C.c: 19: while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+  4374                           
+  4375                           ;incstack = 0
+  4376                           ; Regs used in _I2C_Master_Wait: [wreg+status,2]
   4377                           
-  4378                           ;incstack = 0
-  4379                           ; Regs used in _I2C_Master_Wait: [wreg+status,2]
-  4380                           
-  4381  06DF  1683               	bsf	3,5	;RP0=1, select bank1
-  4382  06E0  1303               	bcf	3,6	;RP1=0, select bank1
-  4383  06E1  1914               	btfsc	20,2	;volatile
-  4384  06E2  2EDF               	goto	i1l284
-  4385  06E3  0811               	movf	17,w	;volatile
-  4386  06E4  391F               	andlw	31
-  4387  06E5  1903               	btfsc	3,2
-  4388  06E6  0008               	return
-  4389  06E7  2EDF               	goto	i1l284
-  4390  06E8                     __end_of_I2C_Master_Wait:	
-  4391  007E                     btemp	set	126	;btemp
-  4392  007E                     wtemp0	set	126
+  4378  06DF  1683               	bsf	3,5	;RP0=1, select bank1
+  4379  06E0  1303               	bcf	3,6	;RP1=0, select bank1
+  4380  06E1  1914               	btfsc	20,2	;volatile
+  4381  06E2  2EDF               	goto	i1l258
+  4382  06E3  0811               	movf	17,w	;volatile
+  4383  06E4  391F               	andlw	31
+  4384  06E5  1903               	btfsc	3,2
+  4385  06E6  0008               	return
+  4386  06E7  2EDF               	goto	i1l258
+  4387  06E8                     __end_of_I2C_Master_Wait:	
+  4388  007E                     btemp	set	126	;btemp
+  4389  007E                     wtemp0	set	126
 
 
 Data Sizes:
@@ -4425,13 +4422,13 @@ Auto Spaces:
 Pointer List with Targets:
 
     EEPROM_Read2@ReadData	PTR unsigned char  size(2) Largest target is 0
-		 -> InterReceiver@EEPROMCmdData_108(BANK0[0]), InterReceiver@EEPROMCmdData(BANK0[0]), 
+		 -> InterReceiver@EEPROMCmdData_102(BANK0[0]), InterReceiver@EEPROMCmdData(BANK0[0]), 
 
     SendPacket@eDataField	PTR unsigned char  size(2) Largest target is 0
-		 -> InterReceiver@EEPROMCmdData_108(BANK0[0]), InterReceiver@EEPROMCmdData(BANK0[0]), 
+		 -> InterReceiver@EEPROMCmdData_102(BANK0[0]), InterReceiver@EEPROMCmdData(BANK0[0]), 
 
     Packetmaker@eDataField	PTR unsigned char  size(2) Largest target is 0
-		 -> InterReceiver@EEPROMCmdData_108(BANK0[0]), InterReceiver@EEPROMCmdData(BANK0[0]), 
+		 -> InterReceiver@EEPROMCmdData_102(BANK0[0]), InterReceiver@EEPROMCmdData(BANK0[0]), 
 
 
 Critical Paths under _main in COMMON
@@ -4507,7 +4504,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (3) _InterReceiver                                       20    20      0    2896
+ (3) _InterReceiver                                       20    20      0    2631
                                              13 BANK0     20    20      0
                        _EEPROM_Read2
                          _SendPacket
@@ -4533,7 +4530,7 @@ Call Graph Tables:
  (6) _Packetmaker                                         13    11      2     414
                                               0 COMMON    13    11      2
  ---------------------------------------------------------------------------------
- (4) _EEPROM_Read2                                        16    10      6    1448
+ (4) _EEPROM_Read2                                        16    10      6    1183
                                               3 COMMON    11     5      6
                                               0 BANK0      5     5      0
                     _I2C_Master_Read
@@ -4542,7 +4539,7 @@ Call Graph Tables:
                     _I2C_Master_Stop
                    _I2C_Master_Write
  ---------------------------------------------------------------------------------
- (5) _I2C_Master_Write                                     2     0      2     711
+ (5) _I2C_Master_Write                                     2     0      2     446
                                               0 COMMON     2     0      2
                     _I2C_Master_Wait
  ---------------------------------------------------------------------------------
@@ -4621,11 +4618,11 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Wed Feb 28 01:37:44 2018
+Symbol Table                                                                                   Wed Feb 28 10:22:31 2018
 
              EEPROM_Read2@low_address 0074                                     pc 0002  
                          __CFG_CP$OFF 0000                                    fsr 0004  
-                                 l249 04BD                                   _GIE 005F  
+                                 l223 04BD                                   _GIE 005F  
                                  _RB1 0031                                   _RC0 0038  
                                  _RB3 0033                                   _RC2 003A  
                                  _RC5 003D                                   _PEN 048A  
@@ -4633,20 +4630,22 @@ Symbol Table                                                                    
                                  _RX9 00C6                                   _TX9 04C6  
                                  fsr0 0004                                   indf 0000  
                         __CFG_FOSC$HS 0000                          __CFG_LVP$OFF 0000  
-                     SendPacket@i_173 0029                       SendPacket@i_174 002B  
-                                l1930 0556                                  l1916 0511  
-                                l1926 0549                                  l1918 0521  
+                     SendPacket@i_162 0029                       SendPacket@i_163 002B  
+                                l1802 0549                                  l1806 0556  
+                                l1792 0511                                  l1794 0521  
                                 STR_1 068F                                  STR_2 0696  
                                 _BRGH 04C2                                  _CREN 00C4  
-                                _FERR 00C2                                  u1205 0515  
-                                u1225 0523                                  u1235 0538  
-                                u1307 04E4                                  u1245 054A  
-                                u1317 04F5                                  u1265 05C7  
-                                u1277 0498                                  u1287 04C5  
-                                u1297 04D6                                  _PEIE 005E  
+                                _FERR 00C2                                  u1115 0515  
+                                u1135 0523                                  u1207 04D6  
+                                u1145 0538                                  u1217 04E4  
+                                u1155 054A                                  u1227 04F5  
+                                u1175 05C7                                  u1187 0498  
+                                u1197 04C5                                  _PEIE 005E  
                                 _RCIE 0465                                  _RCEN 048B  
-                                _RCIF 0065                                  i1l80 06D6  
-                                i1l81 06DB                                  i1l97 0250  
+                                _RCIF 0065                                  i1l66 06D6  
+                                i1l90 016D                                  i1l67 06DB  
+                                i1l83 0250                                  i1l92 024E  
+                                i1l93 024A                                  i1l94 01B5  
                                 _OERR 00C1                                  _TMR1 000E  
                                 _SPEN 00C7                                  _RSEN 0489  
                                 _SREN 00C5                                  _TXIE 0464  
@@ -4662,65 +4661,63 @@ Symbol Table                                                                    
                     ?_I2C_Master_Stop 0070                                 ?_main 0070  
                                _ACKEN 048C                                 _ACKDT 048D  
                        __CFG_WDTE$OFF 0000                                 _ANSEL 0188  
-                     __end_of___lldiv 055F                                 i1l104 016D  
-                               i1l210 06AB                                 i1l106 024E  
-                               i1l114 026F                                 i1l107 024A  
-                               i1l108 01B5                                 i1l284 06DF  
+                     __end_of___lldiv 055F                                 i1l100 026F  
+                               i1l184 06AB                                 i1l258 06DF  
                                _RCREG 001A                                 _SPBRG 0099  
                                _PORTA 0005                                 _PORTB 0006  
                                _PORTC 0007                                 _PORTE 0009  
-                               u71_25 0468                                 _TRISA 0085  
-                               _TRISB 0086                                 _TRISC 0087  
-                               _TRISE 0089                                 u91_25 0390  
-                               u94_25 02D4                                 u79_20 0609  
-                               _TXREG 0019                         __CFG_PWRTE$ON 0000  
-                      __CFG_FCMEN$OFF 0000                       __end_of_flipout 06AF  
-                               _eflag 0057                                 _getch 06D0  
-                      __CFG_BOREN$OFF 0000                                 pclath 000A  
-                               status 0003                                 wtemp0 007E  
-              __size_of_InterReceiver 022E                            _Init_I2C_M 05B7  
-                          SendByte@bt 0078                       __initialization 0015  
-                        __end_of_main 04FF                   __end_of_Init_SERIAL 062A  
-                    __end_of_Init_MPU 0644                   __end_of_Packetmaker 0490  
-                    __end_of_Init_WDT 0675                                ??_main 00B6  
-                    __end_of_SendByte 05B7                     ?_I2C_Master_Start 0070  
-                   ?_I2C_Master_Write 0070                 Packetmaker@eDataField 0070  
-                  ??_I2C_Master_Start 0070                            _SendPacket 027A  
-                              ?_getch 0070                    ??_I2C_Master_Write 0072  
-                              _ANSELH 0189                          Packetmaker@i 0079  
-                              u100_25 00B9                                u110_25 01B3  
-                              i1l1400 0409                                u111_25 0248  
-                              i1l1430 0462                                i1l1422 0449  
-                              i1l1414 0437                                i1l1432 0487  
-                              i1l1424 0460                                i1l1408 0418  
-                              i1l1450 057E                                u104_25 013F  
-                              i1l1630 02CE                                i1l1464 05A0  
-                              i1l1632 02E9                                i1l1624 02CA  
-                              i1l1394 03EB                                i1l1650 030E  
-                              i1l1618 02B5                                u113_25 0265  
-                              u105_25 016B                                i1l1590 03B1  
-                              i1l1734 00DD                                i1l1656 0323  
-                              i1l1824 026C                                i1l1498 060C  
-                              i1l1762 0141                                i1l1770 0171  
-                              i1l1588 0382                                u140_27 01BE  
-                              u132_27 007A                                u141_27 01CC  
-                              u133_27 00A4                                u150_27 032B  
-                              u142_27 01DA                                u134_27 00CE  
-                              u151_27 0596                                u143_27 01E8  
-                              u135_27 0100                                u152_27 05A4  
-                              u144_27 01F6                                u136_27 012A  
-                              u153_27 03DA                                u145_27 0204  
-                              u137_27 0154                                u146_27 0214  
-                              u138_27 018A                                u147_27 0224  
-                              u139_27 019F                                u148_27 0231  
-                              u149_27 0282                                _SSPADD 0093  
+                               u73_20 0609                                 _TRISA 0085  
+                               _TRISB 0086                                 u65_25 0468  
+                               _TRISC 0087                                 _TRISE 0089  
+                               u85_25 0390                                 u94_25 00B9  
+                               u88_25 02D4                                 _TXREG 0019  
+                               u98_25 013F                                 u99_25 016B  
+                       __CFG_PWRTE$ON 0000                        __CFG_FCMEN$OFF 0000  
+                     __end_of_flipout 06AF                                 _eflag 0057  
+                               _getch 06D0                        __CFG_BOREN$OFF 0000  
+                               pclath 000A                                 status 0003  
+                               wtemp0 007E                __size_of_InterReceiver 022E  
+                          _Init_I2C_M 05B7                            SendByte@bt 0078  
+                     __initialization 0015                          __end_of_main 04FF  
+                 __end_of_Init_SERIAL 062A                      __end_of_Init_MPU 0644  
+                 __end_of_Packetmaker 0490                      __end_of_Init_WDT 0675  
+                              ??_main 00B6                      __end_of_SendByte 05B7  
+                   ?_I2C_Master_Start 0070                     ?_I2C_Master_Write 0070  
+               Packetmaker@eDataField 0070                    ??_I2C_Master_Start 0070  
+                          _SendPacket 027A                                ?_getch 0070  
+                  ??_I2C_Master_Write 0072                                _ANSELH 0189  
+                        Packetmaker@i 0079                                i1l1310 0409  
+                              i1l1304 03EB                                i1l1500 03B1  
+                              i1l1340 0462                                i1l1332 0449  
+                              i1l1324 0437                                i1l1342 0487  
+                              i1l1334 0460                                i1l1318 0418  
+                              i1l1408 060C                                i1l1360 057E  
+                              i1l1540 02CE                                u104_25 01B3  
+                              i1l1374 05A0                                i1l1542 02E9  
+                              i1l1534 02CA                                i1l1560 030E  
+                              i1l1528 02B5                                i1l1644 00DD  
+                              u105_25 0248                                i1l1566 0323  
+                              i1l1734 026C                                i1l1672 0141  
+                              i1l1680 0171                                i1l1498 0382  
+                              u130_27 019F                                u107_25 0265  
+                              u131_27 01BE                                u123_27 007A  
+                              u140_27 0282                                u132_27 01CC  
+                              u124_27 00A4                                u141_27 032B  
+                              u133_27 01DA                                u125_27 00CE  
+                              u142_27 0596                                u134_27 01E8  
+                              u126_27 0100                                u143_27 05A4  
+                              u135_27 01F6                                u127_27 012A  
+                              u144_27 03DA                                u136_27 0204  
+                              u128_27 0154                                u137_27 0214  
+                              u129_27 018A                                u138_27 0224  
+                              u139_27 0231                                _SSPADD 0093  
                               _STATUS 0003                                _SSPCON 0014  
                               _SSPBUF 0013              _I2C_Master_RepeatedStart 0706  
                            ??___lldiv 00A8                                _efcshi 005B  
                               _efcslo 005C                                _fcsbit 0644  
                               _estuff 0053                         _InterReceiver 004C  
                            ??_flipout 0070                                saved_w 007E  
-InterReceiver@EEPROMCmdDataLength_109 0036               __end_of__initialization 0048  
+InterReceiver@EEPROMCmdDataLength_103 0036               __end_of__initialization 0048  
                          SendPacket@i 0027                           ?_Init_I2C_M 00AE  
                          _Init_SERIAL 060F                    Packetmaker@Datanum 0077  
                __size_of_EEPROM_Read2 00B0                           _Packetmaker 03E2  
@@ -4776,13 +4773,13 @@ InterReceiver@EEPROMCmdDataLength_109 0036               __end_of__initializatio
                       __size_of_getch 000F                     interrupt_function 0004  
                            clear_ram0 06E8                              _PIE1bits 008C  
                 __size_of_Init_SERIAL 001B                              _PIR1bits 000C  
-                __size_of_Packetmaker 00AE                    InterReceiver@i_110 003A  
-                  InterReceiver@i_111 003C                 __end_of_InterReceiver 027A  
+                __size_of_Packetmaker 00AE                    InterReceiver@i_104 003A  
+                  InterReceiver@i_105 003C                 __end_of_InterReceiver 027A  
                          __stringbase 068E                   I2C_Master_Read@temp 0072  
                             _Init_MPU 062A                              _Init_WDT 065E  
                             _SendByte 055F     __size_of_I2C_Master_RepeatedStart 0007  
            ?_I2C_Master_RepeatedStart 0070                      __size_of___lldiv 0060  
-                    Packetmaker@i_164 007B                      Packetmaker@i_167 0075  
+                    Packetmaker@i_153 007B                      Packetmaker@i_156 0075  
                   __end_of__stringtab 068F                            _EEPROMData 00CD  
                      _I2C_Master_Read 05E9                      __size_of_flipout 0012  
                      _I2C_Master_Wait 06DF                       _I2C_Master_Stop 06F8  
@@ -4801,4 +4798,4 @@ InterReceiver@EEPROMCmdDataLength_109 0036               __end_of__initializatio
              __end_of_I2C_Master_Wait 06E8               __end_of_I2C_Master_Stop 06FF  
                          fcsbit@tbyte 0072                      ___lldiv@quotient 00A9  
                    I2C_Master_Write@d 0070                              stringdir 0689  
-                            stringtab 0689        InterReceiver@EEPROMCmdData_108 0034  
+                            stringtab 0689        InterReceiver@EEPROMCmdData_102 0034  

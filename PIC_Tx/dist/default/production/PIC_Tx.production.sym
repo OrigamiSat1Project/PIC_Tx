@@ -64,6 +64,8 @@ _PORTE 9 0 ABS 0
 _ACKDT 48D 0 ABS 0
 Packetmaker@eDataField 70 0 COMMON 1
 wtemp0 7E 0 ABS 0
+Packetmaker@i_153 7B 0 COMMON 1
+Packetmaker@i_156 75 0 COMMON 1
 interrupt_function 4 0 CODE 0
 __Hconfig 2009 0 CONFIG 0
 __Lconfig 2007 0 CONFIG 0
@@ -74,6 +76,7 @@ _eflag 57 0 BANK0 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 _getch 6D0 0 CODE 0
+InterReceiver@EEPROMCmdData_102 34 0 BANK0 1
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 __Hcommon 0 0 ABS 0
@@ -91,7 +94,6 @@ __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 _SSPCON 14 0 ABS 0
 __Hsfr0 0 0 ABS 0
-InterReceiver@EEPROMCmdData_108 34 0 BANK0 1
 __Lsfr0 0 0 ABS 0
 fcsbit@tbyte 72 0 COMMON 1
 __Hsfr1 0 0 ABS 0
@@ -152,8 +154,8 @@ __size_of_I2C_Master_Stop 0 0 ABS 0
 _T1CONbits 10 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
-InterReceiver@i_110 3A 0 BANK0 1
-InterReceiver@i_111 3C 0 BANK0 1
+InterReceiver@i_104 3A 0 BANK0 1
+InterReceiver@i_105 3C 0 BANK0 1
 __pstrings 689 0 STRING 0
 _I2C_Master_Read 5E9 0 CODE 0
 __end_of_I2C_Master_RepeatedStart 70D 0 CODE 0
@@ -191,11 +193,11 @@ __pcstackBANK1 A0 0 BANK1 1
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __size_of_getch 0 0 ABS 0
+SendPacket@i_163 2B 0 BANK0 1
 EEPROM_Read2@ReadData 75 0 COMMON 1
 __end_of__initialization 48 0 CODE 0
 InterReceiver@EEPROMCmdDataLength 34 0 BANK0 1
-SendPacket@i_174 2B 0 BANK0 1
-InterReceiver@EEPROMCmdDataLength_109 36 0 BANK0 1
+InterReceiver@EEPROMCmdDataLength_103 36 0 BANK0 1
 __Hidloc 0 0 IDLOC 0
 __Lidloc 0 0 IDLOC 0
 __Hstack 0 0 STACK 2
@@ -270,15 +272,13 @@ __end_of_Packetmaker 490 0 CODE 0
 __size_of___lldiv 0 0 ABS 0
 _InterReceiver 4C 0 CODE 0
 __end_of_flipout 6AF 0 CODE 0
-Packetmaker@i_164 7B 0 COMMON 1
-Packetmaker@i_167 75 0 COMMON 1
 __Hreset_vec 3 0 CODE 0
 __Lreset_vec 0 0 CODE 0
+SendPacket@i_162 29 0 BANK0 1
 _I2C_Master_Write 6F0 0 CODE 0
 __size_of_EEPROM_Read2 0 0 ABS 0
 EEPROM_Read2@EEPROMDataLength 77 0 COMMON 1
 init_ram0 6B3 0 CODE 0
-SendPacket@i_173 29 0 BANK0 1
 intlevel0 0 0 ENTRY 0
 __CFG_WDTE$OFF 0 0 ABS 0
 intlevel1 0 0 ENTRY 0
@@ -329,7 +329,7 @@ strings D12 D39 STRING D12 0
 text10 D3A E19 CODE D3A 0
 %locals
 dist/default/production\PIC_Tx.production.obj
-C:\Users\Kosuke\AppData\Local\Temp\sbuo.
+C:\Users\Kosuke\AppData\Local\Temp\sts.
 1998 15 0 CODE 0
 2001 15 0 CODE 0
 2110 15 0 CODE 0
