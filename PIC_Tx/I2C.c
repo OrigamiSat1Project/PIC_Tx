@@ -120,30 +120,30 @@ void ReadDataFromEEPROM(UBYTE Address7Bytes,UBYTE high_address,UBYTE low_address
     __delay_ms(200);
 }
 
-void ReadDataAndDataSizeFromEEPROM(UBYTE Address7Bytes,UBYTE high_address,UBYTE low_address,UBYTE *ReadData, UINT *EEPROMDataLength){
-    UBYTE Address = Address7Bytes << 1;
-    UBYTE ReadAddress = Address | 0x01;
-    I2CMasterStart();                       //Start condition
-    I2CMasterWrite(Address);                //7 bit address + Write
-    I2CMasterWrite(high_address);           //Adress High Byte
-    I2CMasterWrite(low_address);            //Adress Low Byte
-    I2CMasterRepeatedStart();               //Restart condition
-    
-    I2CMasterWrite(ReadAddress);            //7 bit address + Read
-    for (*EEPROMDataLength = 0; ReadData[*EEPROMDataLength]!= I2Cnull; *EEPROMDataLength++);
-    for(UINT i = 0; i < *EEPROMDataLength; i++){
-        ReadData[i] = I2CMasterRead(1);     //Read + Acknowledge
-    }
-    ReadData[*EEPROMDataLength] = I2CMasterRead(0);
-    I2CMasterStop();          //Stop condition
-    
-    //for denbugging
-    /*
-    for(UINT j = 0; j < *EEPROMDataLength; j++){
-    //putch(ReadData[0]);
-    //for(UINT j = 0; j < 5; j++){
-        putch(ReadData[j]);
-    }
-    putcrlf();*/
-    __delay_ms(200);
-}
+//void ReadDataAndDataSizeFromEEPROM(UBYTE Address7Bytes,UBYTE high_address,UBYTE low_address,UBYTE *ReadData, UINT *EEPROMDataLength){
+//    UBYTE Address = Address7Bytes << 1;
+//    UBYTE ReadAddress = Address | 0x01;
+//    I2CMasterStart();                       //Start condition
+//    I2CMasterWrite(Address);                //7 bit address + Write
+//    I2CMasterWrite(high_address);           //Adress High Byte
+//    I2CMasterWrite(low_address);            //Adress Low Byte
+//    I2CMasterRepeatedStart();               //Restart condition
+//    
+//    I2CMasterWrite(ReadAddress);            //7 bit address + Read
+//    for (*EEPROMDataLength = 0; ReadData[*EEPROMDataLength]!= I2Cnull; *EEPROMDataLength++);
+//    for(UINT i = 0; i < *EEPROMDataLength; i++){
+//        ReadData[i] = I2CMasterRead(1);     //Read + Acknowledge
+//    }
+//    ReadData[*EEPROMDataLength] = I2CMasterRead(0);
+//    I2CMasterStop();          //Stop condition
+//    
+//    //for denbugging
+//    /*
+//    for(UINT j = 0; j < *EEPROMDataLength; j++){
+//    //putch(ReadData[0]);
+//    //for(UINT j = 0; j < 5; j++){
+//        putch(ReadData[j]);
+//    }
+//    putcrlf();*/
+//    __delay_ms(200);
+//}

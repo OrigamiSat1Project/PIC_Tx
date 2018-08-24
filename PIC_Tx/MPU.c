@@ -33,19 +33,19 @@ void Init_MPU(void)
     //PORTD  = 0x00;
     PORTE  = 0x00;
 }
-void led_onoff(void){
-    ledy_on();
-    __delay_us(espan);
-    ledy_off();
-    __delay_us(espan);
-}
-void debug_ledy(void){
-    if(led_yellow == high){
-        ledy_off();
-    }else{
-        ledy_on();
-    }
-}
+//void led_onoff(void){
+//    ledy_on();
+//    __delay_us(espan);
+//    ledy_off();
+//    __delay_us(espan);
+//}
+//void debug_ledy(void){
+//    if(led_yellow == high){
+//        ledy_off();
+//    }else{
+//        ledy_on();
+//    }
+//}
 
 void cutWire(UBYTE timeHigh, UBYTE timeLow){
     UWORD cutTime;

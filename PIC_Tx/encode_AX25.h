@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <xc.h>
-#include <PIC16F887.h>
+//#include <PIC16F886.h>
 #include "UART.h"
 #include "MPU.h"
 #include "Type_define.h"
@@ -25,7 +25,7 @@
 #define CWKEY RB2
 #define HEAT RB3
 
-void SendPacket(UBYTE *,UINT);
+#define FLAG_AX25 0x7e
 //void test_Packetmaker(UBYTE *);
 /*
 //void SendByte(UBYTE);
@@ -34,6 +34,8 @@ void SendPacket(UBYTE *,UINT);
 //UINT Packetmaker(void);
 //void test_Packetmaker(void);
 */
+
+void SendPacket(UBYTE *,UINT);
 
 #endif	/* ENCODE_AX25_H */
 

@@ -15,6 +15,7 @@ void _NOP(void);
 
 void downlinkReceivedCommand(UBYTE, UBYTE, UBYTE, UBYTE);
 void downlinkFMSignal(UBYTE,UBYTE, UBYTE, UBYTE, UBYTE);
+void SeparateAndSendPacket(UBYTE *,UINT);
 
 #endif	/* FMCW_H */
 

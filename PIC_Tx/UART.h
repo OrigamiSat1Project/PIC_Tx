@@ -29,9 +29,6 @@ void putChar(UBYTE c);                  // Writes a character to the serial port
 //void Antenna(UBYTE RXDATA[]);
 UBYTE getChar(void);
 //void interrupt InterReceiver(void);
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* UART_H */
 

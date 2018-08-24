@@ -40,7 +40,7 @@ void interrupt InterReceiver(UBYTE *RXDATA, UBYTE COMMAND_SIZE){
     volatile static int intr_counter;
     if (RCIF == 1) {
         for (int i = 0; i < COMMAND_SIZE; i++){
-            RXDATA[i] = getch();
+            RXDATA[i] = getChar();
             NOP();
         }
        //TODO add case RXDATA[0]!=t

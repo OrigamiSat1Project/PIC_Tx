@@ -17,18 +17,13 @@ void SendByte(UBYTE);
 void flipout(void);
 void fcsbit(UBYTE);
 UINT Packetmaker(UBYTE *,UINT,UBYTE *);
+//void SendPacket(UBYTE *,UINT);
 //void test_Packetmaker(UBYTE *, UBYTE *);
 
 UINT eflag = 0;
 UINT efcsflag = 0;
 UINT estuff = 0;
 UBYTE efcslo, efcshi;
-const UBYTE SSID_UCALL =0x60;
-const UBYTE SSID_MYCALL =0xE1;
-const UBYTE CONTROL =0xE1;
-const UBYTE PID =0xF0;
-const UINT NO_OF_START_FLAG = 28;
-const UINT NO_OF_END_FLAG = 7;
 //UBYTE eDataField[] = "Hello! I'm OrigamiSat1!!";
 //UBYTE eDataField[] = "unko";
 //UBYTE ePacket[];
@@ -44,6 +39,11 @@ UINT ebitstatus = low;
 //}
 
 UINT Packetmaker(UBYTE *eDataField, UINT DataSize,UBYTE *ePacket){
+    
+    const UBYTE SSID_UCALL =0x60;
+    const UBYTE SSID_MYCALL =0xE1;
+    const UBYTE CONTROL =0xE1;
+    const UBYTE PID =0xF0;
 //    UINT Datanum;
 //    Datanum = 32;//TODO: change value of Datanum
 //    Datanum = sizeof();
@@ -66,10 +66,12 @@ UINT Packetmaker(UBYTE *eDataField, UINT DataSize,UBYTE *ePacket){
     return 16+DataSize;
 }
 
+
 void SendPacket(UBYTE *eDataField,UINT DataSize){
+    UINT NO_OF_START_FLAG = 28;
+    UBYTE NO_OF_END_FLAG = 7;
     UBYTE ePacket[];
-    UINT Packetnum;
-    Packetnum = 0;
+    int Packetnum;
     Packetnum = Packetmaker(eDataField,DataSize,ePacket);
     ebitstatus = 1;
     efcslo = efcshi = 0xff;
@@ -78,15 +80,13 @@ void SendPacket(UBYTE *eDataField,UINT DataSize){
     eflag = 1;
     efcsflag = 0;
     for(UINT i=1;i<=NO_OF_START_FLAG;i++){
-        SendByte(0x7e);
+        SendByte(FLAG_AX25);
     }
     eflag = 0;
     //  eDataField
     for(UINT i=0;i<Packetnum;i++){
         SendByte(ePacket[i]);
     }
-    
-    
     //  FCSField
     efcsflag = 1;
     efcslo = efcslo ^ 0xff;
@@ -94,14 +94,13 @@ void SendPacket(UBYTE *eDataField,UINT DataSize){
     SendByte(efcslo);
     SendByte(efcshi);
     efcsflag = 0;
-    
+
     //  FlagField
     eflag = 1;
-    for(UINT i=1;i<=NO_OF_END_FLAG;i++){
-        SendByte(0x7e);
+    for(UBYTE i=1;i<=NO_OF_END_FLAG;i++){
+        SendByte(FLAG_AX25);
     }
 }
-
 
 void SendByte(UBYTE byte){
     UBYTE bt;

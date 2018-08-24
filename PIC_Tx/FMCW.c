@@ -11,7 +11,6 @@
 
 
 #define EEPROM_COMMAND_DATA_SIZE 32
-#define MAX_DOWNLINK_DATA_SIZE 32
 
 UBYTE commandData[EEPROM_COMMAND_DATA_SIZE];
 
@@ -46,7 +45,7 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
     __delay_ms(200);
     FMPTT = 1;
     for(int sendCounter = 0; sendCounter < downlinlTimes; sendCounter++){
-        SendPacket(commandData,EEPROM_COMMAND_DATA_SIZE);
+        SeparateAndSendPacket(commandData,EEPROM_COMMAND_DATA_SIZE);
         __delay_ms(300);
     }
     FMPTT = 0;
@@ -101,12 +100,35 @@ void downlinkFMSignal(UBYTE EEPROMAndB0Select, UBYTE addressHigh, UBYTE addressL
     FMPTT = 1;
     __delay_ms(100);//TODO check time
     for(int sendCounter = 0; sendCounter < downlinlTimes; sendCounter++){
-        SendPacket(readData,DataSize);
+        SeparateAndSendPacket(readData,DataSize);
         __delay_ms(300);
     }
     FMPTT = 0;
 }
-
+void SeparateAndSendPacket(UBYTE *eDataField,UINT DataSize){
+    UINT maxPacketDataSize =  32;
+    UINT PacketSize;
+    PacketSize = DataSize/maxPacketDataSize;
+    UINT PacketCounter = 0;
+    while (PacketCounter < PacketSize){
+        //downlink signal which has 32 byte data
+        UBYTE eDataFieldOfOnePacket[];
+        for (int i = 0; i<maxPacketDataSize;i++){
+            eDataFieldOfOnePacket[i] = eDataField[maxPacketDataSize*PacketCounter + i];
+        }
+        SendPacket(eDataFieldOfOnePacket,maxPacketDataSize);
+        PacketCounter++;
+    }
+    if (DataSize%maxPacketDataSize != 0){//downlink last packet which does not have 32 byte
+        UINT LastPacketSize;
+        LastPacketSize = DataSize%maxPacketDataSize;
+        UBYTE eDataFieldOfLastPacket[];
+        for (int i = 0; i< LastPacketSize;i++){
+            eDataFieldOfLastPacket[i] = eDataField[maxPacketDataSize*PacketSize + i];
+        }
+//        SendPacket(eDataFieldOfLastPacket,LastPacketSize);
+    }
+}
 /*
  ˆê•¶Žš’†‚Ì
 tu = 3ton

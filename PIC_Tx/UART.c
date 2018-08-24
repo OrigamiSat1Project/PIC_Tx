@@ -10,9 +10,6 @@
 #include "CRC16.h"
 
 
-UINT B0_select;
-UINT DownlinkTimes;
-UBYTE RXDATA[];
 
 void Init_SERIAL(void){
     SPBRG  = 10;                   // boudrate is 1200 bps
