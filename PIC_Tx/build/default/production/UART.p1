@@ -3180,42 +3180,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;UART.c: 93: RXDATA[0] = getch();
 "93
 [e = *U + &U _RXDATA * -> -> -> 0 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux ( _getch ..  ]
-[; ;UART.c: 95: if (RXDATA[0] == 0x74){
-"95
+[; ;UART.c: 94: putch(RXDATA[0]);
+"94
+[e ( _putch (1 *U + &U _RXDATA * -> -> -> 0 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux ]
+[; ;UART.c: 96: if (RXDATA[0] == 0x74){
+"96
 [e $ ! == -> *U + &U _RXDATA * -> -> -> 0 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux `i -> 116 `i 288  ]
 {
-[; ;UART.c: 96: RB1 = 1;
-"96
-[e = _RB1 -> -> 1 `i `b ]
-[; ;UART.c: 97: RXDATA[1] = getch();
+[; ;UART.c: 97: RB1 = 1;
 "97
-[e = *U + &U _RXDATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux ( _getch ..  ]
-[; ;UART.c: 98: RXDATA[2] = getch();
+[e = _RB1 -> -> 1 `i `b ]
+[; ;UART.c: 98: RXDATA[1] = getch();
 "98
-[e = *U + &U _RXDATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux ( _getch ..  ]
-[; ;UART.c: 99: RCIF = 0 ;
+[e = *U + &U _RXDATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux ( _getch ..  ]
+[; ;UART.c: 99: RXDATA[2] = getch();
 "99
+[e = *U + &U _RXDATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux ( _getch ..  ]
+[; ;UART.c: 100: RCIF = 0 ;
+"100
 [e = _RCIF -> -> 0 `i `b ]
-[; ;UART.c: 101: _delay((unsigned long)((200)*(10000000/4000.0)));
-"101
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[; ;UART.c: 102: _delay((unsigned long)((200)*(10000000/4000.0)));
 "102
-[v _EEPROMCmdData `uc ~T0 @X0 -> -> 1 `i `ux a ]
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 "103
-[v _EEPROMCmdDataLength `ui ~T0 @X0 1 a ]
-[; ;UART.c: 102: UBYTE EEPROMCmdData[1];
-[; ;UART.c: 103: UINT EEPROMCmdDataLength;
-[; ;UART.c: 104: EEPROM_Read(0x50,RXDATA[1],RXDATA[2], EEPROMCmdData,&EEPROMCmdDataLength);
+[v _EEPROMCmdData `uc ~T0 @X0 -> -> 1 `i `ux a ]
 "104
-[e ( _EEPROM_Read (4 , , , , -> -> 80 `i `uc *U + &U _RXDATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux *U + &U _RXDATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux &U _EEPROMCmdData &U _EEPROMCmdDataLength ]
-[; ;UART.c: 105: RC0 = 1;
+[v _EEPROMCmdDataLength `ui ~T0 @X0 1 a ]
+[; ;UART.c: 103: UBYTE EEPROMCmdData[1];
+[; ;UART.c: 104: UINT EEPROMCmdDataLength;
+[; ;UART.c: 105: EEPROM_Read(0x50,RXDATA[1],RXDATA[2], EEPROMCmdData,&EEPROMCmdDataLength);
 "105
-[e = _RC0 -> -> 1 `i `b ]
-[; ;UART.c: 106: RB3 = 0;
+[e ( _EEPROM_Read (4 , , , , -> -> 80 `i `uc *U + &U _RXDATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux *U + &U _RXDATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _RXDATA `ui `ux &U _EEPROMCmdData &U _EEPROMCmdDataLength ]
+[; ;UART.c: 106: RC0 = 1;
 "106
+[e = _RC0 -> -> 1 `i `b ]
+[; ;UART.c: 107: RB3 = 0;
+"107
 [e = _RB3 -> -> 0 `i `b ]
-[; ;UART.c: 112: for(int i = 0; i<5;i++){
-"112
+[; ;UART.c: 113: for(int i = 0; i<5;i++){
+"113
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -3223,45 +3226,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 290  ]
 [e :U 289 ]
 {
-[; ;UART.c: 114: SendPacket(EEPROMCmdData);
-"114
-[e ( _SendPacket (1 &U _EEPROMCmdData ]
-[; ;UART.c: 115: _delay((unsigned long)((200)*(10000000/4000.0)));
+[; ;UART.c: 115: SendPacket(EEPROMCmdData);
 "115
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[e ( _SendPacket (1 &U _EEPROMCmdData ]
+[; ;UART.c: 116: _delay((unsigned long)((200)*(10000000/4000.0)));
 "116
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"117
 }
-"112
+"113
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 5 `i 289  ]
 [e :U 290 ]
-"116
-}
-[; ;UART.c: 116: }
-[; ;UART.c: 117: RC0 = 0;
 "117
-[e = _RC0 -> -> 0 `i `b ]
-[; ;UART.c: 118: RB1 = 0;
-"118
-[e = _RB1 -> -> 0 `i `b ]
-"119
 }
-[; ;UART.c: 119: }else{
+[; ;UART.c: 117: }
+[; ;UART.c: 118: RC0 = 0;
+"118
+[e = _RC0 -> -> 0 `i `b ]
+[; ;UART.c: 119: RB1 = 0;
+"119
+[e = _RB1 -> -> 0 `i `b ]
+"120
+}
+[; ;UART.c: 120: }else{
 [e $U 292  ]
 [e :U 288 ]
 {
-[; ;UART.c: 120: RCIF = 0 ;
-"120
+[; ;UART.c: 121: RCIF = 0 ;
+"121
 [e = _RCIF -> -> 0 `i `b ]
-"122
-}
-[e :U 292 ]
 "123
 }
+[e :U 292 ]
+"124
+}
 [e :U 287 ]
-[; ;UART.c: 122: }
 [; ;UART.c: 123: }
 [; ;UART.c: 124: }
-"124
+[; ;UART.c: 125: }
+"125
 [e :UE 286 ]
 }

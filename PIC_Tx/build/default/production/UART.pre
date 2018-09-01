@@ -4317,6 +4317,7 @@ if (RCIF == 1) {
 
 
 RXDATA[0] = getch();
+putch(RXDATA[0]);
 
 if (RXDATA[0] == 0x74){
 RB1 = 1;
@@ -4331,7 +4332,7 @@ EEPROM_Read(0x50,RXDATA[1],RXDATA[2], EEPROMCmdData,&EEPROMCmdDataLength);
 RC0 = 1;
 RB3 = 0;
 
-# 112
+# 113
 for(int i = 0; i<5;i++){
 
 SendPacket(EEPROMCmdData);

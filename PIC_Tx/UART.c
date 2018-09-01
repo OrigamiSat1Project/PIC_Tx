@@ -91,6 +91,7 @@ void interrupt InterReceiver( void ){
 //        led_yellow = 1;
         
         RXDATA[0] = getch();
+        putch(RXDATA[0]);
         
         if (RXDATA[0] == 0x74){
             led_yellow = 1;
