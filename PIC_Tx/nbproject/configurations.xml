@@ -15,6 +15,7 @@
       <itemPath>FMCW.h</itemPath>
       <itemPath>MPU.h</itemPath>
       <itemPath>WDT.h</itemPath>
+      <itemPath>pinDefine.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
