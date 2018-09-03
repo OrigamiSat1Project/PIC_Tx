@@ -19,7 +19,6 @@ void interrupt InterReceiver(void);
 
 #define COMMAND_SIZE 10;
 
-
 // PIC16F887 Configuration Bit Settings
 
 // 'C' source line config statements
@@ -132,6 +131,7 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
+    Init_FMCW();
 //    Init_WDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     putChar('G');
@@ -152,9 +152,16 @@ void main(void) {
         __delay_ms(2000);
         FMPTT = 0;
         //TODO check AD value
-        //TODO send CW command
-        //TODO send pulse to WDT
         
+        /*---------------------------------*/
+        //TODO send CW command
+        UBYTE CW_READ_DATA[];
+        ReadDataFromEEPROM(EEPROM_address,CW_DOWNLINK_MAIN_HIGH_ADDRESS, CW_DOWNLINK_MAIN_LOW_ADDRESS, *CW_READ_DATA, CW_DOWNLINK_EEPROM_DataLength);
+        FMPTT = low;
+        Morse_V();   //send test morse data 'V' 
+        /*---------------------------------*/
+
+        //TODO send pulse to WDT
     }
     //return;
 }

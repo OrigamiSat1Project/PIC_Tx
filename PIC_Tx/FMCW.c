@@ -16,6 +16,17 @@
 UBYTE commandData[EEPROM_COMMAND_DATA_SIZE];
 
 /*
+ * FMCW initialization
+ * setting FM and CW 
+ */
+void Init_FMCW(void){
+    /* ポートをLowにする（初期化） */
+    FMPTT = 0;
+    CWKEY = 0;
+}
+
+
+/*
  * 【何も処理を行わない（待機）】
  *  5処理分待機する
  */
@@ -119,3 +130,30 @@ tu-ton間 = 1ton
 単語間
 7ton
  */
+
+/*
+ * send morse test data 'V'
+ *  1. CWKEY端子を0→1→0と変化させる
+ *  2. ※1.を計３回行う
+ */
+void Morse_V(void){
+    CWKEY = 1;
+    __delay_ms(50);
+    CWKEY = 0;
+    __delay_ms(50);
+
+    CWKEY = 1;
+    __delay_ms(50);
+    CWKEY = 0;
+    __delay_ms(50);
+
+    CWKEY = 1;
+    __delay_ms(50);
+    CWKEY = 0;
+    __delay_ms(50);
+
+    CWKEY = 1;
+    __delay_ms(150);
+    CWKEY = 0;
+    __delay_ms(50);
+}
