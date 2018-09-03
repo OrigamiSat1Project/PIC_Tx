@@ -250,10 +250,28 @@ void sendMorse(char *HK_Data){
             }else{
                 CWKEY = 0;
                 __delay_ms(50);
-                mo=mo>>1;
             }
+            mo=mo>>1;
         }
         CWKEY = 0;
         __delay_ms(150);
     }
+}
+
+void sendMorseForTest(char data){
+    int mo = changeCharMorse(data);
+    for (int n=0;n<19;n++){
+        if(mo==0){
+            break;
+        } else if((mo&1)==1){  //1bit : 0->CWKEY = 0; / 1->CWKEY = 1;
+            CWKEY = 1;
+            __delay_ms(50);
+        }else{
+            CWKEY = 0;
+            __delay_ms(50);
+        }
+        mo=mo>>1;
+    }
+    CWKEY = 0;
+    __delay_ms(150);
 }

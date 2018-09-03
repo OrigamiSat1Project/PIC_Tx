@@ -20,6 +20,7 @@ void downlinkFMSignal(UBYTE,UBYTE, UBYTE, UBYTE, UBYTE);
 void Morse_V(void);
 int changeCharMorse (char);
 void sendMorse(char*);
+void sendMorseForTest(char data);
 
 #endif	/* FMCW_H */
 

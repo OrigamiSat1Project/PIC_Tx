@@ -158,14 +158,22 @@ void main(void) {
         UBYTE CW_READ_DATA[];
         ReadDataFromEEPROM(EEPROM_address,CW_DOWNLINK_MAIN_HIGH_ADDRESS, CW_DOWNLINK_MAIN_LOW_ADDRESS, *CW_READ_DATA, CW_DOWNLINK_EEPROM_DataLength);
         FMPTT = low;
+        
         //test1 : not use function 'sendMorse'
         Morse_V();   //send test morse data 'V'
         __delay_ms(2000);
-        //test2 : use function 'sendMorse'
-        int TEST_TEXT[2];
-        TEST_TEXT[0] = '1';
-        TEST_TEXT[1] = 'A';
-        sendMorse(TEST_TEXT);
+        Morse_V();
+        Morse_V();
+        __delay_ms(2000);
+        
+        //test2 : use function 'sendMorseForTest'
+//        int TEST_TEXT[2];
+//        TEST_TEXT[0] = '1';
+//        TEST_TEXT[1] = 'A';
+//        sendMorse(TEST_TEXT);
+        sendMorseForTest('B');
+        __delay_ms(2000);
+        sendMorseForTest('0');
         __delay_ms(2000);
         /*---------------------------------*/
 
