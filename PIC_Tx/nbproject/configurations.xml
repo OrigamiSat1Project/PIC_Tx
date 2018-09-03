@@ -10,12 +10,12 @@
       <itemPath>encode_AX25.h</itemPath>
       <itemPath>I2C.h</itemPath>
       <itemPath>EEPROM.h</itemPath>
+      <itemPath>FMCW.h</itemPath>
+      <itemPath>EPS.h</itemPath>
       <itemPath>CRC16.h</itemPath>
       <itemPath>CW.h</itemPath>
-      <itemPath>FMCW.h</itemPath>
       <itemPath>MPU.h</itemPath>
       <itemPath>WDT.h</itemPath>
-      <itemPath>pinDefine.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -29,10 +29,10 @@
       <itemPath>encode_AX25.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>I2C.c</itemPath>
-      <itemPath>CRC16.c</itemPath>
       <itemPath>FMCW.c</itemPath>
+      <itemPath>CRC16.c</itemPath>
       <itemPath>MPU.c</itemPath>
-      <itemPath>WDT.c</itemPath>
+      <itemPath>WD.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
