@@ -106,10 +106,12 @@ void interrupt InterReceiver(void){
                     downlinkReceivedCommand(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5]);
                     break;
                 case 0x63:
-//                    CwDownLink(RXDATA);
+                    //CwDownLink(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+                    CwDownLinkForTest();  //CW about10seconds
                     break;
                 case 0x66:
-                    downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+                    //downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+                    FmDownLinkForTest();
                     break;
                 case 0x61:
                     cutWire(RXDATA[2],RXDATA[3]);
@@ -160,21 +162,23 @@ void main(void) {
         FMPTT = low;
         
         //test1 : not use function 'sendMorse'
-        Morse_V();   //send test morse data 'V'
-        __delay_ms(2000);
-        Morse_V();
-        Morse_V();
+//        Morse_V();   //send test morse data 'V'
+//        __delay_ms(2000);
+//        Morse_V();
+//        Morse_V();
+//        __delay_ms(2000);
+//        
+        //test2 : use function 'sendMorseForTest'
+        int TEST_TEXT[2];
+        TEST_TEXT[0] = '1';
+        TEST_TEXT[1] = 'A';
+        sendMorse(TEST_TEXT);
         __delay_ms(2000);
         
-        //test2 : use function 'sendMorseForTest'
-//        int TEST_TEXT[2];
-//        TEST_TEXT[0] = '1';
-//        TEST_TEXT[1] = 'A';
-//        sendMorse(TEST_TEXT);
         sendMorseForTest('B');
-        __delay_ms(2000);
+        __delay_ms(1000);
         sendMorseForTest('0');
-        __delay_ms(2000);
+        __delay_ms(1000);
         /*---------------------------------*/
 
         //TODO send pulse to WDT

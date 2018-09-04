@@ -15,7 +15,12 @@ void Init_FMCW(void);
 void _NOP(void);
 
 void downlinkReceivedCommand(UBYTE, UBYTE, UBYTE, UBYTE);
+
+void downlinkCWSignal(UBYTE, UBYTE, UBYTE, UBYTE, UBYTE);
 void downlinkFMSignal(UBYTE,UBYTE, UBYTE, UBYTE, UBYTE);
+
+void CwDownLinkForTest(void);
+void FmDownLinkForTest(void);
 
 void Morse_V(void);
 int changeCharMorse (char);
