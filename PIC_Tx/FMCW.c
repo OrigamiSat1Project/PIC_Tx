@@ -116,16 +116,20 @@ void downlinkCWSignal(UBYTE EEPROMAndB0Select, UBYTE addressHigh, UBYTE addressL
     UBYTE readData[];
     ReadDataFromEEPROM(readAddress,addressHigh,addressLow, readData,DataSize);
     FMPTT = 0;
+    for (UBYTE sendCounter; sendCounter<DataSize; sendCounter++){
+        sendMorse(readData);
+        __delay_ms(300);
+    }
     __delay_ms(100);//TODO check time
+    
 //    for(int sendCounter = 0; sendCounter < downlinlTimes; sendCounter++){
 //        SendPacket(readData,DataSize);
 //        __delay_ms(300);
 //    }
     //CwDownLinkForTest();  //Morse_v x 6 times
-    
-    for(UINT i = 0; i < DataSize - 1; i++){
-        sendMorseForTest(readData[i]);    
-    }
+//    for(UINT i = 0; i < DataSize - 1; i++){
+//        sendMorseForTest(readData[i]);    
+//    }
 }
 
 void downlinkFMSignal(UBYTE EEPROMAndB0Select, UBYTE addressHigh, UBYTE addressLow, UBYTE downlinlTimes,UBYTE DataSize){

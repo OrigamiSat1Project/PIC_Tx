@@ -107,7 +107,7 @@ void interrupt InterReceiver(void){
                     break;
                 case 0x63:
                     putChar('W');
-                    //CwDownLink(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+                    //downlinkCWSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
                     CwDownLinkForTest();  //CW about10seconds
                     break;
                 case 0x66:
