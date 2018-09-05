@@ -40,15 +40,16 @@ void interrupt InterReceiver(void);
 
 //test_interrupt
 //pc-->pic-->pc 
-//void interrupt interReceiverTest( void ){
-//    UBYTE RXDATA;
-//    if (RCIF == 1) {
-//        RXDATA = getChar();
-//        RXDATA++;
-//        putChar('S');
-//        RCIF = 0;
-//    }
-//}
+void interrupt interReceiverTest( void ){
+    UBYTE RXDATA;
+    if (RCIF == 1) {
+        RXDATA = getChar();
+        RXDATA++;
+        //putChar('G');
+        putChar(RXDATA);
+        RCIF = 0;
+    }
+}
 
 /**/
 //test_get EEPROM address
@@ -202,6 +203,8 @@ void main(void) {
     
     
     while(1){
+        putChar('m');
+        __delay_ms(1000);
         /*
         while(1){
             //getbit();
@@ -209,31 +212,31 @@ void main(void) {
             putch('O');
             __delay_ms(500);
         }*/
-        putChar('F');
-        putChar('M');
-        putChar('1');
-        CWKEY = 0;
-        __delay_ms(2000);
-        FMPTT = 1;
-        __delay_ms(2000);
-        FMPTT = 0;
-        
-        putChar('2');
-        FmDownLinkForTest();
-        
-        putChar('3');
-        FMPTT = 1;
-        __delay_ms(100);//TODO check time
-        UBYTE readData[];
-        UBYTE DataSize = 3;
-        readData[0] = 'V';
-        readData[1] = 'V';
-        readData[2] = 'V';
-        for(int sendCounter = 0; sendCounter < 5; sendCounter++){
-            SendPacket(readData,DataSize);
-            __delay_ms(300);
-        }
-        FMPTT = 0;
+//        putChar('F');
+//        putChar('M');
+//        putChar('1');
+//        CWKEY = 0;
+//        __delay_ms(2000);
+//        FMPTT = 1;
+//        __delay_ms(2000);
+//        FMPTT = 0;
+//        
+//        putChar('2');
+//        FmDownLinkForTest();
+//        
+//        putChar('3');
+//        FMPTT = 1;
+//        __delay_ms(100);//TODO check time
+//        UBYTE readData[];
+//        UBYTE DataSize = 3;
+//        readData[0] = 'V';
+//        readData[1] = 'V';
+//        readData[2] = 'V';
+//        for(int sendCounter = 0; sendCounter < 5; sendCounter++){
+//            SendPacket(readData,DataSize);
+//            __delay_ms(300);
+//        }
+//        FMPTT = 0;
         //TODO check AD value
         
         /*---------------------------------*/
@@ -254,9 +257,9 @@ void main(void) {
 //        putChar('G');
 //        putChar(getmoji);
         
-        putChar('C');
-        putChar('W');
-        __delay_ms(1000);
+//        putChar('C');
+//        putChar('W');
+//        __delay_ms(1000);
 //        Morse_V();
 //        Morse_V();
 //        Morse_V();
