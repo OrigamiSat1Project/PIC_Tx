@@ -222,19 +222,41 @@ void main(void) {
 //        FMPTT = low;
         
         //test1 : not use function 'sendMorse'
-        Morse_V();   //send test morse data 'V'
-        __delay_ms(2000);
-        Morse_V();
-        Morse_V();
-        __delay_ms(2000);
-//        
-        //test2 : use function 'sendMorseForTest'
-//        int TEST_TEXT[2];
-//        TEST_TEXT[0] = '1';
-//        TEST_TEXT[1] = 'A';
-//        sendMorse(TEST_TEXT);
+//        Morse_V();   //send test morse data 'V'
+//        __delay_ms(2000);
+//        Morse_V();
+//        Morse_V();
 //        __delay_ms(2000);
 //        
+        
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        __delay_ms(2000);
+        //test2 : use function 'sendMorseForTest'
+        int TEST_TEXT[2];
+        TEST_TEXT[0] = '1';
+        TEST_TEXT[1] = 'A';
+        sendMorse(TEST_TEXT);
+        __delay_ms(2000);
+        
 //        sendMorseForTest('B');
 //        __delay_ms(1000);
 //        sendMorseForTest('0');
