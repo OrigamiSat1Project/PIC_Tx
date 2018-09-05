@@ -40,13 +40,53 @@ void interrupt InterReceiver(void);
 
 //test_interrupt
 //pc-->pic-->pc 
+//void interrupt interReceiverTest( void ){
+//    UBYTE RXDATA;
+//    if (RCIF == 1) {
+//        RXDATA = getChar();
+//        RXDATA++;
+//        //putChar('G');
+//        putChar(RXDATA);
+//        RCIF = 0;
+//    }
+//}
+
 void interrupt interReceiverTest( void ){
     UBYTE RXDATA;
     if (RCIF == 1) {
         RXDATA = getChar();
-        RXDATA++;
+        //RXDATA++;
         //putChar('G');
         putChar(RXDATA);
+        
+        switch (RXDATA){
+        case 'c':
+            putChar('C');
+            putChar('W');
+            FMPTT = 0;
+            sendMorseForTest('V');
+            sendMorseForTest('V');
+            sendMorseForTest('V');
+//            Morse_V();
+//            Morse_V();
+//            Morse_V();
+//            Morse_V();
+//            Morse_V();
+            break;
+        case 'f':
+            putChar('F');
+            putChar('M');
+            CWKEY = 0;
+            __delay_ms(2000);
+            FMPTT = 1;
+            __delay_ms(2000);
+            FMPTT = 0;
+            __delay_ms(2000);
+            FMPTT = 1;
+            __delay_ms(2000);
+            FMPTT = 0;;
+            break;
+        }
         RCIF = 0;
     }
 }
