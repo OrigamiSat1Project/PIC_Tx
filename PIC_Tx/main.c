@@ -196,7 +196,7 @@ void main(void) {
     Init_FMCW();
 //    Init_WDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
-    putChar('G');
+    putChar('S');
     
     
     while(1){
@@ -227,35 +227,41 @@ void main(void) {
 //        Morse_V();
 //        Morse_V();
 //        __delay_ms(2000);
-//        
+//      
+        UBYTE getmoji;
+        getmoji = getChar();
+        putChar('G');
+        putChar(getmoji);
         
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        Morse_V();
-        __delay_ms(2000);
-        //test2 : use function 'sendMorseForTest'
-        int TEST_TEXT[2];
-        TEST_TEXT[0] = '1';
-        TEST_TEXT[1] = 'A';
-        sendMorse(TEST_TEXT);
-        __delay_ms(2000);
+        putChar('m');
+        __delay_ms(1000);
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        Morse_V();
+//        __delay_ms(2000);
+//        //test2 : use function 'sendMorseForTest'
+//        int TEST_TEXT[2];
+//        TEST_TEXT[0] = '1';
+//        TEST_TEXT[1] = 'A';
+//        sendMorse(TEST_TEXT);
+//        __delay_ms(2000);
         
 //        sendMorseForTest('B');
 //        __delay_ms(1000);
