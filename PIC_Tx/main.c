@@ -69,62 +69,64 @@ void interrupt InterReceiver(void);
 //}
 
 
-//void interrupt InterReceiver(void){
-//    int commandSize;
-//    commandSize = 10;
-//    UBYTE RXDATA[10];//array size = commandSize
-////    UBYTE RXDATA[COMMAND_SIZE];
-////    volatile static int intr_counter;
-//    if (RCIF == 1) {
-//        for (int i = 0; i < 10; i++){
-//            RXDATA[i] = getChar();
-////            putChar(RXDATA[i]);
-//        }
-//        for (int i = 0; i < 10; i++){
+void interrupt InterReceiver(void){
+    int commandSize;
+    commandSize = 10;
+    UBYTE RXDATA[10];//array size = commandSize
+//    UBYTE RXDATA[COMMAND_SIZE];
+//    volatile static int intr_counter;
+    if (RCIF == 1) {
+        for (int i = 0; i < 10; i++){
+            RXDATA[i] = getChar();
 //            putChar(RXDATA[i]);
-//            NOP();
-//        }
-//       //TODO add case RXDATA[0]!=t or g
-//        UWORD crcResult, crcValue;
-//        UBYTE crcResultHigh,crcResultLow,crcValueHigh,crcValueLow;
-//        crcResult = crc16(0,RXDATA,8);
-//        crcValue =  CRC_check(RXDATA,8);
-//        crcResultHigh = crcResult>>8;
-//        crcResultLow = crcResult & 0x00FF;
-//        crcValueHigh = crcValue>>8;
-//        crcValueLow = crcValue & 0x00FF;
-//        
-//        putChar(crcResultHigh);
-//        putChar(crcResultLow);
-//        putChar(crcValueHigh);
-//        putChar(crcValueLow);
-//        
-//        if(crcResult == crcValue){
-//            putChar('C');
-//            switch(RXDATA[1]){
-//                case 0x75:
-//                    downlinkReceivedCommand(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5]);
-//                    break;
-//                case 0x63:
-//                    //CwDownLink(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
-//                    CwDownLinkForTest();  //CW about10seconds
-//                    break;
-//                case 0x66:
-//                    //downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
-//                    FmDownLinkForTest();
-//                    break;
-//                case 0x61:
-//                    cutWire(RXDATA[2],RXDATA[3]);
-//                    break;
-//            }
-//        }else{
-//            
-//            putChar('D');
-//            ///コマンドCRCダメだった時の処理
-//        }
-//        RCIF = 0;
-//    }
-//}
+        }
+        for (int i = 0; i < 10; i++){
+            putChar(RXDATA[i]);
+            NOP();
+        }
+       //TODO add case RXDATA[0]!=t or g
+        UWORD crcResult, crcValue;
+        UBYTE crcResultHigh,crcResultLow,crcValueHigh,crcValueLow;
+        crcResult = crc16(0,RXDATA,8);
+        crcValue =  CRC_check(RXDATA,8);
+        crcResultHigh = crcResult>>8;
+        crcResultLow = crcResult & 0x00FF;
+        crcValueHigh = crcValue>>8;
+        crcValueLow = crcValue & 0x00FF;
+        
+        putChar(crcResultHigh);
+        putChar(crcResultLow);
+        putChar(crcValueHigh);
+        putChar(crcValueLow);
+        
+        if(crcResult == crcValue){
+            putChar('C');
+            switch(RXDATA[1]){
+                case 0x75:
+                    downlinkReceivedCommand(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5]);
+                    break;
+                case 0x63:
+                    putChar('W');
+                    //CwDownLink(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+                    CwDownLinkForTest();  //CW about10seconds
+                    break;
+                case 0x66:
+                    putChar('M');
+                    //downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+                    FmDownLinkForTest();
+                    break;
+                case 0x61:
+                    cutWire(RXDATA[2],RXDATA[3]);
+                    break;
+            }
+        }else{
+            
+            putChar('D');
+            ///コマンドCRCダメだった時の処理
+        }
+        RCIF = 0;
+    }
+}
 
 
 //void interrupt InterReceiver(void){
@@ -228,10 +230,10 @@ void main(void) {
 //        Morse_V();
 //        __delay_ms(2000);
 //      
-        UBYTE getmoji;
-        getmoji = getChar();
-        putChar('G');
-        putChar(getmoji);
+//        UBYTE getmoji;
+//        getmoji = getChar();
+//        putChar('G');
+//        putChar(getmoji);
         
         putChar('m');
         __delay_ms(1000);

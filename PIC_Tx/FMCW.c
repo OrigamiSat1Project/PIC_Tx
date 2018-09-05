@@ -137,20 +137,58 @@ void downlinkFMSignal(UBYTE EEPROMAndB0Select, UBYTE addressHigh, UBYTE addressL
 }
 
 void CwDownLinkForTest(void){
-    for ( UBYTE i=1; i<6; i++ ){
-        FMPTT = 0;
+        //morse_V 25kai
         Morse_V();
-    }
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        __delay_ms(2000);
 }
 
 void FmDownLinkForTest(void){
-    for ( UBYTE i=1; i<6; i++ ){
-        CWKEY = 0;
-        __delay_ms(2000);
-        FMPTT = 1;
-        __delay_ms(2000);
-        FMPTT = 0;
-    }
+    //FMPTT 5kai
+    CWKEY = 0;
+    __delay_ms(2000);
+    FMPTT = 1;
+    __delay_ms(2000);
+    FMPTT = 0;
+    __delay_ms(2000);
+    FMPTT = 1;
+    __delay_ms(2000);
+    FMPTT = 0;
+    __delay_ms(2000);
+    FMPTT = 1;
+    __delay_ms(2000);
+    FMPTT = 0;
+    __delay_ms(2000);
+    FMPTT = 1;
+    __delay_ms(2000);
+    FMPTT = 0;
+    __delay_ms(2000);
+    FMPTT = 1;
+    __delay_ms(2000);
+    FMPTT = 0;
 }
 
 /*
