@@ -209,13 +209,31 @@ void main(void) {
             putch('O');
             __delay_ms(500);
         }*/
-//        putChar('F');
-//        putChar('M');
-//        CWKEY = 0;
-//        __delay_ms(2000);
-//        FMPTT = 1;
-//        __delay_ms(2000);
-//        FMPTT = 0;
+        putChar('F');
+        putChar('M');
+        putChar('1');
+        CWKEY = 0;
+        __delay_ms(2000);
+        FMPTT = 1;
+        __delay_ms(2000);
+        FMPTT = 0;
+        
+        putChar('2');
+        FmDownLinkForTest();
+        
+        putChar('3');
+        FMPTT = 1;
+        __delay_ms(100);//TODO check time
+        UBYTE readData[];
+        UBYTE DataSize = 3;
+        readData[0] = 'V';
+        readData[1] = 'V';
+        readData[2] = 'V';
+        for(int sendCounter = 0; sendCounter < 5; sendCounter++){
+            SendPacket(readData,DataSize);
+            __delay_ms(300);
+        }
+        FMPTT = 0;
         //TODO check AD value
         
         /*---------------------------------*/
@@ -262,27 +280,27 @@ void main(void) {
 //        __delay_ms(2000);
         
 //        //test2 : use function 'sendMorseForTest'
-        int TEST_TEXT[2];
-        TEST_TEXT[0] = 'V';
-        TEST_TEXT[1] = 'V';
-        sendMorse(TEST_TEXT);  //TODO it sends only one character
-        putChar('1');
-        __delay_ms(2000);
-        
-        
-        TEST_TEXT[0] = 'V';
-        TEST_TEXT[1] = 'V';
-        sendMorseForTest(TEST_TEXT[0]);
-        sendMorseForTest(TEST_TEXT[1]);
-        putChar('2');
-        __delay_ms(2000);
-        
-        TEST_TEXT[0] = 0x56;
-        TEST_TEXT[1] = 0x56;
-        sendMorseForTest(TEST_TEXT[0]);
-        sendMorseForTest(TEST_TEXT[1]);
-        putChar('3');
-        __delay_ms(2000);
+//        int TEST_TEXT[2];
+//        TEST_TEXT[0] = 'V';
+//        TEST_TEXT[1] = 'V';
+//        sendMorse(TEST_TEXT);  //TODO it sends only one character
+//        putChar('1');
+//        __delay_ms(2000);
+//        
+//        
+//        TEST_TEXT[0] = 'V';
+//        TEST_TEXT[1] = 'V';
+//        sendMorseForTest(TEST_TEXT[0]);
+//        sendMorseForTest(TEST_TEXT[1]);
+//        putChar('2');
+//        __delay_ms(2000);
+//        
+//        TEST_TEXT[0] = 0x56;
+//        TEST_TEXT[1] = 0x56;
+//        sendMorseForTest(TEST_TEXT[0]);
+//        sendMorseForTest(TEST_TEXT[1]);
+//        putChar('3');
+//        __delay_ms(2000);
         
 //        sendMorseForTest('B');
 //        __delay_ms(1000);

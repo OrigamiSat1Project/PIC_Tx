@@ -191,14 +191,6 @@ void FmDownLinkForTest(void){
     FMPTT = 1;
     __delay_ms(2000);
     FMPTT = 0;
-    __delay_ms(2000);
-    FMPTT = 1;
-    __delay_ms(2000);
-    FMPTT = 0;
-    __delay_ms(2000);
-    FMPTT = 1;
-    __delay_ms(2000);
-    FMPTT = 0;
 }
 
 /*
