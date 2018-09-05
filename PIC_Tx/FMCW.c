@@ -62,6 +62,12 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
     }
     FMPTT = 0;
     
+    //add for getcheck
+//    for(int sendCounter = 0; sendCounter < EEPROM_COMMAND_DATA_SIZE; sendCounter++){
+//        putChar(commandData[sendCounter]);
+//        __delay_ms(300);
+//    }
+//    
     /*-------------------------------------------------*/
     if(commandData[0]=='T'){                //command target = PIC_TX
         //Task target

@@ -209,12 +209,12 @@ void main(void) {
             putch('O');
             __delay_ms(500);
         }*/
-//        putChar('H');
-//        CWKEY = 0;
-//        __delay_ms(2000);
-//        FMPTT = 1;
-//        __delay_ms(2000);
-//        FMPTT = 0;
+        putChar('H');
+        CWKEY = 0;
+        __delay_ms(2000);
+        FMPTT = 1;
+        __delay_ms(2000);
+        FMPTT = 0;
         //TODO check AD value
         
         /*---------------------------------*/
@@ -237,27 +237,27 @@ void main(void) {
         
         putChar('m');
         __delay_ms(1000);
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        Morse_V();
-//        __delay_ms(2000);
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        Morse_V();
+        __delay_ms(2000);
 //        //test2 : use function 'sendMorseForTest'
 //        int TEST_TEXT[2];
 //        TEST_TEXT[0] = '1';
