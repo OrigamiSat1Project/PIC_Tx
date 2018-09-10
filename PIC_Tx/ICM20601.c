@@ -1,13 +1,9 @@
 #include <xc.h>
 #include "Type_define.h"
-//#include "CommonDefine.h"
 #include "ICM20601.h"
-//#include "I2Clib.h"
 #include "EEPROM.h"
 #include "I2C.h"
 #include "time.h"
-//#include "init.h"
-//#include "CAN.h"
 
 const UBYTE ICM_ADDR            = 0x68;
 const UBYTE ICM_DATA_START      = 0x3B;
