@@ -14,6 +14,10 @@
 #include "CW.h"
 #include "pinDefine.h"
 #include "CRC16.h"
+#include "IMU.h"
+#include "adxl345.h"
+#include "ITG3701.h"
+#include "ICM20601.h"
 
 void interrupt InterReceiver(void);
 
@@ -70,108 +74,108 @@ void interrupt InterReceiver(void);
 //}
 
 
-void interrupt InterReceiver(void){
-    putChar('I');
+// void interrupt InterReceiver(void){
+//     putChar('I');
     
-    int commandSize;
-    commandSize = 10;
-    //commandSize = 1;
+//     int commandSize;
+//     commandSize = 10;
+//     //commandSize = 1;
     
-    UBYTE RXDATA[10];//array size = commandSize
-    //UBYTE RXDATA[1];//array size = commandSize
+//     UBYTE RXDATA[10];//array size = commandSize
+//     //UBYTE RXDATA[1];//array size = commandSize
 
-    //    UBYTE RXDATA[COMMAND_SIZE];
-//    volatile static int intr_counter;
+//     //    UBYTE RXDATA[COMMAND_SIZE];
+// //    volatile static int intr_counter;
 
-    if (RCIF == 1) {
-        for (int i = 0; i < 1; i++){
-            RXDATA[i] = getChar();
-//            putChar(RXDATA[i]);
-        }
-        for (int i = 0; i < 1; i++){
-            putChar(RXDATA[i]);
-            NOP();
-        }
-       //TODO add case RXDATA[0]!=t or g
-        UWORD crcResult, crcValue;
-        UBYTE crcResultHigh,crcResultLow,crcValueHigh,crcValueLow;
-        crcResult = crc16(0,RXDATA,8);
-        crcValue =  CRC_check(RXDATA,8);
-        crcResultHigh = crcResult>>8;
-        crcResultLow = crcResult & 0x00FF;
-        crcValueHigh = crcValue>>8;
-        crcValueLow = crcValue & 0x00FF;
+//     if (RCIF == 1) {
+//         for (int i = 0; i < 1; i++){
+//             RXDATA[i] = getChar();
+// //            putChar(RXDATA[i]);
+//         }
+//         for (int i = 0; i < 1; i++){
+//             putChar(RXDATA[i]);
+//             NOP();
+//         }
+//        //TODO add case RXDATA[0]!=t or g
+//         UWORD crcResult, crcValue;
+//         UBYTE crcResultHigh,crcResultLow,crcValueHigh,crcValueLow;
+//         crcResult = crc16(0,RXDATA,8);
+//         crcValue =  CRC_check(RXDATA,8);
+//         crcResultHigh = crcResult>>8;
+//         crcResultLow = crcResult & 0x00FF;
+//         crcValueHigh = crcValue>>8;
+//         crcValueLow = crcValue & 0x00FF;
         
-        putChar(crcResultHigh);
-        putChar(crcResultLow);
-        putChar(crcValueHigh);
-        putChar(crcValueLow);
+//         putChar(crcResultHigh);
+//         putChar(crcResultLow);
+//         putChar(crcValueHigh);
+//         putChar(crcValueLow);
         
-        if(crcResult == crcValue){
-            putChar('C');
+//         if(crcResult == crcValue){
+//             putChar('C');
             
-            if (RXDATA[0]!='t' && RXDATA[0]!='g' ){
-            } else {
-                switch(RXDATA[1]){
-                    case 0x75:  //'u'
-                        putChar('R');                        
-                        downlinkReceivedCommand(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5]);
-                        break;
-                    case 0x63: //'c'
-    //                    CwDownLink(RXDATA);
-                        putChar('C');
-                        putChar('W');
-                        CWKEY = 1;
-                        __delay_ms(50);
-                        CWKEY = 0;
-                        __delay_ms(50);
+//             if (RXDATA[0]!='t' && RXDATA[0]!='g' ){
+//             } else {
+//                 switch(RXDATA[1]){
+//                     case 0x75:  //'u'
+//                         putChar('R');                        
+//                         downlinkReceivedCommand(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5]);
+//                         break;
+//                     case 0x63: //'c'
+//     //                    CwDownLink(RXDATA);
+//                         putChar('C');
+//                         putChar('W');
+//                         CWKEY = 1;
+//                         __delay_ms(50);
+//                         CWKEY = 0;
+//                         __delay_ms(50);
 
-                        CWKEY = 1;
-                        __delay_ms(50);
-                        CWKEY = 0;
-                        __delay_ms(50);
+//                         CWKEY = 1;
+//                         __delay_ms(50);
+//                         CWKEY = 0;
+//                         __delay_ms(50);
 
-                        CWKEY = 1;
-                        __delay_ms(50);
-                        CWKEY = 0;
-                        __delay_ms(50);
+//                         CWKEY = 1;
+//                         __delay_ms(50);
+//                         CWKEY = 0;
+//                         __delay_ms(50);
 
-                        CWKEY = 1;
-                        __delay_ms(150);
-                        CWKEY = 0;
-                        __delay_ms(50);
-                        putChar('C');
-                        putChar('W');
+//                         CWKEY = 1;
+//                         __delay_ms(150);
+//                         CWKEY = 0;
+//                         __delay_ms(50);
+//                         putChar('C');
+//                         putChar('W');
 
-                        break;
-                    case 0x66:  //'f'
-                        putChar('F');
-                        putChar('M');
-                        __delay_ms(2000);
-                        FMPTT = 1;
-                        __delay_ms(2000);
-                        FMPTT = 0;
-                        __delay_ms(2000);
-                        FMPTT = 1;
-                        __delay_ms(2000);
-                        FMPTT = 0;
-                        putChar('F');
-                        putChar('M');
-                        downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
-                        break;
-                    case 0x61:  //'a'
-                        cutWire(RXDATA[2],RXDATA[3]);
-                        break;
-                }
-            }
-        }else{
+//                         break;
+//                     case 0x66:  //'f'
+//                         putChar('F');
+//                         putChar('M');
+//                         __delay_ms(2000);
+//                         FMPTT = 1;
+//                         __delay_ms(2000);
+//                         FMPTT = 0;
+//                         __delay_ms(2000);
+//                         FMPTT = 1;
+//                         __delay_ms(2000);
+//                         FMPTT = 0;
+//                         putChar('F');
+//                         putChar('M');
+//                         downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
+//                         break;
+//                     case 0x61:  //'a'
+//                         cutWire(RXDATA[2],RXDATA[3]);
+//                         break;
+//                 }
+//             }
+//         }else{
             
-            putChar('D');
-            //コマンドCRCダメだった時の処理
-            //add error messege
-        }
-        RCIF = 0;
-    }
+//             putChar('D');
+//             //?ｿｽR?ｿｽ}?ｿｽ?ｿｽ?ｿｽhCRC?ｿｽ_?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽﾌ擾ｿｽ?ｿｽ?ｿｽ
+//             //add error messege
+//         }
+//         RCIF = 0;
+//     }
 //    if ( PIR1bits.TMR1IF == 1 ) {
 //        TMR1 = TIMER_INTERVAL;  // ?????????
 // 
@@ -190,79 +194,84 @@ void interrupt InterReceiver(void){
 //    }   
 // 
 //    return;
-}
+//}
 
 
 
 ////test for interrupt
-//void interrupt interReceiverTest( void ){
-//    UBYTE RXDATA;
-//    if (RCIF == 1) {
-//        RXDATA = getChar();
-//        //RXDATA++;
-//        //putChar('G');
-//        putChar(RXDATA);
-//        
-//        switch (RXDATA){
-//        case 'c':
-//            putChar('C');
-//            putChar('W');
-//            
-//            while(1){
-//            CWKEY = 1;
-//            __delay_ms(50);
-//            CWKEY = 0;
-//            __delay_ms(50);
-//
-//            CWKEY = 1;
-//            __delay_ms(50);
-//            CWKEY = 0;
-//            __delay_ms(50);
-//
-//            CWKEY = 1;
-//            __delay_ms(50);
-//            CWKEY = 0;
-//            __delay_ms(50);
-//
-//            CWKEY = 1;
-//            __delay_ms(150);
-//            CWKEY = 0;
-//            __delay_ms(50);
-//            }
-//
-//            putChar('C');
-//            putChar('W');
-//            putChar('2');
-//            break;
-//        case 'f':
-//            putChar('F');
-//            putChar('M');
-//            CWKEY = 0;
-////            __delay_ms(2000);
-//            FMPTT = 1;
-//            UBYTE EEPROMTestData[5];
-//            EEPROMTestData[0] = 'H';
-//            EEPROMTestData[1] = 'e';
-//            EEPROMTestData[2] = 'l';
-//            EEPROMTestData[3] = 'l';
-//            EEPROMTestData[4] = 'o';
-//            for (UINT i = 0; i< 10; i++){
-//                SendPacket(EEPROMTestData);
-//                __delay_ms(300);
-//            }
-//            
-//            
-//            
-//            FMPTT = 0;
-//            putChar('F');
-//            putChar('M');  
-//            putChar('2');      
-//
-//            break;
-//        }
-//        RCIF = 0;
-//    }
-//}
+void interrupt interReceiverTest( void ){
+   UBYTE RXDATA;
+   UBYTE *ADXLdata;
+   if (RCIF == 1) {
+       RXDATA = getChar();
+       //RXDATA++;
+       //putChar('G');
+       putChar(RXDATA);
+       
+       switch (RXDATA){
+            case 'a':
+                readADXL(ADXLdata,0);
+                delay_us(20);
+                for(int i=0;i<6;i++) putChar(ADXLdata[i]);
+            case 'c':
+                putChar('C');
+                putChar('W');
+                
+                while(1){
+                CWKEY = 1;
+                __delay_ms(50);
+                CWKEY = 0;
+                __delay_ms(50);
+
+                CWKEY = 1;
+                __delay_ms(50);
+                CWKEY = 0;
+                __delay_ms(50);
+
+                CWKEY = 1;
+                __delay_ms(50);
+                CWKEY = 0;
+                __delay_ms(50);
+
+                CWKEY = 1;
+                __delay_ms(150);
+                CWKEY = 0;
+                __delay_ms(50);
+                }
+
+                putChar('C');
+                putChar('W');
+                putChar('2');
+                break;
+            case 'f':
+                putChar('F');
+                putChar('M');
+                CWKEY = 0;
+        //            __delay_ms(2000);
+                FMPTT = 1;
+                UBYTE EEPROMTestData[5];
+                EEPROMTestData[0] = 'H';
+                EEPROMTestData[1] = 'e';
+                EEPROMTestData[2] = 'l';
+                EEPROMTestData[3] = 'l';
+                EEPROMTestData[4] = 'o';
+                for (UINT i = 0; i< 10; i++){
+                    SendPacket(EEPROMTestData);
+                    __delay_ms(300);
+                }
+                
+                
+                
+                FMPTT = 0;
+                putChar('F');
+                putChar('M');  
+                putChar('2');      
+
+                break;
+       }
+       RCIF = 0;
+   }
+}
     
     
 //void interrupt timer(void){
@@ -308,7 +317,7 @@ void interrupt InterReceiver(void){
 
 void main(void) {
     __delay_ms(1000);
-    /*初期化*/
+    /*?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ*/
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);

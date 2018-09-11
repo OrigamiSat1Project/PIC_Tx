@@ -15,16 +15,19 @@ void readIMUsequence_ICM(UBYTE ee_p, UBYTE EEPROMH, UBYTE EEPROML, int measuring
 //    UBYTE delay_time = ee_p && 0x3F;
     UBYTE selEEP = (ee_p && 0xC0) >> 6;
     
-    sampling_counter[0] = 0;
-    sampling_counter[1] = 0;
-    while(constant_timer_counter <= measuring_time){
-        if(sampling_counter[0] == 0xFF){
-            sampling_counter[0] = 0x00;
-            sampling_counter[1] += 0x01;
-        }else sampling_counter[0] += 0x01;
+    sampling_counter = 0;
+    sampling_counterL = 0;
+    sampling_counterH = 0;
+    while(sampling_counter <= measuring_time){
+        if(sampling_counterL == 0xFF){
+            sampling_counterL = 0x00;
+            sampling_counterH += 0x01;
+        }else sampling_counterL += 0x01;
+        
+        sampling_counter = sampling_counterH << 8 + sampling_counterL;
 
-        IMUdata[0] = sampling_counter[1];
-        IMUdata[1] = sampling_counter[0];
+        IMUdata[0] = sampling_counterH;
+        IMUdata[1] = sampling_counterL;
         readICM(IMUdata,2);
         __delay_us(20);
         
@@ -47,7 +50,6 @@ void readIMUsequence_ICM(UBYTE ee_p, UBYTE EEPROMH, UBYTE EEPROML, int measuring
             }
         }
         
-    }
 
     return;
 }
