@@ -39,35 +39,6 @@ void interrupt InterReceiver(void);
 #pragma config WRT      = OFF           // Flash Program Memory Self Write Enable bits (Write protection off)
 
 
-//test_interrupt
-//pc-->pic-->pc 
-//void interrupt interReceiverTest( void ){
-//    UBYTE RXDATA;
-//    if (RCIF == 1) {
-//        RXDATA = getChar();
-//        RXDATA++;
-//        putChar('S');
-//        RCIF = 0;
-//    }
-//}
-
-/**/
-//test_get EEPROM address
-//pc-->pic-->pc 
-//void interrupt InterReceiver( void ){
-//    UBYTE RXDATA[3];
-//    UINT COMMAND_SIZE;
-//    COMMAND_SIZE =3;
-//    if (RCIF == 1) {
-//        for(UINT i=0; i<COMMAND_SIZE; i++){
-//            RXDATA[i] =getChar();
-//            putChar(RXDATA[i]);
-//            NOP();
-//        }
-//        putChar('s');
-//        RCIF = 0;
-//    }
-//}
 
 //
 //void interrupt InterReceiver(void){
@@ -162,115 +133,28 @@ void interrupt InterReceiver(void);
 ////        }else{
 ////            
 ////            putChar('D');
-////            ///ƒRƒ}ƒ“ƒhCRCƒ_ƒ‚¾‚Á‚½Žž‚Ìˆ—
+////            ///ï¿½Rï¿½}ï¿½ï¿½ï¿½hCRCï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 ////        }
 //        RCIF = 0;
 ////    }
 //}
 
-void interrupt interReceiverTest( void ){
-    UBYTE RXDATA;
-    if (RCIF == 1) {
-        RXDATA = getChar();
-        //RXDATA++;
-        //putChar('G');
-        putChar(RXDATA);
-        
-        switch (RXDATA){
-        case 'c':
-            putChar('C');
-            putChar('W');
-            
-            while(1){
-            CWKEY = 1;
-            __delay_ms(50);
-            CWKEY = 0;
-            __delay_ms(50);
-
-            CWKEY = 1;
-            __delay_ms(50);
-            CWKEY = 0;
-            __delay_ms(50);
-
-            CWKEY = 1;
-            __delay_ms(50);
-            CWKEY = 0;
-            __delay_ms(50);
-
-            CWKEY = 1;
-            __delay_ms(150);
-            CWKEY = 0;
-            __delay_ms(50);
-            }
-               
-                putChar('C');
-                putChar('W');
-                putChar('2');
-            break;
-        case 'f':
-            putChar('F');
-            putChar('M');
-            CWKEY = 0;
-            __delay_ms(2000);
-            FMPTT = 1;
-            __delay_ms(2000);
-            FMPTT = 0;
-            __delay_ms(2000);
-            FMPTT = 1;
-            __delay_ms(2000);
-            FMPTT = 0;
-            __delay_ms(2000);
-            FMPTT = 1;
-            __delay_ms(2000);
-            FMPTT = 0;
-            __delay_ms(2000);;
-            FMPTT = 1;
-            __delay_ms(2000);
-            FMPTT = 0;
-            __delay_ms(2000);
-            FMPTT = 1;
-            __delay_ms(2000);
-            FMPTT = 0;
-            putChar('F');
-            putChar('M');  
-            putChar('2');      
-
-            break;
-        }
-        RCIF = 0;
-    }
-}
-    
     
 
 void main(void) {
     __delay_ms(1000);
-    /*‰Šú‰»*/
+    /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
 //    Init_WDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
-    putChar('S');
     
+    UBYTE DATAfromNM = 0x00;
     
     while(1){
-        /*
-        while(1){
-            //getbit();
-            //debug_ledy();   //6us
-            putch('O');
-            __delay_ms(500);
-        }*/
-        putChar('m');
-       __delay_ms(10000);
-//        FMPTT = 1;
-//        __delay_ms(2000);
-//        FMPTT = 0;
-        //TODO check AD value
-        //TODO send CW command
-        //TODO send pulse to WDT
-        
+        DATAfromNM = getChar();
+        putChar(DATAfromNM);
     }
-    //return;
+    return;
 }
