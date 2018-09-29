@@ -14,6 +14,7 @@
 #include "CW.h"
 #include "pinDefine.h"
 #include "CRC16.h"
+#include "ADC.h"
 
 void interrupt InterReceiver(void);
 
@@ -196,25 +197,36 @@ void interrupt InterReceiver(void);
 
 //test for interrupt
 void interrupt interReceiverTest( void ){
-   UBYTE RXDATA;
+   UBYTE RXDATA[4];
    if (RCIF == 1) {
-       RXDATA = getChar();
+       //RXDATA = getChar();
+       for (int i = 0; i <4 ; i++){
+            RXDATA[i] = getChar();
+//            putChar(RXDATA[i]);
+        }
+       for (int i = 0; i < 4; i++){
+            putChar(RXDATA[i]);
+            NOP();
+        }
        //RXDATA++;
        //putChar('G');
-       putChar(RXDATA);
+       //putChar(RXDATA);
        
-       switch (RXDATA){
+       switch (RXDATA[0]){
             case 'h':
                 putChar('H');
                 HEATER = 1;
                 for(int i=0;i<300;i++) delay_ms(1000);
                 HEATER = 0;
                 break;
-           case 'i':
-               HEATER = 1;
-               for(int i=0;i<60;i++) delay_ms(1000);
-               HEATER = 0;
-               break;
+            case 'i':
+                HEATER = 1;
+                for(int i=0;i<60;i++) delay_ms(1000);
+                HEATER = 0;
+                break;
+            case 'a': 
+                measure1ChanelADC(RXDATA[1], RXDATA[2], RXDATA[3]);
+                break;
             case 'c':
                 putChar('C');
                 putChar('W');

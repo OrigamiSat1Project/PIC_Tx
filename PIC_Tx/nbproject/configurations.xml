@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="62">
+<configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -11,12 +11,15 @@
       <itemPath>I2C.h</itemPath>
       <itemPath>EEPROM.h</itemPath>
       <itemPath>CRC16.h</itemPath>
-      <itemPath>CW.h</itemPath>
       <itemPath>FMCW.h</itemPath>
       <itemPath>MPU.h</itemPath>
       <itemPath>WDT.h</itemPath>
-      <itemPath>EPS.h</itemPath>
       <itemPath>pinDefine.h</itemPath>
+      <itemPath>ADC.h</itemPath>
+      <itemPath>ICM20601.h</itemPath>
+      <itemPath>IMU.h</itemPath>
+      <itemPath>ITG3701.h</itemPath>
+      <itemPath>adxl345.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -34,6 +37,11 @@
       <itemPath>FMCW.c</itemPath>
       <itemPath>MPU.c</itemPath>
       <itemPath>WDT.c</itemPath>
+      <itemPath>ADC.c</itemPath>
+      <itemPath>ICM20601.c</itemPath>
+      <itemPath>IMU.c</itemPath>
+      <itemPath>ITG3701.c</itemPath>
+      <itemPath>adxl345.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -54,9 +62,12 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.37</languageToolchainVersion>
+        <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
+      <packs>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.7"/>
+      </packs>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -69,6 +80,8 @@
           <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
+        <subordinates>
+        </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
