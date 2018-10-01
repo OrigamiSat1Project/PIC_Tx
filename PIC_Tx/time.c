@@ -33,3 +33,24 @@ void delay_s(UWORD sec)
 		sec--;
 	}	
 }
+
+UWORD time2ByteBinToDecimal(UBYTE timeHigh, UBYTE timeLow){
+    int timeBin;
+    UWORD timeDec = 0;
+    
+    timeBin = timeHigh<<8 | timeLow;
+    
+    int count = 1; // Initializing count value to 1, i.e 2^0 
+    
+    while (timeBin) 
+    { 
+        int last_digit = timeBin % 10; 
+        timeBin = timeBin/10; 
+          
+        timeDec += last_digit*count; 
+          
+        count = count*2; 
+    } 
+    
+    return timeDec;
+}

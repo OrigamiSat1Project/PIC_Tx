@@ -6,7 +6,7 @@
 #include "I2C.h"
 #include "CRC16.h"
 #include "encode_AX25.h"
-
+#include "MPU.h"
 #include "time.h"
 
 
@@ -84,7 +84,7 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
                 commandSwitchPowerSupply(commandData[4], commandData[5], commandData[6], commandData[7]);
                 break;
 //                commandSwitchFMCW(commandData[4], commandData[5], commandData[6], commandData[7], commandData[8], commandData[9]);
-                break;
+//                break;
             case 'i':/*I2C*/
                 //commandSwitchI2C(commandData[4], commandData[5], commandData[6], commandData[7]);
                 break;
@@ -103,6 +103,9 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
             case 'f':/*downlink FM Signal*/
                 downlinkFMSignal(commandData[4],commandData[5],commandData[6],commandData[7],commandData[8]);
                 break;
+            case'a':/*cut time */
+                cutWire(commandData[4],commandData[5]);
+                break;     
             default:
                 //TODO: error message
                 break;

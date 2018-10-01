@@ -56,7 +56,7 @@ void Init_MPU(void)
 UINT invertStateWithTIme(UINT pinState,UBYTE timeHigh, UBYTE timeLow){
     if (timeHigh != 0x00 && timeLow != 0x00){
         UWORD operationTime;
-        operationTime = (UWORD)timeHigh * 0x100 + timeLow;
+        operationTime = (UWORD)timeHigh * 0x100 + timeLow; //TODO check time function
         delay_ms(operationTime);
         pinState = 1 - pinState;
     }else{
@@ -66,7 +66,8 @@ UINT invertStateWithTIme(UINT pinState,UBYTE timeHigh, UBYTE timeLow){
 
 void cutWire(UBYTE timeHigh, UBYTE timeLow){
     UWORD cutTime;
-    cutTime = (UWORD)timeHigh * 0x100 + timeLow;
+    //cutTime = (UWORD)timeHigh * 0x100 + timeLow;
+    cutTime = time2ByteBinToDecimal(UBYTE timeHigh, UBYTE timeLow);//TODO check time function
     WIRE_CUTTER = 1;
     delay_ms(cutTime);
     WIRE_CUTTER = 0;

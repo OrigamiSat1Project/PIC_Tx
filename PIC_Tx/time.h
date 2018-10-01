@@ -25,7 +25,7 @@
 void delay_ms(UWORD);
 void delay_us(UWORD);
 void delay_s(UWORD);
-
+UWORD time2BytesBinToDecimal(UBYTE, UBYTE);
 
 #endif	/* TIME_H */
 
