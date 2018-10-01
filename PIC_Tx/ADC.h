@@ -8,8 +8,11 @@
 #ifndef ADC_H
 #define	ADC_H
 
+#define CHANEL_SIZE 4
+
 void initADC(void);
-void ADC(void);
+UWORD adc_read();
+void measureAllChanelADC(void);
+void measure1ChanelADC(UBYTE, UBYTE, UBYTE);
 
 #endif	/* ADC_H */
-
