@@ -15,12 +15,14 @@
 #define I2Cnull 0xFF
 
 void InitI2CMaster(const UDWORD c);
-void I2CMasterWait(void);
-void I2CMasterStart(void);
-void I2CMasterRepeatedStart(void);
-void I2CMasterStop(void);
-void I2CMasterWrite(unsigned d);
-UBYTE I2CMasterRead(UBYTE a);
+void interruptI2C(void);
+void I2CMasterWait(char);                                               
+int I2CMasterStart(unsigned char, unsigned char);                                              
+int I2CMasterRepeatedStart(unsigned char, unsigned char);                                   
+int I2CMasterStop(void);                                               
+int I2CMasterWrite(UBYTE);                                        
+int I2CMasterRead(UBYTE);  
+
 void WriteToEEPROM(UBYTE,UBYTE,UBYTE,UBYTE *);
 void WriteOneByteToEEPROM(UBYTE,UBYTE,UBYTE,UBYTE);
 void WriteCheckByteToEEPROMs(UBYTE,UBYTE,UBYTE,UBYTE);

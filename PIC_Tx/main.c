@@ -200,6 +200,13 @@ void interrupt InterReceiver(void);
 
 ////test for interrupt
 void interrupt interReceiverTest( void ){
+    if(INTCONbits.TMR0IF){
+        INTCONbits.TMR0IF = 0;
+        TMR0 = 0x00;
+    }
+    putChar(0xAA);
+    interruptI2C();
+    
    UBYTE RXDATA;
    UBYTE *ADXLdata;
    if (RCIF == 1) {
@@ -209,10 +216,13 @@ void interrupt interReceiverTest( void ){
        putChar(RXDATA);
        
        switch (RXDATA){
-            case 'a':
-                readADXL(ADXLdata,0);
-                delay_us(20);
-                for(int i=0;i<6;i++) putChar(ADXLdata[i]);
+//            case 'a':
+//                readADXL(ADXLdata,0);
+//                delay_us(20);
+//                for(int i=0;i<6;i++) putChar(ADXLdata[i]);
+           case 'b':
+               putChar(0xBB);
+               break;
             case 'c':
                 putChar('C');
                 putChar('W');
@@ -321,6 +331,11 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
+    
+    INTCON = 0b11100000;    //GIE = 1, PEIE = 1, TMR0IE = 1
+    OPTION_REG = 0b01000111;    //prescaler is assigned, TMR0 rate 1:256
+    TMR0 = 0x00;    //Initializing Timer0 Module Register 
+    
 //    Init_WDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     putChar('S');
