@@ -128,3 +128,17 @@ int I2CMasterRead(UBYTE address){
  *	FIXME    :   not yet
  *	XXX      :   not yet
  */
+void WriteOneByteToEEPROM(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE addressLow,UBYTE data){
+    UBYTE address;
+    int ans;
+    address= addressEEPROM << 1;
+    //UINT Datasize = sizeof(data);
+    ans = I2CMasterStart(addressEEPROM,0);               //Start condition
+    if(ans == 0){
+        I2CMasterWrite(addressHigh);    //Adress High Byte
+        I2CMasterWrite(addressLow);     //Adress Low Byte
+        I2CMasterWrite(data);           //Data
+    }else ans = -1;
+    I2CMasterStop();                //Stop condition
+    __delay_ms(200);
+}
