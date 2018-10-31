@@ -16,8 +16,10 @@
 #define HIGH 1
 #define LOW  0
 
-void commandWDT(UBYTE, UBYTE, UBYTE);
+void commandWDT(UBYTE);
 void Init_WDT(void);
+void resetWDT();
+void sendPulseWDT(void);
 //void interrupt intr(void);
 
 #ifdef	__cplusplus

@@ -92,7 +92,7 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
 //                commandSwitchUART(commandData[4], commandData[5], commandData[6], commandData[7], commandData[8], commandData[9]);
                 break;
             case 'w':/*WDT (watch dog timer)*/
-                commandWDT(commandData[4], commandData[5], commandData[6]);
+                commandWDT(commandData[4]);
                 break;
             case 'h':/*update HK data (BAT_POS V) (HK = house keeping)*/
                 //TODO: write function directly here or in MPU.c

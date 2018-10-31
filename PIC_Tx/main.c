@@ -312,7 +312,9 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-//    Init_WDT();
+    Init_WDT();
+    Init_SERIAL();
+    sendPulseWDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     putChar('S');
     
