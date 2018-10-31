@@ -312,11 +312,12 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-    Init_WDT();
+    putChar(0x12);
+    putChar(0x34);
+//    Init_WDT();
     Init_SERIAL();
     sendPulseWDT();
-    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
-    putChar('S');
+//    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     
     
     while(1){
@@ -327,7 +328,13 @@ void main(void) {
             putch('O');
             __delay_ms(500);
         }*/
-        sendPulseWDT();
+        
+        //power on
+//        WDT_POWER = LOW;
+        //power off
+//        WDT_POWER = HIGH;
+        
+//        sendPulseWDT();
         putChar('m');
        __delay_ms(2000);
 //        FMPTT = 1;
