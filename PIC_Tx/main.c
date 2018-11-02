@@ -74,8 +74,6 @@ void interrupt InterReceiver(void);
 
 
 void interrupt InterReceiver(void){
-    putChar('I');
-    putChar('I');
     
 //    UBYTE commandSize;
 //    commandSize = 10;
@@ -89,6 +87,9 @@ void interrupt InterReceiver(void){
 //         for (UBYTE i = 0; i < commandSize; i++){
 //             RXDATA[i] = getChar();
 //         }
+        putChar('I');
+        putChar('I');
+        
         UBYTE get_char_state = 0;
         while(get_char_state < commandSize){
             RXDATA[0] = getChar();
@@ -143,15 +144,14 @@ void interrupt InterReceiver(void){
 
         /*---read CRC check from EEPROM---*/
         UBYTE CRC_check_result;
-        //FIXME:for debug
-        CRC_check_result = 0b1000000;
-        WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
+//        CRC_check_result = 0b1000000; //for debug
+//        WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result); //for debug
         CRC_check_result = ReadEEPROM(EEPROM_address, crcResult_addressHigh, crcResult_addressLow);
         
         if(crcResult != crcValue){  //crc error
             
             /*---write CRC error result (6bit 0) ---*/
-            CRC_check_result = CRC_check_result & 0b1011111;
+            CRC_check_result = CRC_check_result & 0b10111111;
             WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
             
             putChar(0xa1);
@@ -367,7 +367,8 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-    Init_WDT();
+//    Init_WDT();
+    
 //    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC
 //    delay_s(CW_START_WAIT_TIME);  //wait for 200sec --> start CW downlink
 
