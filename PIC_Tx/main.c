@@ -367,14 +367,14 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-    Init_WDT();
+//    Init_WDT();
 //    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC
 //    delay_s(CW_START_WAIT_TIME);  //wait for 200sec --> start CW downlink
 
-    putChar('S');
-    putChar('S');
-    putChar('S');
-    putChar('y');
+//    putChar('S');
+//    putChar('S');
+//    putChar('S');
+//    putChar('y');
     
     //FIXME:write melting status for debug
 //    UBYTE main_test_melting_status = 0b00000011;
@@ -391,28 +391,100 @@ void main(void) {
 //    putChar(main_melting_status);
 //    putChar(sub_melting_status);
     
+    UBYTE DATA[2];
+    //Sattellite Mode
+    WriteOneByteToEEPROM(EEPROM_address,satelliteMode_addressHigh,satelliteMode_addressLow,0x5A);
+    //battery Temperature
+    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH1_addressHigh,adcValue_CH1_addressLow,0x12);
+    //latest execution command ID(RX)
+    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_RXCOBCLastCommandID,LowAddress_for_RXCOBCLastCommandID,0x34);
+    //command error status(RX)
+    WriteOneByteToEEPROM(EEPROM_address,RXCOBC_CommandErrorStatus_addressHigh,RXCOBC_CommandErrorStatus_addressLow,0x56);
+//    //latest execution command ID(TX)
+    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_TXCOBCLastCommandID,LowAddress_for_TXCOBCLastCommandID,0x78);
+//    //command error status(TX)
+    WriteOneByteToEEPROM(EEPROM_address,TXCOBC_CommandErrorStatus_addressHigh,TXCOBC_CommandErrorStatus_addressLow,0x9A);
+//    //battery Voltage (CIB)
+    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageCIB_addressHigh,BatteryVoltageCIB_addressLow,0xBC);
+    
+//    //5VBus Voltage 
+//    DATA[0] = 0xF1; DATA[1] = 0xF2;  
+//    WriteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,*DATA);
+//    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,0xDE);
+//    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,0x02,0xEF);
+//    
+////    //3V3Bus Voltage 
+//    DATA[0] = 0x01; DATA[1] = 0x23;
+//    WriteToEEPROM(EEPROM_address,adcValue_CH3_addressHigh,adcValue_CH3_addressLow,*DATA);
+////    //battery Voltage (OBC)
+//    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageOBC_addressHigh,BatteryVoltageOBC_addressLow,0x45);
+////    //latest execution command ID (OBC)
+//    WriteOneByteToEEPROM(EEPROM_address,LatestExcutionCommandID_addressHigh,LatestExcutionCommandID_addressLow,0x67);
+////    //command error status(OBC)
+//    WriteOneByteToEEPROM(EEPROM_address,OBC_CommandErrorStatus_addressHigh,OBC_CommandErrorStatus_addressLow,0x89);
+////    //Battery Current
+//    DATA[0] = 0xAB; DATA[1] = 0xCD;
+//    WriteToEEPROM(EEPROM_address,BatteryCurrent_addressHigh,BatteryCurrent_addressLow,*DATA);
+////    //EPS switch status
+//    DATA[0] = 0xEF; DATA[1] = 0xAA;
+//    WriteToEEPROM(EEPROM_address,EpsSwitchStatus_addressHigh,EpsSwitchStatus_addressLow,*DATA);
+////    //TX temperature
+//    WriteOneByteToEEPROM(EEPROM_address,TxTemperature_addressHigh,TxTemperature_addressLow,0xBB);
+////    //RX temperature
+//    WriteOneByteToEEPROM(EEPROM_address,RxTemperature_addressHigh,RxTemperature_addressLow,0xCC);
+    
+    //FR2
+//    WriteOneByteToEEPROM(EEPROM_address,FreeData1Highaddress_addressHigh,FreeData1Highaddress_addressLow,0x86);
+//    WriteOneByteToEEPROM(EEPROM_address,FreeData1Lowaddress_addressHigh,FreeData1Lowaddress_addressLow,0x00);
+//    WriteOneByteToEEPROM(EEPROM_address,0x86,0x00,0x11);
+//    WriteOneByteToEEPROM(EEPROM_address,FreeData2Highaddress_addressHigh,FreeData2Highaddress_addressLow,0x87);
+//    WriteOneByteToEEPROM(EEPROM_address,FreeData2Lowaddress_addressHigh,FreeData2Lowaddress_addressLow,0x00);
+//    WriteOneByteToEEPROM(EEPROM_address,0x87,0x00,0x22);
+    
     while(1){
-        
+        ///////////////////////////////////////////////////////////////////////////////////////////
+//        CWKEY = 1;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//
+//     CWKEY = 1;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//
+//     CWKEY = 1;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//
+//     CWKEY = 1;
+//     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
+//     
+//      __delay_us(LONG_DELAYTIMES_FOR_MORSE); 
+        ////////////////////////////////////////////////////////////////////////////////////
         //FIXME
-        for(UBYTE i=0; i<30; i++){
-        led_yellow = high;
-        __delay_ms(1000);
-        led_yellow = low;
-        __delay_ms(1000);
-        }
-        
-        putChar('m');
-        putChar('X');
-        __delay_ms(1000);
-
-        //TODO send pulse to WDT
-        
- 
-        measureDcDcTemperature();
-        if(OBC_STATUS == low){          
-            measureChannel2();//read 5V Bus
-        }else{     
-    }         
+//        for(UBYTE i=0; i<30; i++){
+//        led_yellow = high;
+//        __delay_ms(1000);
+//        led_yellow = low;
+//        __delay_ms(1000);
+//        }
+//        
+//        putChar('m');
+//        putChar('X');
+//        __delay_ms(1000);
+//
+//        //TODO send pulse to WDT
+//        
+// 
+//        measureDcDcTemperature();
+//        if(OBC_STATUS == low){          
+//            measureChannel2();//read 5V Bus
+//        }else{     
+//    }         
         //TODO debug send HK 
         HKDownlink();
         
