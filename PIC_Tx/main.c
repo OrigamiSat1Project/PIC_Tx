@@ -364,19 +364,20 @@ void interrupt InterReceiver(void){
 void main(void) {
     
     __delay_ms(1000);
-    Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-//    Init_WDT();
-    
-//    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC
-//    delay_s(CW_START_WAIT_TIME);  //wait for 200sec --> start CW downlink
-
-    putChar('S');
-    putChar('S');
+    Init_WDT();
+    Init_SERIAL();
+    sendPulseWDT();
+    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     putChar('S');
     putChar('y');
+
+
+//    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC
+//    delay_s(CW_START_WAIT_TIME);  //wait for 200sec --> start CW downlink
     
+
     //FIXME:write melting status for debug
 //    UBYTE main_test_melting_status = 0b00000011;
 //    UBYTE sub_test_melting_status = 0b01111111;

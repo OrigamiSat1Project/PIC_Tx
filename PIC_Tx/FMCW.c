@@ -9,6 +9,7 @@
 #include "encode_AX25.h"
 #include "MPU.h"
 #include "Type_define.h"
+#include "WDT.h"
 #include "time.h"
 #include "OkError.h"
 
