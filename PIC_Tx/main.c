@@ -391,55 +391,65 @@ void main(void) {
 //    putChar(main_melting_status);
 //    putChar(sub_melting_status);
     
+    
     UBYTE DATA[2];
     //Sattellite Mode
     WriteOneByteToEEPROM(EEPROM_address,satelliteMode_addressHigh,satelliteMode_addressLow,0x5A);
     //battery Temperature
-    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH1_addressHigh,adcValue_CH1_addressLow,0x12);
+    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH1_addressHigh,adcValue_CH1_addressLow,0x11);
     //latest execution command ID(RX)
-    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_RXCOBCLastCommandID,LowAddress_for_RXCOBCLastCommandID,0x34);
+    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_RXCOBCLastCommandID,LowAddress_for_RXCOBCLastCommandID,0x22);
     //command error status(RX)
-    WriteOneByteToEEPROM(EEPROM_address,RXCOBC_CommandErrorStatus_addressHigh,RXCOBC_CommandErrorStatus_addressLow,0x56);
+    WriteOneByteToEEPROM(EEPROM_address,RXCOBC_CommandErrorStatus_addressHigh,RXCOBC_CommandErrorStatus_addressLow,0x33);
 //    //latest execution command ID(TX)
-    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_TXCOBCLastCommandID,LowAddress_for_TXCOBCLastCommandID,0x78);
+    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_TXCOBCLastCommandID,LowAddress_for_TXCOBCLastCommandID,0x44);
 //    //command error status(TX)
-    WriteOneByteToEEPROM(EEPROM_address,TXCOBC_CommandErrorStatus_addressHigh,TXCOBC_CommandErrorStatus_addressLow,0x9A);
+    WriteOneByteToEEPROM(EEPROM_address,TXCOBC_CommandErrorStatus_addressHigh,TXCOBC_CommandErrorStatus_addressLow,0x55);
 //    //battery Voltage (CIB)
-    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageCIB_addressHigh,BatteryVoltageCIB_addressLow,0xBC);
+    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageCIB_addressHigh,BatteryVoltageCIB_addressLow,0x66);
     
 //    //5VBus Voltage 
-//    DATA[0] = 0xF1; DATA[1] = 0xF2;  
-//    WriteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,*DATA);
-//    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,0xDE);
-//    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,0x02,0xEF);
+    DATA[0] = 0x77;  DATA[1] = 0x88;  
+    WriteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,DATA);
+//    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,0xA1);
+//    WriteOneByteToEEPROM(EEPROM_address,0x50,0x01,0xD2);
 //    
-////    //3V3Bus Voltage 
-//    DATA[0] = 0x01; DATA[1] = 0x23;
-//    WriteToEEPROM(EEPROM_address,adcValue_CH3_addressHigh,adcValue_CH3_addressLow,*DATA);
-////    //battery Voltage (OBC)
-//    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageOBC_addressHigh,BatteryVoltageOBC_addressLow,0x45);
-////    //latest execution command ID (OBC)
-//    WriteOneByteToEEPROM(EEPROM_address,LatestExcutionCommandID_addressHigh,LatestExcutionCommandID_addressLow,0x67);
-////    //command error status(OBC)
-//    WriteOneByteToEEPROM(EEPROM_address,OBC_CommandErrorStatus_addressHigh,OBC_CommandErrorStatus_addressLow,0x89);
-////    //Battery Current
-//    DATA[0] = 0xAB; DATA[1] = 0xCD;
-//    WriteToEEPROM(EEPROM_address,BatteryCurrent_addressHigh,BatteryCurrent_addressLow,*DATA);
-////    //EPS switch status
-//    DATA[0] = 0xEF; DATA[1] = 0xAA;
-//    WriteToEEPROM(EEPROM_address,EpsSwitchStatus_addressHigh,EpsSwitchStatus_addressLow,*DATA);
-////    //TX temperature
-//    WriteOneByteToEEPROM(EEPROM_address,TxTemperature_addressHigh,TxTemperature_addressLow,0xBB);
-////    //RX temperature
-//    WriteOneByteToEEPROM(EEPROM_address,RxTemperature_addressHigh,RxTemperature_addressLow,0xCC);
+//    UBYTE A =ReadEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow);
+//    UBYTE B =ReadEEPROM(EEPROM_address,0x50,0x01);
+//    putChar(0xEE);
+//    putChar(0xEE);
+//    putChar(A);
+//    putChar(B);
+//    putChar(0xFF);
+//    putChar(0xFF);
+//    
+//    //3V3Bus Voltage 
+    DATA[0] = 0x99; DATA[1] = 0xAA;
+    WriteToEEPROM(EEPROM_address,adcValue_CH3_addressHigh,adcValue_CH3_addressLow,DATA);
+//    //battery Voltage (OBC)
+    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageOBC_addressHigh,BatteryVoltageOBC_addressLow,0xBB);
+//    //latest execution command ID (OBC)
+    WriteOneByteToEEPROM(EEPROM_address,LatestExcutionCommandID_addressHigh,LatestExcutionCommandID_addressLow,0xCC);
+//    //command error status(OBC)
+    WriteOneByteToEEPROM(EEPROM_address,OBC_CommandErrorStatus_addressHigh,OBC_CommandErrorStatus_addressLow,0xDD);
+//    //Battery Current
+    DATA[0] = 0xEE; DATA[1] = 0xFF;
+    WriteToEEPROM(EEPROM_address,BatteryCurrent_addressHigh,BatteryCurrent_addressLow,DATA);
+//    //EPS switch status
+    DATA[0] = 0xA1; DATA[1] = 0xA2;
+    WriteToEEPROM(EEPROM_address,EpsSwitchStatus_addressHigh,EpsSwitchStatus_addressLow,DATA);
+//    //TX temperature
+    WriteOneByteToEEPROM(EEPROM_address,TxTemperature_addressHigh,TxTemperature_addressLow,0xA3);
+//    //RX temperature
+    WriteOneByteToEEPROM(EEPROM_address,RxTemperature_addressHigh,RxTemperature_addressLow,0xA4);
     
     //FR2
-//    WriteOneByteToEEPROM(EEPROM_address,FreeData1Highaddress_addressHigh,FreeData1Highaddress_addressLow,0x86);
-//    WriteOneByteToEEPROM(EEPROM_address,FreeData1Lowaddress_addressHigh,FreeData1Lowaddress_addressLow,0x00);
-//    WriteOneByteToEEPROM(EEPROM_address,0x86,0x00,0x11);
-//    WriteOneByteToEEPROM(EEPROM_address,FreeData2Highaddress_addressHigh,FreeData2Highaddress_addressLow,0x87);
-//    WriteOneByteToEEPROM(EEPROM_address,FreeData2Lowaddress_addressHigh,FreeData2Lowaddress_addressLow,0x00);
-//    WriteOneByteToEEPROM(EEPROM_address,0x87,0x00,0x22);
+    WriteOneByteToEEPROM(EEPROM_address,FreeData1Highaddress_addressHigh,FreeData1Highaddress_addressLow,0x86);
+    WriteOneByteToEEPROM(EEPROM_address,FreeData1Lowaddress_addressHigh,FreeData1Lowaddress_addressLow,0x00);
+    WriteOneByteToEEPROM(EEPROM_address,0x86,0x00,0xA5);
+    WriteOneByteToEEPROM(EEPROM_address,FreeData2Highaddress_addressHigh,FreeData2Highaddress_addressLow,0x87);
+    WriteOneByteToEEPROM(EEPROM_address,FreeData2Lowaddress_addressHigh,FreeData2Lowaddress_addressLow,0x00);
+    WriteOneByteToEEPROM(EEPROM_address,0x87,0x00,0xA6);
     
     while(1){
         ///////////////////////////////////////////////////////////////////////////////////////////

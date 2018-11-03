@@ -452,18 +452,18 @@ void ReadOneByteDataFromEEPROMandSendMorse(UBYTE Address7Bytes, UBYTE high_addre
 void ReadDatasFromEEPROMWithDataSizeAndSendMorse(UBYTE Address7Bytes, UBYTE high_address, UBYTE low_address, UBYTE *ReadData, UINT EEPROMDataLength){
     UBYTE char_data_highLow[2];
     UBYTE send_data[];
-//    putChar('P');
-//    putChar('P');
-//    putChar(high_address);
-//    putChar(low_address);
+    putChar(0xAA);
+    putChar(0xAA);
+    putChar(high_address);
+    putChar(low_address);
     ReadDataFromEEPROM(Address7Bytes, high_address, low_address, ReadData, EEPROMDataLength); 
-//    putChar('X');
-//    putChar('X');
-//    for(int i=0;i<2;i++){
-//        putChar(ReadData[i]);
-//    }
-//    putChar('Y');
-//    putChar('Y');
+    putChar(0xBB);
+    putChar(0xBB);
+    for(int i=0;i<2;i++){
+        putChar(ReadData[i]);
+    }
+    putChar(0xCC);
+    putChar(0xCC);
 
   
     for(UBYTE i=0; i<EEPROMDataLength; i++){
@@ -523,15 +523,12 @@ void GetDatasizeAndReadDatasFromEEPROMWithDataSizeAndSendMorseWithDownlinkTimes(
 ******************************************************************************/
 void HKDownlink(void){      
     HKDownlinkFR0();
-//     delay_s(10);
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
     HKDownlinkFR1();
-//     delay_s(10);
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
-    HKDownlinkFR2();
-    // delay_s(10);     
+    HKDownlinkFR2();   
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
 }
@@ -547,7 +544,7 @@ void HKDownlinkFR0(void){
 }
 
 void HKDownlinkFR1(void){
-    UBYTE DATA[];//for ReadDatasFromEEPROMWithDataSizeAndSendMorse()
+    UBYTE DATA[2];//for ReadDatasFromEEPROMWithDataSizeAndSendMorse()
     //Sattellite Mode
     ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,satelliteMode_addressHigh,satelliteMode_addressLow);
     //battery Temperature
@@ -562,54 +559,34 @@ void HKDownlinkFR1(void){
     ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,TXCOBC_CommandErrorStatus_addressHigh,TXCOBC_CommandErrorStatus_addressLow);
 //    //battery Voltage (CIB)
     ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,BatteryVoltageCIB_addressHigh,BatteryVoltageCIB_addressLow);
-////    //5VBus Voltage 
-//    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,DATA,2);
+    //5VBus Voltage 
+    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,DATA,2);
 //    
-////    //3V3Bus Voltage 
-//    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,adcValue_CH3_addressHigh,adcValue_CH3_addressLow,DATA,2);
-////    //battery Voltage (OBC)
-//    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,BatteryVoltageOBC_addressHigh,BatteryVoltageOBC_addressLow);
-////    //latest execution command ID (OBC)
-//    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,LatestExcutionCommandID_addressHigh,LatestExcutionCommandID_addressLow);
-////    //command error status(OBC)
-//    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,OBC_CommandErrorStatus_addressHigh,OBC_CommandErrorStatus_addressLow);
-////    //Battery Current
-//    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,BatteryCurrent_addressHigh,BatteryCurrent_addressLow,DATA,2);
-////    //EPS switch status
-//    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,EpsSwitchStatus_addressHigh,EpsSwitchStatus_addressLow,DATA,2);
-////    //TX temperature
-//    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,TxTemperature_addressHigh,TxTemperature_addressLow);
-////    //RX temperature
-//    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,RxTemperature_addressHigh,RxTemperature_addressLow);
+//    //3V3Bus Voltage 
+    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,adcValue_CH3_addressHigh,adcValue_CH3_addressLow,DATA,2);
+//    //battery Voltage (OBC)
+    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,BatteryVoltageOBC_addressHigh,BatteryVoltageOBC_addressLow);
+//    //latest execution command ID (OBC)
+    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,LatestExcutionCommandID_addressHigh,LatestExcutionCommandID_addressLow);
+//    //command error status(OBC)
+    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,OBC_CommandErrorStatus_addressHigh,OBC_CommandErrorStatus_addressLow);
+//    //Battery Current
+    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,BatteryCurrent_addressHigh,BatteryCurrent_addressLow,DATA,2);
+//    //EPS switch status
+    ReadDatasFromEEPROMWithDataSizeAndSendMorse(EEPROM_address,EpsSwitchStatus_addressHigh,EpsSwitchStatus_addressLow,DATA,2);
+//    //TX temperature
+    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,TxTemperature_addressHigh,TxTemperature_addressLow);
+//    //RX temperature
+    ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,RxTemperature_addressHigh,RxTemperature_addressLow);
 }
 
 void HKDownlinkFR2(void){
     UBYTE ReadData1_addressHigh = ReadEEPROM(EEPROM_address, FreeData1Highaddress_addressHigh, FreeData1Highaddress_addressLow); 
-////    putChar('H');
-////    putChar('H');
-////    putChar(ReadData1_addressHigh);
-////    putChar('H');
-////    putChar('H');   
     UBYTE ReadData1_addressLow = ReadEEPROM(EEPROM_address, FreeData1Lowaddress_addressHigh, FreeData1Lowaddress_addressLow); 
-////    putChar('L');
-////    putChar('L');
-////    putChar(ReadData1_addressLow);
-////    putChar('L');
-////    putChar('L');
     ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,ReadData1_addressHigh,ReadData1_addressLow);
     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
     UBYTE ReadData2_addressHigh = ReadEEPROM(EEPROM_address, FreeData2Highaddress_addressHigh, FreeData2Highaddress_addressLow); 
-////    putChar('H');
-////    putChar('H');
-////    putChar(ReadData2_addressHigh);
-////    putChar('H');
-////    putChar('H');   
     UBYTE ReadData2_addressLow = ReadEEPROM(EEPROM_address, FreeData2Lowaddress_addressHigh, FreeData2Lowaddress_addressLow); 
-////    putChar('L');
-////    putChar('L');
-//    putChar(ReadData2_addressLow);
-////    putChar('L');
-////    putChar('L');
     ReadOneByteDataFromEEPROMandSendMorse(EEPROM_address,ReadData2_addressHigh,ReadData2_addressLow);
 }
 
