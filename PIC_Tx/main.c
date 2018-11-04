@@ -102,11 +102,12 @@ void interrupt InterReceiver(void){
                 get_char_state = 0;
             } else {    
                 for (UBYTE i = 1; i < commandSize; i++){
-                RXDATA[i] = getChar();
-                get_char_state++;
+                    RXDATA[i] = getChar();
+                    get_char_state++;
                 }
             }
         }
+        
         
         //TODO:need?
         /*---Send command using UARTto RXCOBC---*/
@@ -114,7 +115,7 @@ void interrupt InterReceiver(void){
             putChar(RXDATA[i]);
             NOP();
         }
-       
+        
         /*---CRC check for command from RXCOBC or OBC---*/ 
        //TODO add case RXDATA[0]!=t or g
         UWORD crcResult, crcValue;
@@ -141,6 +142,7 @@ void interrupt InterReceiver(void){
         UBYTE commandID;
         commandID = ReadEEPROM(EEPROM_address, HighAddress_for_commandID, LowAddress_for_commandID);
         //TODO:read datas from sub EEPROM
+        
 
         /*---read CRC check from EEPROM---*/
         UBYTE CRC_check_result;
@@ -211,10 +213,10 @@ void interrupt InterReceiver(void){
                         break;                             
                 }
             }
-        /*---write CRC result 6bit 1 ---*/
-        CRC_check_result = CRC_check_result | 0b0100000;
-        WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
-        switchOk(error_main_crcCheck);   
+            /*---write CRC result 6bit 1 ---*/
+            CRC_check_result = CRC_check_result | 0b0100000;
+            WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
+            switchOk(error_main_crcCheck);   
         }
         RCIF = 0;
     }
@@ -366,12 +368,11 @@ void main(void) {
     __delay_ms(1000);
     Init_MPU();
     InitI2CMaster(I2Cbps);
-    Init_WDT();
-    Init_SERIAL();
+    Init_SERIAL();     
+    Init_WDT();    
     sendPulseWDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     putChar('S');
-    putChar('y');
 
 
 //    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC
@@ -395,19 +396,11 @@ void main(void) {
     
     while(1){
         
-        //FIXME
-        for(UBYTE i=0; i<30; i++){
-        led_yellow = high;
-        __delay_ms(1000);
-        led_yellow = low;
-        __delay_ms(1000);
-        }
-        
         putChar('m');
-        putChar('X');
-        __delay_ms(1000);
 
         //TODO send pulse to WDT
+        sendPulseWDT();
+        __delay_ms(5000);
         
         //switchSatMode
         UBYTE SatMode = ReadEEPROM( EEPROM_address,satelliteMode_addressHigh,satelliteMode_addressLow) & 0xF0;
@@ -426,7 +419,7 @@ void main(void) {
         //ADC();
              
         //TODO send HK 
-        HKDownlink(SatMode);
+//        HKDownlink(SatMode);
         
         
         /*---------------------------------------------------------------*/

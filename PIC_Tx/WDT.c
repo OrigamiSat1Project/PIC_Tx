@@ -42,7 +42,9 @@ void resetWDT(void){
 //to keep WDT from resetting the PIC 
 void sendPulseWDT(void){
     if(WDT_POWER== LOW){
+        putChar('w');
         WDT_PULSE = LOW; //no delay necessary
+        delay_us(800);
         WDT_PULSE = HIGH;
     }
 }
