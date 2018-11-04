@@ -35,6 +35,7 @@
 #define SW_5R8G         RB5
 #define WDT_POWER       RA1
 #define WDT_PULSE       RA0
+#define OBC_STATUS      RC2
 
 #endif	/* NEWFILE_H */
 

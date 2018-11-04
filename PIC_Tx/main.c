@@ -19,8 +19,6 @@
 
 void interrupt InterReceiver(void);
 
-#define COMMAND_SIZE 10;
-
 
 // PIC16F887 Configuration Bit Settings
 
@@ -41,36 +39,6 @@ void interrupt InterReceiver(void);
 #pragma config WRT      = OFF           // Flash Program Memory Self Write Enable bits (Write protection off)
 
 #define commandSize 10
-
-//test_interrupt
-//pc-->pic-->pc 
-//void interrupt interReceiverTest( void ){
-//    UBYTE RXDATA;
-//    if (RCIF == 1) {
-//        RXDATA = getChar();
-//        RXDATA++;
-//        putChar('S');
-//        RCIF = 0;
-//    }
-//}
-
-/**/
-//test_get EEPROM address
-//pc-->pic-->pc 
-//void interrupt InterReceiver( void ){
-//    UBYTE RXDATA[3];
-//    UINT COMMAND_SIZE;
-//    COMMAND_SIZE =3;
-//    if (RCIF == 1) {
-//        for(UINT i=0; i<COMMAND_SIZE; i++){
-//            RXDATA[i] =getChar();
-//            putChar(RXDATA[i]);
-//            NOP();
-//        }
-//        putChar('s');
-//        RCIF = 0;
-//    }
-//}
 
 
 void interrupt InterReceiver(void){
@@ -153,7 +121,7 @@ void interrupt InterReceiver(void){
         if(crcResult != crcValue){  //crc error
             
             /*---write CRC error result (6bit 0) ---*/
-            CRC_check_result = CRC_check_result & 0b10111111;
+            CRC_check_result &= 0b10111111;
             WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
             
             putChar(0xa1);
@@ -163,7 +131,7 @@ void interrupt InterReceiver(void){
         } else {  //crc  OK
             
             /*---write CRC ok result (6bit 1) ---*/
-            CRC_check_result = CRC_check_result | 0b01000000;
+            CRC_check_result |= 0b01000000;
             WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
             
             putChar(0xa2);
@@ -214,30 +182,12 @@ void interrupt InterReceiver(void){
                 }
             }
             /*---write CRC result 6bit 1 ---*/
-            CRC_check_result = CRC_check_result | 0b0100000;
+            CRC_check_result |= 0b01000000;
             WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
             switchOk(error_main_crcCheck);   
         }
         RCIF = 0;
     }
-//    if ( PIR1bits.TMR1IF == 1 ) {
-//        TMR1 = TIMER_INTERVAL;  // ?????????
-// 
-//        intr_counter++;
-//        if ( intr_counter >= 100 ) {
-//            intr_counter = 0;
-//        }
-//         //0.5sec???RB0???????    
-//        if ( intr_counter <= 50 || intr_counter > 51) {
-////            PORTAbits.RA0 = 1;
-//        } else {
-////            PORTAbits.RA0 = 0;
-//        }
-// 
-//        PIR1bits.TMR1IF = 0;    // ???????????
-//    }   
-// 
-//    return;
 }
 
 /*******************************************************************************
@@ -319,50 +269,6 @@ void interrupt InterReceiver(void){
 //    }
 // }
 
-/*******************************************************************************
-*test for timer
-******************************************************************************/  
-//void interrupt timer(void){
-    
-//    if(INTCONbits.TMR0IF){
-//        INTCONbits.TMR0IF = 0;
-//        TMR0L = 0x00;
-//        timer_counter++;
-//        constant_timer_counter++;
-//    }
-//    if(timer_counter >= 62){
-//        //  past 1 second
-//        increment_globalClock();
-//        timer_counter = 0;
-//        //sendCanData(&globalClock);
-//    }
-//    interruptI2C();
-//}
-
-//void interrupt intr(void){
-//    volatile static int intr_counter;
-//    if ( PIR1bits.TMR1IF == 1 ) {
-//        TMR1 = TIMER_INTERVAL;  // ?????????
-// 
-//        intr_counter++;
-//        if ( intr_counter >= 100 ) {
-//            intr_counter = 0;
-//        }
-// 
-//        // 0.5sec???RB0???????    
-//        if ( intr_counter <= 50 || intr_counter > 51) {
-//            PORTAbits.RA0 = 1;
-//        } else {
-//            PORTAbits.RA0 = 0;
-//        }
-// 
-//        PIR1bits.TMR1IF = 0;    // ???????????
-//    }   
-// 
-//    return;
-//}
-
-
 void main(void) {
     
     __delay_ms(1000);
@@ -402,24 +308,14 @@ void main(void) {
         sendPulseWDT();
         __delay_ms(5000);
         
-        //switchSatMode
-        UBYTE SatMode = ReadEEPROM( EEPROM_address,satelliteMode_addressHigh,satelliteMode_addressLow) & 0xF0;
-        //TODO check AD value
-        switch(SatMode){
-            case 0x50:/*------------Nominal Mode------------*/
-                break;
-            case 0x60:/*------------Saving Mode------------*/
-                //Todo write HK Data
-                break;
-            case 0xA0:/*------------Survival Mode------------*/
-                break;
-            default:
-                break;           
-    }
-        //ADC();
-             
-        //TODO send HK 
-//        HKDownlink(SatMode);
+ 
+        measureDcDcTemperature();
+        if(OBC_STATUS == low){          
+            measureChannel2();//read 5V Bus
+        }else{     
+        }         
+        //TODO debug send HK 
+        HKDownlink();
         
         
         /*---------------------------------------------------------------*/
@@ -463,5 +359,4 @@ void main(void) {
        /*----------------------------------------------------------*/
         
     }
-    //return;
 }
