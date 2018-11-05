@@ -57,24 +57,24 @@ void interrupt InterReceiver(void);
 /**/
 //test_get EEPROM address
 //pc-->pic-->pc +/////////////////////////////////////////////////////////////////////////////////////////
-//void interrupt InterReceiver( void ){
-//    UBYTE RXDATA[1];
-////    UINT COMMAND_SIZE=1;
-//    if (RCIF == 1) {
-////        for(UINT i=0; i<COMMAND_SIZE; i++){
-//            RXDATA[0] =getChar();
-////            putChar(RXDATA[i]);
-//            if(RXDATA[0]='X'){
-//                SW_5R8G = 1;
-//            }else if(RXDATA[0]='Y'){
-//                SW_5R8G = 0;
-//            }
-//            NOP();
-////        }
-////        putChar('s');
-//        RCIF = 0;
-//    }
-//}
+void interrupt InterReceiver( void ){
+    UBYTE RXDATA[1];
+//    UINT COMMAND_SIZE=1;
+    if (RCIF == 1) {
+//        for(UINT i=0; i<COMMAND_SIZE; i++){
+            RXDATA[0] =getChar();
+//            putChar(RXDATA[i]);
+            if(RXDATA[0]='X'){
+                SW_5R8G = 1;
+            }else if(RXDATA[0]='Y'){
+                SW_5R8G = 0;
+            }
+            NOP();
+//        }
+//        putChar('s');
+        RCIF = 0;
+    }
+}
 
 
 //void interrupt InterReceiver(void){
