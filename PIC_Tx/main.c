@@ -56,18 +56,22 @@ void interrupt InterReceiver(void);
 
 /**/
 //test_get EEPROM address
-//pc-->pic-->pc 
+//pc-->pic-->pc +/////////////////////////////////////////////////////////////////////////////////////////
 //void interrupt InterReceiver( void ){
-//    UBYTE RXDATA[3];
-//    UINT COMMAND_SIZE;
-//    COMMAND_SIZE =3;
+//    UBYTE RXDATA[1];
+////    UINT COMMAND_SIZE=1;
 //    if (RCIF == 1) {
-//        for(UINT i=0; i<COMMAND_SIZE; i++){
-//            RXDATA[i] =getChar();
-//            putChar(RXDATA[i]);
+////        for(UINT i=0; i<COMMAND_SIZE; i++){
+//            RXDATA[0] =getChar();
+////            putChar(RXDATA[i]);
+//            if(RXDATA[0]='X'){
+//                SW_5R8G = 1;
+//            }else if(RXDATA[0]='Y'){
+//                SW_5R8G = 0;
+//            }
 //            NOP();
-//        }
-//        putChar('s');
+////        }
+////        putChar('s');
 //        RCIF = 0;
 //    }
 //}
@@ -367,14 +371,14 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-    Init_WDT();
+//    Init_WDT();
 //    delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC
 //    delay_s(CW_START_WAIT_TIME);  //wait for 200sec --> start CW downlink
 
-    putChar('S');
-    putChar('S');
-    putChar('S');
-    putChar('y');
+//    putChar('S');
+//    putChar('S');
+//    putChar('S');
+//    putChar('y');
     
     //FIXME:write melting status for debug
 //    UBYTE main_test_melting_status = 0b00000011;
@@ -394,28 +398,28 @@ void main(void) {
     while(1){
         
         //FIXME
-        for(UBYTE i=0; i<30; i++){
-        led_yellow = high;
-        __delay_ms(1000);
-        led_yellow = low;
-        __delay_ms(1000);
-        }
+//        for(UBYTE i=0; i<30; i++){
+//        led_yellow = high;
+//        __delay_ms(1000);
+//        led_yellow = low;
+//        __delay_ms(1000);
+//        }
         
-        putChar('m');
-        putChar('X');
-        __delay_ms(1000);
+//        putChar('m');
+//        putChar('X');
+//        __delay_ms(1000);
 
         //TODO send pulse to WDT
         
  
-        measureDcDcTemperature();
-        if(OBC_STATUS == low){          
-            measureChannel2();//read 5V Bus
-        }else{     
-    }         
-        //TODO debug send HK 
-        HKDownlink();
-        
+//        measureDcDcTemperature();
+//        if(OBC_STATUS == low){          
+//            measureChannel2();//read 5V Bus
+//        }else{     
+//    }         
+//        //TODO debug send HK 
+//        HKDownlink();
+//        
         
         /*---------------------------------------------------------------*/
         //FIXME:[start]debug for downlink FM signal        
