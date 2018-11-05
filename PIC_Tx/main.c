@@ -18,6 +18,7 @@
 #include "adxl345.h"
 #include "ITG3701.h"
 #include "ICM20601.h"
+#include "ADC.h"
 
 void interrupt InterReceiver(void);
 
@@ -43,317 +44,125 @@ void interrupt InterReceiver(void);
 #pragma config WRT      = OFF           // Flash Program Memory Self Write Enable bits (Write protection off)
 
 
-//test_interrupt
-//pc-->pic-->pc 
-//void interrupt interReceiverTest( void ){
-//    UBYTE RXDATA;
-//    if (RCIF == 1) {
-//        RXDATA = getChar();
-//        RXDATA++;
-//        putChar('S');
-//        RCIF = 0;
-//    }
-//}
-
-/**/
-//test_get EEPROM address
-//pc-->pic-->pc 
-//void interrupt InterReceiver( void ){
-//    UBYTE RXDATA[3];
-//    UINT COMMAND_SIZE;
-//    COMMAND_SIZE =3;
-//    if (RCIF == 1) {
-//        for(UINT i=0; i<COMMAND_SIZE; i++){
-//            RXDATA[i] =getChar();
-//            putChar(RXDATA[i]);
-//            NOP();
-//        }
-//        putChar('s');
-//        RCIF = 0;
-//    }
-//}
-
-
-// void interrupt InterReceiver(void){
-//     putChar('I');
-    
-//     int commandSize;
-//     commandSize = 10;
-//     //commandSize = 1;
-    
-//     UBYTE RXDATA[10];//array size = commandSize
-//     //UBYTE RXDATA[1];//array size = commandSize
-
-//     //    UBYTE RXDATA[COMMAND_SIZE];
-// //    volatile static int intr_counter;
-
-//     if (RCIF == 1) {
-//         for (int i = 0; i < 1; i++){
-//             RXDATA[i] = getChar();
-// //            putChar(RXDATA[i]);
-//         }
-//         for (int i = 0; i < 1; i++){
-//             putChar(RXDATA[i]);
-//             NOP();
-//         }
-//        //TODO add case RXDATA[0]!=t or g
-//         UWORD crcResult, crcValue;
-//         UBYTE crcResultHigh,crcResultLow,crcValueHigh,crcValueLow;
-//         crcResult = crc16(0,RXDATA,8);
-//         crcValue =  CRC_check(RXDATA,8);
-//         crcResultHigh = crcResult>>8;
-//         crcResultLow = crcResult & 0x00FF;
-//         crcValueHigh = crcValue>>8;
-//         crcValueLow = crcValue & 0x00FF;
-        
-//         putChar(crcResultHigh);
-//         putChar(crcResultLow);
-//         putChar(crcValueHigh);
-//         putChar(crcValueLow);
-        
-//         if(crcResult == crcValue){
-//             putChar('C');
-            
-//             if (RXDATA[0]!='t' && RXDATA[0]!='g' ){
-//             } else {
-//                 switch(RXDATA[1]){
-//                     case 0x75:  //'u'
-//                         putChar('R');                        
-//                         downlinkReceivedCommand(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5]);
-//                         break;
-//                     case 0x63: //'c'
-//     //                    CwDownLink(RXDATA);
-//                         putChar('C');
-//                         putChar('W');
-//                         CWKEY = 1;
-//                         __delay_ms(50);
-//                         CWKEY = 0;
-//                         __delay_ms(50);
-
-//                         CWKEY = 1;
-//                         __delay_ms(50);
-//                         CWKEY = 0;
-//                         __delay_ms(50);
-
-//                         CWKEY = 1;
-//                         __delay_ms(50);
-//                         CWKEY = 0;
-//                         __delay_ms(50);
-
-//                         CWKEY = 1;
-//                         __delay_ms(150);
-//                         CWKEY = 0;
-//                         __delay_ms(50);
-//                         putChar('C');
-//                         putChar('W');
-
-//                         break;
-//                     case 0x66:  //'f'
-//                         putChar('F');
-//                         putChar('M');
-//                         __delay_ms(2000);
-//                         FMPTT = 1;
-//                         __delay_ms(2000);
-//                         FMPTT = 0;
-//                         __delay_ms(2000);
-//                         FMPTT = 1;
-//                         __delay_ms(2000);
-//                         FMPTT = 0;
-//                         putChar('F');
-//                         putChar('M');
-//                         downlinkFMSignal(RXDATA[2],RXDATA[3],RXDATA[4],RXDATA[5],RXDATA[6]);
-//                         break;
-//                     case 0x61:  //'a'
-//                         cutWire(RXDATA[2],RXDATA[3]);
-//                         break;
-//                 }
-//             }
-//         }else{
-            
-//             putChar('D');
-//             //?¿½R?¿½}?¿½?¿½?¿½hCRC?¿½_?¿½?¿½?¿½?¿½?¿½?¿½?¿½?¿½?¿½?¿½?¿½Ìï¿½?¿½?¿½
-//             //add error messege
-//         }
-//         RCIF = 0;
-//     }
-//    if ( PIR1bits.TMR1IF == 1 ) {
-//        TMR1 = TIMER_INTERVAL;  // ?????????
-// 
-//        intr_counter++;
-//        if ( intr_counter >= 100 ) {
-//            intr_counter = 0;
-//        }
-//         //0.5sec???RB0???????    
-//        if ( intr_counter <= 50 || intr_counter > 51) {
-////            PORTAbits.RA0 = 1;
-//        } else {
-////            PORTAbits.RA0 = 0;
-//        }
-// 
-//        PIR1bits.TMR1IF = 0;    // ???????????
-//    }   
-// 
-//    return;
-//}
-
-
-
 ////test for interrupt
 void interrupt interReceiverTest( void ){
-    if(INTCONbits.TMR0IF){
-        INTCONbits.TMR0IF = 0;
-        TMR0 = 0x00;
-    }
-    putChar(0xAA);
     interruptI2C();
     
-   UBYTE RXDATA;
-   UBYTE *ADXLdata;
-   if (RCIF == 1) {
-       RXDATA = getChar();
-       //RXDATA++;
-       //putChar('G');
-       putChar(RXDATA);
-       
-       switch (RXDATA){
-//            case 'a':
-//                readADXL(ADXLdata,0);
-//                delay_us(20);
-//                for(int i=0;i<6;i++) putChar(ADXLdata[i]);
-           case 'b':
-               putChar(0xBB);
-               break;
-            case 'c':
-                putChar('C');
-                putChar('W');
-                
-                while(1){
-                CWKEY = 1;
-                __delay_ms(50);
-                CWKEY = 0;
-                __delay_ms(50);
-
-                CWKEY = 1;
-                __delay_ms(50);
-                CWKEY = 0;
-                __delay_ms(50);
-
-                CWKEY = 1;
-                __delay_ms(50);
-                CWKEY = 0;
-                __delay_ms(50);
-
-                CWKEY = 1;
-                __delay_ms(150);
-                CWKEY = 0;
-                __delay_ms(50);
-                }
-
-                putChar('C');
-                putChar('W');
-                putChar('2');
-                break;
-            case 'f':
-                putChar('F');
-                putChar('M');
-                CWKEY = 0;
-        //            __delay_ms(2000);
-                FMPTT = 1;
-                UBYTE EEPROMTestData[5];
-                EEPROMTestData[0] = 'H';
-                EEPROMTestData[1] = 'e';
-                EEPROMTestData[2] = 'l';
-                EEPROMTestData[3] = 'l';
-                EEPROMTestData[4] = 'o';
-                for (UINT i = 0; i< 10; i++){
-                    SendPacket(EEPROMTestData);
-                    __delay_ms(300);
-                }
-                
-                
-                
-                FMPTT = 0;
-                putChar('F');
-                putChar('M');  
-                putChar('2');      
-
-                break;
-       }
-       RCIF = 0;
-   }
+//   UBYTE RXDATA;
+//   if (RCIF == 1) {
+//       RXDATA = getChar();
+//       //RXDATA++;
+//       //putChar('G');
+//       putChar(RXDATA);
+//       
+//       switch (RXDATA){
+//           case 'b':
+//               putChar(0xBB);
+//               break;
+//            case 'c':
+//                putChar('C');
+//                putChar('W');
+//                
+//                while(1){
+//                CWKEY = 1;
+//                __delay_ms(50);
+//                CWKEY = 0;
+//                __delay_ms(50);
+//
+//                CWKEY = 1;
+//                __delay_ms(50);
+//                CWKEY = 0;
+//                __delay_ms(50);
+//
+//                CWKEY = 1;
+//                __delay_ms(50);
+//                CWKEY = 0;
+//                __delay_ms(50);
+//
+//                CWKEY = 1;
+//                __delay_ms(150);
+//                CWKEY = 0;
+//                __delay_ms(50);
+//                }
+//
+//                putChar('C');
+//                putChar('W');
+//                putChar('2');
+//                break;
+//            case 'f':
+//                putChar('F');
+//                putChar('M');
+//                CWKEY = 0;
+//        //            __delay_ms(2000);
+//                FMPTT = 1;
+//                UBYTE EEPROMTestData[5];
+//                EEPROMTestData[0] = 'H';
+//                EEPROMTestData[1] = 'e';
+//                EEPROMTestData[2] = 'l';
+//                EEPROMTestData[3] = 'l';
+//                EEPROMTestData[4] = 'o';
+//                for (UINT i = 0; i< 10; i++){
+//                    SendPacket(EEPROMTestData);
+//                    __delay_ms(300);
+//                }
+//                
+//                
+//                
+//                FMPTT = 0;
+//                putChar('F');
+//                putChar('M');  
+//                putChar('2');      
+//
+//                break;
+//       }
+//       RCIF = 0;
+//   }
 }
     
-    
-//void interrupt timer(void){
-    
-//    if(INTCONbits.TMR0IF){
-//        INTCONbits.TMR0IF = 0;
-//        TMR0L = 0x00;
-//        timer_counter++;
-//        constant_timer_counter++;
-//    }
-//    if(timer_counter >= 62){
-//        //  past 1 second
-//        increment_globalClock();
-//        timer_counter = 0;
-//        //sendCanData(&globalClock);
-//    }
-//    interruptI2C();
-//}
-
-//void interrupt intr(void){
-//    volatile static int intr_counter;
-//    if ( PIR1bits.TMR1IF == 1 ) {
-//        TMR1 = TIMER_INTERVAL;  // ?????????
-// 
-//        intr_counter++;
-//        if ( intr_counter >= 100 ) {
-//            intr_counter = 0;
-//        }
-// 
-//        // 0.5sec???RB0???????    
-//        if ( intr_counter <= 50 || intr_counter > 51) {
-//            PORTAbits.RA0 = 1;
-//        } else {
-//            PORTAbits.RA0 = 0;
-//        }
-// 
-//        PIR1bits.TMR1IF = 0;    // ???????????
-//    }   
-// 
-//    return;
-//}
-
-
 void main(void) {
     __delay_ms(1000);
     /*?¿½?¿½?¿½?¿½?¿½?¿½*/
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
+    Init_WDT();
+    initADXL();
+    initITG();
+    initICM();
     
-    INTCON = 0b11100000;    //GIE = 1, PEIE = 1, TMR0IE = 1
-    OPTION_REG = 0b01000111;    //prescaler is assigned, TMR0 rate 1:256
-    TMR0 = 0x00;    //Initializing Timer0 Module Register 
+    sendPulseWDT();
     
-//    Init_WDT();
     delay_s(TURN_ON_WAIT_TIME);   //wait for PLL satting by RXCOBC and start CW downlink
     putChar('S');
     
+//    UBYTE IMU[32];
+//    UBYTE read[2];
+//    readADXL(IMU,0);
+//    __delay_us(20);
+//    readITG(IMU,6);
+//    __delay_us(20);
+//    readICM(IMU,16);
+//    __delay_us(20);
+//    for(int i=0;i<32;i++) putChar(IMU[i]);
+//    sendPulseWDT();
+//    ADCreadtest();
+//    delay_ms(200);
+//    WriteOneByteToEEPROM(0x50,0x00,0x00,0xBE);
+//    read[0] = ReadEEPROM(0x50,0x00,0x00);
+//    putChar(read[0]);
+//    __delay_ms(3);
+//    WriteOneByteToEEPROM(0x52,0x00,0x00,0xBF);
+//    read[1] = ReadEEPROM(0x52,0x00,0x00);
+//    putChar(read[1]);
+    
+    
+    
+    
     
     while(1){
-        /*
-        while(1){
-            //getbit();
-            //debug_ledy();   //6us
-            putch('O');
-            __delay_ms(500);
-        }*/
         putChar('m');
-       __delay_ms(10000);
-//        FMPTT = 1;
-//        __delay_ms(2000);
-//        FMPTT = 0;
+        sendPulseWDT();
+       __delay_ms(500);
         //TODO check AD value
         //TODO send CW command
         //TODO send pulse to WDT

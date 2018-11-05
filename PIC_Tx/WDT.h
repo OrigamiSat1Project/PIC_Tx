@@ -15,6 +15,7 @@
                                         // 10MHz, 1/4????????100msec??????????
 
 void Init_WDT(void);
+void sendPulseWDT(void);
 //void interrupt intr(void);
 
 #ifdef	__cplusplus

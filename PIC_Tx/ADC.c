@@ -93,28 +93,28 @@ int adc_read(){
     value = (ADRESH<<8)+ADRESL;
     return(value);
 }
-void adc_led_Test(int voltage){
-    if(voltage<1000){//Blink two times
-        for(int i=0;i<2;i++){
-            PORTBbits.RB1 = 1;
-            __delay_ms(300);
-            PORTBbits.RB1 = 0;
-            __delay_ms(300);
-        }
-    } 
-    else if(voltage<3300){//Blink three times
-        for(int i=0;i<3;i++){
-            PORTBbits.RB1 = 1;
-            __delay_ms(200);
-            PORTBbits.RB1 = 0;
-            __delay_ms(200);
-        }
-    }
-    else {
-        PORTBbits.RB1 = 1;
-        __delay_ms(1000);
+
+void ADCreadtest(void){
+    initADC();
+    UWORD adc[4];
+    ADCON0bits.CHS = 0b0010;
+    adc[0] = adc_read();
+    __delay_ms(20);
+    ADCON0bits.CHS = 0b0011;
+    adc[1] = adc_read();
+    __delay_ms(20);
+    ADCON0bits.CHS = 0b0100;
+    adc[2] = adc_read();
+    __delay_ms(20);
+    ADCON0bits.CHS = 0b1010;
+    adc[3] = adc_read();
+    __delay_ms(20);
+    for(int i=0;i<4;i++){
+        putChar((UBYTE)(adc[i] >> 8));
+        putChar((UBYTE)adc[i]);
     }
 }
+
 /*******************************************************************************
 * Function: Main
 *

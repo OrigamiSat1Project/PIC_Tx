@@ -1,24 +1,19 @@
 #include <xc.h>
 #include "WDT.h"
 #include "Type_define.h"
+#include "time.h"
 
 void Init_WDT(void){
-    INTCONbits.GIE  = 1;    // Grobal interrupt??????
-    INTCONbits.PEIE = 1;    // ???????????
-    
-    OPTION_REGbits.PSA = 1;
-    OPTION_REGbits.PS = 7;
-    
-//    WDTCONbits.WDTPS = 11;
- 
-    PIR1bits.TMR1IF = 0;    // Timer1??????????????
-    PIE1bits.TMR1IE = 1;    // Timer1???????
- 
- 
-    T1CONbits.T1CKPS = 3;   // ???????1/1???
-    TMR1 = TIMER_INTERVAL;  // ????????????
- 
-    T1CONbits.TMR1ON = 1;   // Timer1??????
+    RA1 = 0;
+    sendPulseWDT();
+}
+
+void sendPulseWDT(void){
+    if(RA1 = 0){
+        RA0 = 0;
+        __delay_ms(300);
+        RA0 = 1;
+    }
 }
 
 

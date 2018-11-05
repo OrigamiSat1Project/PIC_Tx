@@ -142,3 +142,19 @@ void WriteOneByteToEEPROM(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE addressLow
     I2CMasterStop();                //Stop condition
     __delay_ms(200);
 }
+
+UBYTE ReadEEPROM(UBYTE address,UBYTE high_address,UBYTE low_address){
+    UBYTE dat;
+    int ans;
+   
+    ans = I2CMasterStart(address,0);         //Start condition
+    if(ans == 0){
+        I2CMasterWrite(high_address);    //Adress High Byte
+        I2CMasterWrite(low_address);    //Adress Low Byte
+        I2CMasterRepeatedStart(address,1);         //Restart condition
+        dat = I2CMasterRead(1); //Read + Acknowledge
+    }
+    I2CMasterStop();          //Stop condition
+    __delay_ms(200);
+    return dat;
+}

@@ -9,6 +9,7 @@
 #define	ADC_H
 
 void initADC(void);
+void ADCreadtest(void);
 void ADC(void);
 
 #endif	/* ADC_H */
