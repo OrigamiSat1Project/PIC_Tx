@@ -57,24 +57,24 @@ void interrupt InterReceiver(void);
 /**/
 //test_get EEPROM address
 //pc-->pic-->pc +/////////////////////////////////////////////////////////////////////////////////////////
-void interrupt InterReceiver( void ){
-    UBYTE RXDATA[1];
-//    UINT COMMAND_SIZE=1;
-    if (RCIF == 1) {
-//        for(UINT i=0; i<COMMAND_SIZE; i++){
-            RXDATA[0] =getChar();
-//            putChar(RXDATA[i]);
-            if(RXDATA[0]=='X'){
-                SW_5R8G = 1;
-            }else if(RXDATA[0]=='Y'){
-                SW_5R8G = 0;
-            }
-            NOP();
-//        }
-//        putChar('s');
-        RCIF = 0;
-    }
-}
+//void interrupt InterReceiver( void ){
+//    UBYTE RXDATA[1];
+////    UINT COMMAND_SIZE=1;
+//    if (RCIF == 1) {
+////        for(UINT i=0; i<COMMAND_SIZE; i++){
+//            RXDATA[0] =getChar();
+////            putChar(RXDATA[i]);
+//            if(RXDATA[0]=='X'){
+//                SW_5R8G = 1;
+//            }else if(RXDATA[0]=='Y'){
+//                SW_5R8G = 0;
+//            }
+//            NOP();
+////        }
+////        putChar('s');
+//        RCIF = 0;
+//    }
+//}
 
 
 //void interrupt InterReceiver(void){
@@ -396,6 +396,34 @@ void main(void) {
 //    putChar(sub_melting_status);
     
     while(1){
+        //NTRX sub power ON
+        NTRX = 1;
+        FMPTT = 0;
+         //send V
+        
+     CWKEY = 1; 
+     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+     CWKEY = 0;
+     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+
+     CWKEY = 1;
+     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+     CWKEY = 0;
+     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+
+     CWKEY = 1;
+     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+     CWKEY = 0;
+     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+
+     CWKEY = 1;
+     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
+     CWKEY = 0;
+     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
+     
+     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
+     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
+                
         
         //FIXME
 //        for(UBYTE i=0; i<30; i++){
