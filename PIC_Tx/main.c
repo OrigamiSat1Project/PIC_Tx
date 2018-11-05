@@ -64,9 +64,9 @@ void interrupt InterReceiver( void ){
 //        for(UINT i=0; i<COMMAND_SIZE; i++){
             RXDATA[0] =getChar();
 //            putChar(RXDATA[i]);
-            if(RXDATA[0]='X'){
+            if(RXDATA[0]=='X'){
                 SW_5R8G = 1;
-            }else if(RXDATA[0]='Y'){
+            }else if(RXDATA[0]=='Y'){
                 SW_5R8G = 0;
             }
             NOP();
