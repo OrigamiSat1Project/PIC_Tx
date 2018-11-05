@@ -328,7 +328,8 @@ void main(void) {
             __delay_ms(500);
         }*/
         putChar('m');
-       __delay_ms(10000);
+        sendPulseWDT();
+       __delay_ms(5000);
 //        FMPTT = 1;
 //        __delay_ms(2000);
 //        FMPTT = 0;

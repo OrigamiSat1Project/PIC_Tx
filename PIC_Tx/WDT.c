@@ -43,6 +43,7 @@ void resetWDT(void){
 void sendPulseWDT(void){
     if(WDT_POWER== LOW){
         WDT_PULSE = LOW; //no delay necessary
+        delay_us(800);
         WDT_PULSE = HIGH;
     }
 }
