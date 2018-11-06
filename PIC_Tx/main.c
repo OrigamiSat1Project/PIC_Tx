@@ -126,9 +126,9 @@ void main(void) {
     Init_MPU();
     InitI2CMaster(I2Cbps);
     Init_WDT();
-    initADXL();
-    initITG();
-    initICM();
+//    initADXL();
+//    initITG();
+//    initICM();
     
     sendPulseWDT();
     
@@ -136,7 +136,7 @@ void main(void) {
     putChar('S');
     
 //    UBYTE IMU[32];
-//    UBYTE read[2];
+    UBYTE read[2];
 //    readADXL(IMU,0);
 //    __delay_us(20);
 //    readITG(IMU,6);
@@ -161,8 +161,11 @@ void main(void) {
     
     while(1){
         putChar('m');
+        WriteOneByteToEEPROM(0x50,0x00,0x00,0xBE);
+        read[0] = ReadEEPROM(0x50,0x00,0x00);
+//        putChar(read[0]);
         sendPulseWDT();
-       __delay_ms(500);
+       __delay_ms(200);
         //TODO check AD value
         //TODO send CW command
         //TODO send pulse to WDT
