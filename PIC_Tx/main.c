@@ -204,88 +204,83 @@ void interrupt interReceiverTest( void ){
         INTCONbits.TMR0IF = 0;
         TMR0 = 0x00;
     }
-    RA1 = 0;
-    RA0 = 0;
-    __delay_ms(300);
-    RA0 = 1;
-    putChar(0xBB);
-    __delay_ms(100);
-//    interruptI2C();
-//    
-//   UBYTE RXDATA = 0xAA;
-//   UBYTE *ADXLdata;
-//   if (RCIF == 1) {
-////       RXDATA = getChar();
-//       //RXDATA++;
-//       //putChar('G');
-////       putChar(RXDATA);
-//       
-//       switch (RXDATA){
-////            case 'a':
-////                readADXL(ADXLdata,0);
-////                delay_us(20);
-////                for(int i=0;i<6;i++) putChar(ADXLdata[i]);
-//           case 'b':
-//               putChar(0xBB);
-//               break;
-//            case 'c':
-//                putChar('C');
-//                putChar('W');
-//                
-//                while(1){
-//                CWKEY = 1;
-//                __delay_ms(50);
-//                CWKEY = 0;
-//                __delay_ms(50);
-//
-//                CWKEY = 1;
-//                __delay_ms(50);
-//                CWKEY = 0;
-//                __delay_ms(50);
-//
-//                CWKEY = 1;
-//                __delay_ms(50);
-//                CWKEY = 0;
-//                __delay_ms(50);
-//
-//                CWKEY = 1;
-//                __delay_ms(150);
-//                CWKEY = 0;
-//                __delay_ms(50);
-//                }
-//
-//                putChar('C');
-//                putChar('W');
-//                putChar('2');
-//                break;
-//            case 'f':
-//                putChar('F');
-//                putChar('M');
-//                CWKEY = 0;
-//        //            __delay_ms(2000);
-//                FMPTT = 1;
-//                UBYTE EEPROMTestData[5];
-//                EEPROMTestData[0] = 'H';
-//                EEPROMTestData[1] = 'e';
-//                EEPROMTestData[2] = 'l';
-//                EEPROMTestData[3] = 'l';
-//                EEPROMTestData[4] = 'o';
-//                for (UINT i = 0; i< 10; i++){
-//                    SendPacket(EEPROMTestData);
-//                    __delay_ms(300);
-//                }
-//                
-//                
-//                
-//                FMPTT = 0;
-//                putChar('F');
-//                putChar('M');  
-//                putChar('2');      
-//
-//                break;
-//       }
-//       RCIF = 0;
-//   }
+    putChar(0xAA);
+    interruptI2C();
+    
+   UBYTE RXDATA;
+   UBYTE *ADXLdata;
+   if (RCIF == 1) {
+       RXDATA = getChar();
+       //RXDATA++;
+       //putChar('G');
+       putChar(RXDATA);
+       
+       switch (RXDATA){
+//            case 'a':
+//                readADXL(ADXLdata,0);
+//                delay_us(20);
+//                for(int i=0;i<6;i++) putChar(ADXLdata[i]);
+           case 'b':
+               putChar(0xBB);
+               break;
+            case 'c':
+                putChar('C');
+                putChar('W');
+                
+                while(1){
+                CWKEY = 1;
+                __delay_ms(50);
+                CWKEY = 0;
+                __delay_ms(50);
+
+                CWKEY = 1;
+                __delay_ms(50);
+                CWKEY = 0;
+                __delay_ms(50);
+
+                CWKEY = 1;
+                __delay_ms(50);
+                CWKEY = 0;
+                __delay_ms(50);
+
+                CWKEY = 1;
+                __delay_ms(150);
+                CWKEY = 0;
+                __delay_ms(50);
+                }
+
+                putChar('C');
+                putChar('W');
+                putChar('2');
+                break;
+            case 'f':
+                putChar('F');
+                putChar('M');
+                CWKEY = 0;
+        //            __delay_ms(2000);
+                FMPTT = 1;
+                UBYTE EEPROMTestData[5];
+                EEPROMTestData[0] = 'H';
+                EEPROMTestData[1] = 'e';
+                EEPROMTestData[2] = 'l';
+                EEPROMTestData[3] = 'l';
+                EEPROMTestData[4] = 'o';
+                for (UINT i = 0; i< 10; i++){
+                    SendPacket(EEPROMTestData);
+                    __delay_ms(300);
+                }
+                
+                
+                
+                FMPTT = 0;
+                putChar('F');
+                putChar('M');  
+                putChar('2');      
+
+                break;
+       }
+       RCIF = 0;
+   }
 }
     
     
@@ -336,9 +331,6 @@ void main(void) {
     Init_SERIAL();
     Init_MPU();
     InitI2CMaster(I2Cbps);
-    putChar(0xAA);
-    __delay_ms(300);
-    RA1 = 0;
     
     INTCON = 0b11100000;    //GIE = 1, PEIE = 1, TMR0IE = 1
     OPTION_REG = 0b01000111;    //prescaler is assigned, TMR0 rate 1:256
