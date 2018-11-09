@@ -44,6 +44,9 @@ void interruptI2C(void)
 
 void I2CMasterWait(char mask){
   while ((SSPSTAT & mask) || (SSPCON2 & 0x1F));
+  //SSPSTAT : 0x05 -> transmit is not in progress & buffer empty
+  //          0x04 -> transmit is not in progress
+  //SSPCON2 : ack,receive,start,restart,stop is idle
 }
 
 
@@ -128,47 +131,58 @@ int I2CMasterRead(UBYTE address){
  *	FIXME    :   not yet
  *	XXX      :   not yet
  */
-void WriteOneByteToEEPROM(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE addressLow,UBYTE data){
-    UBYTE address;
-    int ans;
-    for(int i = 0 ; i < 10 ; i++){
-        ans = I2CMasterStart(addressEEPROM,0);               //Start condition
-        if(ans == 0){
-            ans = I2CMasterWrite(addressHigh);    //Adress High Byte
-            if(ans == -1) break;
-            ans = I2CMasterWrite(addressLow);     //Adress Low Byte
-            if(ans == -1) break;
-            ans = I2CMasterWrite(data);           //Data
-            if(ans == -1) break;
-            ans = I2CMasterStop();                //Stop condition
-            if(ans == -1) break;
-        }else ans = -1;
-        __delay_ms(200);
-        if(ans != -1) break;
-    }
+
+int ReadEEPROMonce(UBYTE address,UBYTE high_address,UBYTE low_address){
+    int dat;
+    int ans = -1;
+    ans = I2CMasterStart(address,0);         //Start condition
+    if(ans == 0){
+        ans = I2CMasterWrite(high_address);    //Adress High Byte
+        if(ans == -1) return -1;
+        ans = I2CMasterWrite(low_address);    //Adress Low Byte
+        if(ans == -1) return -1;
+        ans = I2CMasterRepeatedStart(address,1);         //Restart condition
+        if(ans == -1) return -1;
+        dat = I2CMasterRead(1); //Read + Acknowledge
+        if(dat == -1) return -1;
+    }else return -1;
+    ans = I2CMasterStop();
+    if(ans == -1) return -1;
+    __delay_ms(5);
+    return dat;
 }
 
 UBYTE ReadEEPROM(UBYTE address,UBYTE high_address,UBYTE low_address){
     UBYTE dat;
-    int ans;
-   
-    for(int i = 0 ; i < 10 ; i++){
-        ans = I2CMasterStart(address,0);         //Start condition
-        if(ans == 0){
-            ans = I2CMasterWrite(high_address);    //Adress High Byte
-            if(ans == -1) break;
-            ans = I2CMasterWrite(low_address);    //Adress Low Byte
-            if(ans == -1) break;
-            ans = I2CMasterRepeatedStart(address,1);         //Restart condition
-            if(ans == -1) break;
-            dat = I2CMasterRead(1); //Read + Acknowledge
-            if(dat == -1) ans = -1; break;
-            I2CMasterStop();          //Stop condition
-            if(ans == -1) break;
-        }else ans = -1;
-        __delay_ms(200);
-        if ( ans != -1 ) break;
+    int ans = -1;
+    while(ans == -1){
+        ans = ReadEEPROMonce(address,high_address,low_address);
+        __delay_ms(5);
     }
-    if(ans == -1) return 0xFF;
-    else return dat;
+    dat = (UBYTE)ans;
+    return dat;
+}
+
+int WriteOneByteToEEPROMonce(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE addressLow,UBYTE data){
+    int ans = -1;
+    ans = I2CMasterStart(addressEEPROM,0);               //Start condition
+    if(ans == 0){
+        ans = I2CMasterWrite(addressHigh);              //Adress High Byte
+        if(ans == -1) return -1;
+        ans = I2CMasterWrite(addressLow);           //Adress Low Byte
+        if(ans == -1) return -1;
+        ans = I2CMasterWrite(data);             //Data
+        if(ans == -1) return -1;
+    }else return -1;
+    ans = I2CMasterStop();
+    __delay_ms(5);
+    return ans;
+}
+
+void WriteOneByteToEEPROM(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE addressLow,UBYTE data){
+    int ans = -1;
+    while(ans == -1){
+        ans = WriteOneByteToEEPROMonce(addressEEPROM,addressHigh,addressLow,data);
+        __delay_ms(5);
+    }
 }

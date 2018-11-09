@@ -157,15 +157,15 @@ void main(void) {
     
     
     
-    
+    int ans = -1;
     
     while(1){
-        putChar('m');
-        WriteOneByteToEEPROM(0x50,0x00,0x00,0xBE);
-        read[0] = ReadEEPROM(0x50,0x00,0x00);
+//        putChar('m');
+        WriteOneByteToEEPROM(0x52,0x11,0x11,0xBB);
+//        read[0] = ReadEEPROM(0x50,0x00,0x00);
 //        putChar(read[0]);
         sendPulseWDT();
-       __delay_ms(200);
+       __delay_ms(5);
         //TODO check AD value
         //TODO send CW command
         //TODO send pulse to WDT
