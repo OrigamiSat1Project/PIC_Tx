@@ -157,7 +157,7 @@ UBYTE ReadEEPROM(UBYTE address,UBYTE high_address,UBYTE low_address){
     int ans = -1;
     while(ans == -1){
         ans = ReadEEPROMonce(address,high_address,low_address);
-        __delay_ms(5);
+        __delay_ms(10);
     }
     dat = (UBYTE)ans;
     return dat;
@@ -168,11 +168,11 @@ int WriteOneByteToEEPROMonce(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE address
     ans = I2CMasterStart(addressEEPROM,0);               //Start condition
     if(ans == 0){
         ans = I2CMasterWrite(addressHigh);              //Adress High Byte
-        if(ans == -1) return -1;
+        if(ans != 0) return -1;
         ans = I2CMasterWrite(addressLow);           //Adress Low Byte
-        if(ans == -1) return -1;
+        if(ans != 0) return -1;
         ans = I2CMasterWrite(data);             //Data
-        if(ans == -1) return -1;
+        if(ans != 0) return -1;
     }else return -1;
     ans = I2CMasterStop();
     __delay_ms(5);
@@ -181,8 +181,8 @@ int WriteOneByteToEEPROMonce(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE address
 
 void WriteOneByteToEEPROM(UBYTE addressEEPROM,UBYTE addressHigh,UBYTE addressLow,UBYTE data){
     int ans = -1;
-    while(ans == -1){
+    while(ans != 0){
         ans = WriteOneByteToEEPROMonce(addressEEPROM,addressHigh,addressLow,data);
-        __delay_ms(5);
+        __delay_ms(10);
     }
 }
