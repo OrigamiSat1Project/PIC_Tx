@@ -55,7 +55,7 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
         }
     }   
     
-    WriteCheckByteToEEPROMs(B0Select,addressHigh,addressLow, commandData[31]);
+    WriteCheckByteToEEPROMs(B0Select,addressHigh,addressLow, commandData[31]);   
     __delay_us(200);
     FMPTT = 1;
     for(UBYTE sendCounter = 0; sendCounter < downlinlkTimes; sendCounter++){
@@ -67,49 +67,53 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
         
     /*-------------------------------------------------*/
     if(commandData[0]=='T'){                //command target = PIC_TX
+        WriteLastCommandIdToEEPROM(commandData[1]);
+        
         //Task target
         if(commandData[2] == 't'){          //task target =  PIC_TX
         // Command type
+            
+            UBYTE address[2] = {0x00};
+            UBYTE data[5] = {0x00};     //totdo: change data size
             switch(commandData[3]){         //Process command type
                 case 'm':/*get satellite mode*/
                     downlinkFMSignal(satelliteMode_EEPROMAndB0Select, satelliteMode_addressHigh, satelliteMode_addressLow, commandData[4], satelliteMode_DataSize);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
-                case 'C':/*downlink CW Signal*/
+                case 'c':/*downlink CW Signal*/
                     commandSwitchCWDownlink(commandData[4],commandData[5],commandData[6],commandData[7],commandData[8], commandData[9], commandData[10]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 case 'f':/*downlink FM Signal*/
                     downlinkFMSignal(commandData[4],commandData[5],commandData[6],commandData[7],commandData[8]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;           
                 case 'p': /*power supply*/
                     commandSwitchPowerSupply(commandData[4], commandData[5], commandData[6], commandData[7], commandData[8]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 case 'n': /*radio unit*/
     //                commandSwitchFMCW(commandData[4], commandData[5], commandData[6], commandData[7], commandData[8], commandData[9]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 case 'i':/*I2C*/
-                    //commandSwitchI2C(commandData[4], commandData[5], commandData[6], commandData[7]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
+                    for(UBYTE i=0; i<commandData[6]; i++){
+                        address[i] = commandData[7+i];
+                    }
+                    for(UBYTE i=0; i<commandData[(7+commandData[6])]; i++){
+                        data[i] = commandData[(8+commandData[6])];
+                    }                   
+                    commandSwitchI2C(commandData[4], commandData[5], commandData[6], address, commandData[(7+commandData[6])], data);
+                    break;
+                case 'e': /*eeprom*/
+                    commandSwitchEEPROM(commandData[4],commandData[5],commandData[6],commandData[7],commandData[8], commandData[9], commandData[10],commandData[11],commandData[12],commandData[13]);
                     break;
                 case 'u':/*UART*/
                     commandSwitchUART(commandData[4], commandData[5], commandData[6], commandData[7], commandData[8], commandData[9]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 case 'w':/*WDT (watch dog timer)*/
     //                commandWDT(commandData[4], commandData[5], commandData[6]);             
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 case 'h':/*update HK data (BAT_POS V) (HK = house keeping)*/
                     //TODO: write function directly here or in MPU.c
 //                   commandSwitchHKdata(commandData[4], commandData[5], commandData[6], commandData[7]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 case 't':/*internal processing*/
     //                commandSwitchIntProcess(commandData[4], commandData[5], commandData[6]);
-                    WriteLastCommandIdToEEPROM(commandData[1]);
                     break;
                 default:
                     switchError(error_FMCW_downlinkReceivedCommand);

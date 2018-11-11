@@ -134,5 +134,14 @@
 #define HighAddress_for_meltingCompelationFlag      0xE0
 #define LowAddress_for_meltingCompelationFlag       0x00
 
+
+/*******************************************************************************
+*I2C
+******************************************************************************/
+#define TestEEPROMread_addressHigh   0x00
+#define TestEEPROMread_addressLow    0x00
+#define TestEEPROMwrite_addressHigh   0x00
+#define TestEEPROMwrite_addressLow    0x00
+
 #endif	/* EEPROM_H */
 

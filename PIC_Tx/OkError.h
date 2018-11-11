@@ -31,6 +31,7 @@
 /*******************************************************************************
 *error
 ******************************************************************************/
+#define no_error                              0x00
 #define error_ADC_commandSwitchHKdata         0xa0
 #define error_FMCW_downlinkReceivedCommand    0xf0
 #define error_FMCW_commandSwitchCWDownlink    0xf1
