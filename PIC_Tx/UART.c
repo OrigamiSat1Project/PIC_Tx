@@ -20,7 +20,8 @@ void Init_SERIAL(void){
 	SREN   = 0;						// No effect
     RCIF   = 0;                     // RX frag Reset
 	TXIE   = 0;						// Disble tx interrupts
-	RCIE   = 1;						// Enable rx interrupts
+	RCIE   = 0;						// Disable rx interrupts
+//    RCIE   = 1;						// Enable rx interrupts
 	TX9    = 0;						// 8-bit transmission
 	RX9    = 0;						// 8-bit reception
 	TXEN   = 0;						// Reset transmitter
@@ -101,18 +102,22 @@ void changeInterruptPermission(UBYTE GIE_status, UBYTE PEIE_status){
 
 /*---for debug---*/
 void put_error(void){
-   putch('E');
-   putch('R');
-   putch('R');
-   putch('O');
-   putch('R');
-   putch('!');
+   putChar('E');
+   putChar('R');
+   putChar('R');
+   putChar('O');
+   putChar('R');
+   putChar('!');
+   putChar('\r');
+   putChar('\n');
 }
 
 void put_ok(void){
-   putch('O');
-   putch('K');
-   putch('!');
+   putChar('O');
+   putChar('K');
+   putChar('!');
+   putChar('\r');
+   putChar('\n');
 }
 
 void changeBaudRate(UBYTE type_select,UBYTE SPBRG_number,UBYTE BRGH_number){
