@@ -26,7 +26,7 @@
 #define HEAT RB3
 
 void SendPacketWithDataSize(UBYTE *,UINT);
-void SendPacket(UBYTE *);
+void SendPacket(UBYTE *,UINT);
 //void test_Packetmaker(UBYTE *);
 /*
 //void SendByte(UBYTE);
