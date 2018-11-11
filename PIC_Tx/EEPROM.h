@@ -119,10 +119,15 @@
 #define RxTemperature_addressHigh 0x81 
 #define RxTemperature_addressLow 0x96 
 
+#define FreeData1_slaveaddress_addressHigh 0x84
+#define FreeData1_slaveaddress_addressLow 0x00
 #define FreeData1Highaddress_addressHigh 0x70
 #define FreeData1Highaddress_addressLow 0x00
 #define FreeData1Lowaddress_addressHigh 0x72
 #define FreeData1Lowaddress_addressLow 0x00
+
+#define FreeData2_slaveaddress_addressHigh 0x84
+#define FreeData2_slaveaddress_addressLow 0x00
 #define FreeData2Highaddress_addressHigh 0x74
 #define FreeData2Highaddress_addressLow 0x00
 #define FreeData2Lowaddress_addressHigh 0x76

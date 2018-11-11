@@ -151,7 +151,7 @@ void interrupt InterReceiver(void);
 //        if(crcResult != crcValue){  //crc error
 //            
 //            /*---write CRC error result (6bit 0) ---*/
-//            CRC_check_result = CRC_check_result & 0b1011111;
+//            CRC_check_result = CRC_check_result & 0b10111111;
 //            WriteOneByteToMainAndSubB0EEPROM(crcResult_addressHigh, crcResult_addressLow,CRC_check_result);
 //            
 //            putChar(0xa1);
@@ -389,67 +389,9 @@ void main(void) {
 //    sub_melting_status = ReadEEPROM(EEPROM_subaddress, MeltingStatus_addressHigh, MeltingStatus_addressLow);
 //    putChar(0xa2);
 //    putChar(main_melting_status);
-//    putChar(sub_melting_status);
-    
-    
-    UBYTE DATA[2];
-    //Sattellite Mode
-    WriteOneByteToEEPROM(EEPROM_address,satelliteMode_addressHigh,satelliteMode_addressLow,0x5A);
-    //battery Temperature
-    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH1_addressHigh,adcValue_CH1_addressLow,0x11);
-    //latest execution command ID(RX)
-    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_RXCOBCLastCommandID,LowAddress_for_RXCOBCLastCommandID,0x22);
-    //command error status(RX)
-    WriteOneByteToEEPROM(EEPROM_address,RXCOBC_CommandErrorStatus_addressHigh,RXCOBC_CommandErrorStatus_addressLow,0x33);
-//    //latest execution command ID(TX)
-    WriteOneByteToEEPROM(EEPROM_address,HighAddress_for_TXCOBCLastCommandID,LowAddress_for_TXCOBCLastCommandID,0x44);
-//    //command error status(TX)
-    WriteOneByteToEEPROM(EEPROM_address,TXCOBC_CommandErrorStatus_addressHigh,TXCOBC_CommandErrorStatus_addressLow,0x55);
-//    //battery Voltage (CIB)
-    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageCIB_addressHigh,BatteryVoltageCIB_addressLow,0x66);
-    
-//    //5VBus Voltage 
-    DATA[0] = 0x77;  DATA[1] = 0x88;  
-    WriteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,DATA);
-//    WriteOneByteToEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow,0xA1);
-//    WriteOneByteToEEPROM(EEPROM_address,0x50,0x01,0xD2);
-//    
-//    UBYTE A =ReadEEPROM(EEPROM_address,adcValue_CH2_addressHigh,adcValue_CH2_addressLow);
-//    UBYTE B =ReadEEPROM(EEPROM_address,0x50,0x01);
-//    putChar(0xEE);
-//    putChar(0xEE);
-//    putChar(A);
-//    putChar(B);
-//    putChar(0xFF);
-//    putChar(0xFF);
-//    
-//    //3V3Bus Voltage 
-    DATA[0] = 0x99; DATA[1] = 0xAA;
-    WriteToEEPROM(EEPROM_address,adcValue_CH3_addressHigh,adcValue_CH3_addressLow,DATA);
-//    //battery Voltage (OBC)
-    WriteOneByteToEEPROM(EEPROM_address,BatteryVoltageOBC_addressHigh,BatteryVoltageOBC_addressLow,0xBB);
-//    //latest execution command ID (OBC)
-    WriteOneByteToEEPROM(EEPROM_address,LatestExcutionCommandID_addressHigh,LatestExcutionCommandID_addressLow,0xCC);
-//    //command error status(OBC)
-    WriteOneByteToEEPROM(EEPROM_address,OBC_CommandErrorStatus_addressHigh,OBC_CommandErrorStatus_addressLow,0xDD);
-//    //Battery Current
-    DATA[0] = 0xEE; DATA[1] = 0xFF;
-    WriteToEEPROM(EEPROM_address,BatteryCurrent_addressHigh,BatteryCurrent_addressLow,DATA);
-//    //EPS switch status
-    DATA[0] = 0xA1; DATA[1] = 0xA2;
-    WriteToEEPROM(EEPROM_address,EpsSwitchStatus_addressHigh,EpsSwitchStatus_addressLow,DATA);
-//    //TX temperature
-    WriteOneByteToEEPROM(EEPROM_address,TxTemperature_addressHigh,TxTemperature_addressLow,0xA3);
-//    //RX temperature
-    WriteOneByteToEEPROM(EEPROM_address,RxTemperature_addressHigh,RxTemperature_addressLow,0xA4);
-    
-    //FR2
-    WriteOneByteToEEPROM(EEPROM_address,FreeData1Highaddress_addressHigh,FreeData1Highaddress_addressLow,0x86);
-    WriteOneByteToEEPROM(EEPROM_address,FreeData1Lowaddress_addressHigh,FreeData1Lowaddress_addressLow,0x00);
-    WriteOneByteToEEPROM(EEPROM_address,0x86,0x00,0xA5);
-    WriteOneByteToEEPROM(EEPROM_address,FreeData2Highaddress_addressHigh,FreeData2Highaddress_addressLow,0x87);
-    WriteOneByteToEEPROM(EEPROM_address,FreeData2Lowaddress_addressHigh,FreeData2Lowaddress_addressLow,0x00);
-    WriteOneByteToEEPROM(EEPROM_address,0x87,0x00,0xA6);
+//    putChar(sub_melting_status);  
+
+    HK_test_setting();
     
     while(1){
         ///////////////////////////////////////////////////////////////////////////////////////////

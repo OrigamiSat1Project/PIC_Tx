@@ -62,7 +62,7 @@ void Morse_Y(void);
 void Morse_J(void);
 
 
-void CWdownlinkStart(void);
+void HK_test_setting(void);//for debug
 
 #endif	/* FMCW_H */
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="65">
+<configurationDescriptor version="62">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -11,12 +11,15 @@
       <itemPath>I2C.h</itemPath>
       <itemPath>EEPROM.h</itemPath>
       <itemPath>CRC16.h</itemPath>
-      <itemPath>CW.h</itemPath>
       <itemPath>FMCW.h</itemPath>
       <itemPath>MPU.h</itemPath>
       <itemPath>WDT.h</itemPath>
-      <itemPath>EPS.h</itemPath>
       <itemPath>pinDefine.h</itemPath>
+      <itemPath>ADC.h</itemPath>
+      <itemPath>ICM20601.h</itemPath>
+      <itemPath>IMU.h</itemPath>
+      <itemPath>ITG3701.h</itemPath>
+      <itemPath>adxl345.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -34,6 +37,11 @@
       <itemPath>FMCW.c</itemPath>
       <itemPath>MPU.c</itemPath>
       <itemPath>WDT.c</itemPath>
+      <itemPath>ADC.c</itemPath>
+      <itemPath>ICM20601.c</itemPath>
+      <itemPath>IMU.c</itemPath>
+      <itemPath>ITG3701.c</itemPath>
+      <itemPath>adxl345.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -57,9 +65,6 @@
         <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
-      <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.7"/>
-      </packs>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -177,7 +182,7 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1fff"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
@@ -192,7 +197,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="5.0"/>
+        <property key="voltagevalue" value="3.375"/>
       </ICD3PlatformTool>
       <Simulator>
         <property key="codecoverage.enabled" value="Disable"/>
