@@ -304,104 +304,104 @@ void main(void) {
     while(1){
         
         putChar('m');
-
-        //TODO send pulse to WDT
-//        sendPulseWDT();
-//        __delay_ms(5000);
-         
-        putChar('1');
-        putChar('1');
-        putChar('1');
-        putChar('\r');
-        putChar('\n');
-        measureDcDcTemperature();
-        if(read5VBusAndSwitchNtrxPower() != 0){
-            putChar('2');
-            putChar('2');
-            putChar('2');
-            putChar('\r');
-            putChar('\n');
-            if(read5VBusAndSwitchNtrxPower() != 0){
-                onOffNTRX(0x01,0,0);//subPower ON
-                putChar('3');
-                putChar('3');
-                putChar('3');
-                putChar('\r');
-                putChar('\n');
-            }
-        }
-        putChar('4');
-        putChar('4');
-        putChar('4');
-        putChar('\r');
-        putChar('\n');
-        
-     FMPTT = 0;
-     for(UBYTE i=0;i<5;i++){
-     CWKEY = 1;
-     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
-     CWKEY = 0;
-     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
-
-     CWKEY = 1;
-     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
-     CWKEY = 0;
-     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
-
-     CWKEY = 1;
-     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
-     CWKEY = 0;
-     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
-
-     CWKEY = 1;
-     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
-     CWKEY = 0;
-     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
-     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
-     }    
-        //TODO debug send HK 
-//        HKDownlink();
-        
-        
-        /*---------------------------------------------------------------*/
-        //FIXME:[start]debug for downlink FM signal        
-        // FMPTT = 1;
-        // UBYTE eDataField[36];
-        // for(UBYTE i=0; i<36; i++){
-        //     eDataField[i] = i;
-        // }
-        // SendPacket(eDataField);
-        // __delay_ms(2000);
-        //  FMPTT = 0;
-        //FIXME:[finish]debug for downlink CW signal
-        /*---------------------------------------------------------------*/
-
-        /*---------------------------------------------------------------*/
-        //FIXME:[start]check for CW signal       
-//       __delay_ms(1000);
-//        CWKEY = 1;
-//        __delay_ms(2000);
-//        CWKEY =0;
-        //FIXME:[finish]check for  CW signal
-        /*---------------------------------------------------------------*/
-        
-        /*---------------------------------------------------------------*/
-        //FIXME:[start]debug for downlink CW signal
-        // testForCwFunctions();
-        //FIXME:[finish]debug for downlink CW signal
-        /*---------------------------------------------------------------*/
-        
-       /*----------------------------------------------------------*/
-       //FIXME : method for test to measure ADC start
-//       putChar(0xaa);
-//       putChar(0xaa);
-//       putChar(0xaa);
-//       measureAllChanelADC();
-//       putChar(0xbb);
-//       putChar(0xbb);
-//       putChar(0xbb);
-       //method for test to measure ADC finish
-       /*----------------------------------------------------------*/
-        
+//
+//        //TODO send pulse to WDT
+////        sendPulseWDT();
+////        __delay_ms(5000);
+//         
+//        putChar('1');
+//        putChar('1');
+//        putChar('1');
+//        putChar('\r');
+//        putChar('\n');
+//        measureDcDcTemperature();
+//        if(read5VBusAndSwitchNtrxPower() != 0){
+//            putChar('2');
+//            putChar('2');
+//            putChar('2');
+//            putChar('\r');
+//            putChar('\n');
+//            if(read5VBusAndSwitchNtrxPower() != 0){
+//                onOffNTRX(0x01,0,0);//subPower ON
+//                putChar('3');
+//                putChar('3');
+//                putChar('3');
+//                putChar('\r');
+//                putChar('\n');
+//            }
+//        }
+//        putChar('4');
+//        putChar('4');
+//        putChar('4');
+//        putChar('\r');
+//        putChar('\n');
+//        
+//     FMPTT = 0;
+//     for(UBYTE i=0;i<5;i++){
+//     CWKEY = 1;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//
+//     CWKEY = 1;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//
+//     CWKEY = 1;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(SHORT_DELAYTIMES_FOR_MORSE);
+//
+//     CWKEY = 1;
+//     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
+//     CWKEY = 0;
+//     __delay_us(MIDDLE_DELAYTIMES_FOR_MORSE);
+//     __delay_us(LONG_DELAYTIMES_FOR_MORSE);
+//     }    
+//        //TODO debug send HK 
+////        HKDownlink();
+//        
+//        
+//        /*---------------------------------------------------------------*/
+//        //FIXME:[start]debug for downlink FM signal        
+//        // FMPTT = 1;
+//        // UBYTE eDataField[36];
+//        // for(UBYTE i=0; i<36; i++){
+//        //     eDataField[i] = i;
+//        // }
+//        // SendPacket(eDataField);
+//        // __delay_ms(2000);
+//        //  FMPTT = 0;
+//        //FIXME:[finish]debug for downlink CW signal
+//        /*---------------------------------------------------------------*/
+//
+//        /*---------------------------------------------------------------*/
+//        //FIXME:[start]check for CW signal       
+////       __delay_ms(1000);
+////        CWKEY = 1;
+////        __delay_ms(2000);
+////        CWKEY =0;
+//        //FIXME:[finish]check for  CW signal
+//        /*---------------------------------------------------------------*/
+//        
+//        /*---------------------------------------------------------------*/
+//        //FIXME:[start]debug for downlink CW signal
+//        // testForCwFunctions();
+//        //FIXME:[finish]debug for downlink CW signal
+//        /*---------------------------------------------------------------*/
+//        
+//       /*----------------------------------------------------------*/
+//       //FIXME : method for test to measure ADC start
+////       putChar(0xaa);
+////       putChar(0xaa);
+////       putChar(0xaa);
+////       measureAllChanelADC();
+////       putChar(0xbb);
+////       putChar(0xbb);
+////       putChar(0xbb);
+//       //method for test to measure ADC finish
+//       /*----------------------------------------------------------*/
+//        
     }
 }
