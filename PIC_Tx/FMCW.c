@@ -61,7 +61,7 @@ void downlinkReceivedCommand(UBYTE B0Select, UBYTE addressHigh, UBYTE addressLow
     __delay_us(200);
     FMPTT = 1;
     for(UBYTE sendCounter = 0; sendCounter < downlinlkTimes; sendCounter++){
-        SendPacket(commandData);
+//        SendPacket(commandData);
         // SendPacketWithDataSize(commandData,EEPROM_COMMAND_DATA_SIZE);
         __delay_ms(300);
     }
@@ -157,7 +157,7 @@ void downlinkFMSignal(UBYTE Address7bit, UBYTE addressHigh, UBYTE addressLow, UB
     __delay_ms(1000);
     for(UBYTE sendCounter = 0; sendCounter < downlinlTimes; sendCounter++){
         for(UBYTE i=EEPROMDataLength;i<FM_DATA_SIZE;i++) FM_downlink_data[i] = sendCounter;
-        SendPacket(FM_downlink_data);
+//        SendPacket(FM_downlink_data);
         __delay_ms(600);
         sendPulseWDT();
     }
@@ -182,7 +182,7 @@ void downlinkFMSignal(UBYTE Address7bit, UBYTE addressHigh, UBYTE addressLow, UB
     FMPTT = high;
     __delay_ms(1000);
     for(UBYTE sendCounter = 0; sendCounter < downlinlTimes; sendCounter++){
-        SendPacket(FM_downlink_data);
+//        SendPacket(FM_downlink_data);
         __delay_ms(600);
         sendPulseWDT();
     }
@@ -222,7 +222,7 @@ void readDataSizeAndDownlinkFMSignal(UBYTE Address7Bytes, UBYTE high_address, UB
     FMPTT = high;
     __delay_ms(1000);
     for(UBYTE sendCounter = 0; sendCounter < downlink_times; sendCounter++){
-        SendPacket(FM_downlink_data);
+//        SendPacket(FM_downlink_data);
         __delay_ms(600);
         sendPulseWDT();
     }
@@ -250,7 +250,7 @@ void getDataAnddownlinkFMSignal(UBYTE downlinlTimes, UBYTE data_size, UBYTE *any
     FMPTT = high;
     __delay_ms(1000);
     for(UBYTE sendCounter = 0; sendCounter < downlinlTimes; sendCounter++){
-        SendPacket(FM_downlink_data);
+//        SendPacket(FM_downlink_data);
         __delay_ms(600);
         sendPulseWDT();
     }
@@ -299,7 +299,7 @@ void testForFMFunctions(void){
     for(int i=4;i<36;i++) EEPROMTestData[i] = 'D';
     __delay_ms(300);
     FMPTT = high;
-    SendPacket(EEPROMTestData);
+//    SendPacket(EEPROMTestData);
     FMPTT = low;
     __delay_ms(300);
     putChar('3');

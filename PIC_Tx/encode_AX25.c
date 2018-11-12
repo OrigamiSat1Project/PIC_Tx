@@ -15,10 +15,8 @@
 void SendByte(UBYTE);
 void flipout(void);
 void fcsbit(UBYTE);
-UBYTE Packetmaker(UBYTE *);
-
-/*--for debug--*/
-//void test_Packetmaker(UBYTE *);
+UINT Packetmaker(UBYTE *,UINT);
+//void test_Packetmaker(UBYTE *, UBYTE *);
 
 UBYTE eflag = 0;
 UBYTE efcsflag = 0;
@@ -37,8 +35,16 @@ BIT ebitstatus = low;
 //     putcrlf();
 // }
 
-UBYTE Packetmaker(UBYTE *eDataField){
-    for(UBYTE i=0;i<6;i++){
+//void test_Packetmaker(UBYTE *eDataField){
+//    UINT num_ = Packetmaker(eDataField);
+//    for(UINT i=0;i<num_;i++){
+//        putch(ePacket[i]);
+//    }
+//    putcrlf();
+//}
+
+UINT Packetmaker(UBYTE *eDataField,UINT num){
+    for(UINT i=0;i<6;i++){
         ePacket[i] = ucall[i] << 1;
     }
     ePacket[6] = 0x60;  //SSID
@@ -48,10 +54,14 @@ UBYTE Packetmaker(UBYTE *eDataField){
     ePacket[13] = 0xe1; //SSID.e1?
     ePacket[14] = 0x03; //Control.30?
     ePacket[15] = 0xf0; //PID
-    UBYTE Datanum = 36;
+    UINT Datanum = num;
 //    for(Datanum=0;eDataField[Datanum] != '\0';Datanum++);
-    //Datanum -= 1;
-    for(UBYTE i=0;i<Datanum;i++){
+//    Datanum -= 1;
+//    while(*eDataField){
+//        Datanum ++;
+//        ++eDataField;
+//    }
+    for(UINT i=0;i<Datanum;i++){
         ePacket[16+i] = eDataField[i];
     }
     
@@ -62,36 +72,11 @@ UBYTE Packetmaker(UBYTE *eDataField){
     return 16+Datanum;
 }
 
-//UBYTE PacketmakerWithDataSize(UBYTE *eDataField, UBYTE DataSize){
-//    for(UBYTE i=0;i<6;i++){
-//        ePacket_50[i] = ucall[i] << 1;
-//    }
-//    ePacket_50[6] = 0x60;  //SSID
-//    for(UBYTE i=0;i<6;i++){
-//        ePacket_50[i+7] = mycall[i] << 1;
-//    }
-//    ePacket_50[13] = 0xe1; //SSID.e1?
-//    ePacket_50[14] = 0x03; //Control.30?
-//    ePacket_50[15] = 0xf0; //PID
-//    
-////    for(Datanum=0;eDataField[Datanum] != '\0';Datanum++);
-//    //Datanum -= 1;
-//    for(UBYTE i=0;i<DataSize;i++){
-//        ePacket_50[16+i] = eDataField[i];
-//    }
-//    
-//    //  XXX : for debug
-////    for(UBYTE i=0;i<16+DataSize;i++){
-////        putch(ePacket_50[i]);
-////    }
-//    return 16+DataSize;
-//}
-
-void SendPacket(UBYTE *eDataField){
+void SendPacket(UBYTE *eDataField,UINT num){
 //void SendPacket(void)
     UBYTE Packetnum;
     Packetnum = 0;
-    Packetnum = Packetmaker(eDataField);
+    Packetnum = Packetmaker(eDataField,num);
     ebitstatus = 1;
     efcslo = efcshi = 0xff;
     estuff = 0;

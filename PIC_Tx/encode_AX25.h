@@ -16,10 +16,8 @@
 #ifndef ENCODE_AX25_H
 #define	ENCODE_AX25_H
 
-void SendPacketWithDataSize(UBYTE *,UBYTE);
-void SendPacket(UBYTE *);
-
-/*--for debug--*/
+void SendPacketWithDataSize(UBYTE *,UINT);
+void SendPacket(UBYTE *,UINT);
 //void test_Packetmaker(UBYTE *);
 
 #endif	/* ENCODE_AX25_H */
